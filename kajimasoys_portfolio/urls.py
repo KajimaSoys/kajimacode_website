@@ -22,10 +22,12 @@ router = routers.DefaultRouter()
 router.register(r'groups', views.GroupViewSet)
 router.register(r'projects', views.ProjectViewSet)
 router.register(r'works', views.WorkViewSet)
+# router.register(r'get_ascii', views.get_ascii, basename='get_ascii')
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
+    path('api/v1/get_ascii', views.get_ascii),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .serializers import *
 from rest_framework import viewsets
 from rest_framework import permissions
+from django.http import HttpResponse, JsonResponse
 
 
 
@@ -28,3 +29,18 @@ class WorkViewSet(viewsets.ModelViewSet):
     """
     queryset = Work.objects.all()
     serializer_class = CoreWorkSerializer
+
+
+def get_ascii(request):
+    with open('core/local_static/ascii_raw_new', 'r', encoding='UTF-8') as file:
+        lines = file.readlines()
+
+    frame = []
+    sequence = []
+    for i, line in enumerate(lines):
+        frame.append(line.replace('\n', ''))
+        if (i+1) % 62 == 0:
+            sequence.append(frame)
+            frame = []
+
+    return JsonResponse({'res': sequence})
