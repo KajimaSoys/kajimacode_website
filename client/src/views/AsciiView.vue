@@ -17,7 +17,7 @@
 import AsciiRender from "@/components/AsciiRender.vue";
 
 export default {
-  name: "AsciiView",
+    name: "AsciiView",
   components: {AsciiRender}
 }
 </script>

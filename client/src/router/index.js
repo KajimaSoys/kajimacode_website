@@ -1,14 +1,15 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import MainView from '../views/MainView.vue'
 import AsciiView from "../views/AsciiView.vue";
+import MainViewBackup from "../views/MainViewBackup.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView
+      name: 'main',
+      component: MainView
     },
     {
       path: '/about',
@@ -22,8 +23,22 @@ const router = createRouter({
       path: '/ascii',
       name: 'ascii',
       component: AsciiView,
+    },
+    {
+      path: '/backup',
+      name: 'backup',
+      component: MainViewBackup
     }
-  ]
-})
+  ],
+  scrollBehavior(to, from, savedPosition) {
+  if (to.hash) {
+  } else if (savedPosition) {
+    return savedPosition;
+  } else {
+    return { x: 0, y: 0 };
+  }
+},
 
+
+})
 export default router

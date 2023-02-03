@@ -1,6 +1,6 @@
 <template>
   <div class="render">
-    <svg id="svg-container" viewBox="-430 -100 2000 900" xmlns="http://www.w3.org/2000/svg">
+    <svg id="svg-container" viewBox="0 0 1200 1000" xmlns="http://www.w3.org/2000/svg">
 <!--      <text  x="0" v-bind:y="get_y()">бля</text>&lt;!&ndash;v-for="n in 3" v-text="n"&ndash;&gt;-->
 <!--      <text x="40" y="55">cat</text>-->
     </svg>

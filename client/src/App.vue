@@ -1,6 +1,5 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
@@ -22,7 +21,7 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <style>
 #app {
-  max-width: 1920px!important;
+  /*max-width: 1920px!important;*/
 }
 
 body, html {
