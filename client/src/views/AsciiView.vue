@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import AsciiRender from "@/components/AsciiRender.vue";
+import AsciiRender from "@/components/mainPage/AsciiRender.vue";
 
 export default {
     name: "AsciiView",
