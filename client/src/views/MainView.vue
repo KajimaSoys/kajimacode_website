@@ -1,23 +1,23 @@
 <template>
   <Navbar/>
 
-  <MainSection/>
+  <MainSection :scrollToAnchor="scrollToAnchor"/>
 
   <CookieBanner/>
 
   <IntroduceSection/>
 
-  <ProjectSection/>
+  <ProjectSection :scrollToAnchor="scrollToAnchor"/>
 
-  <StagesSection/>
+  <StagesSection :scrollToAnchor="scrollToAnchor"/>
 
-  <TechnologiesSection/>
+  <TechnologiesSection :scrollToAnchor="scrollToAnchor"/>
 
   <ContactSection/>
 
   <ReviewSection/>
 
-  <Footer/>
+  <Footer :scrollToAnchor="scrollToAnchor"/>
 
 </template>
 
@@ -46,7 +46,13 @@ export default {
     ContactSection,
     ReviewSection,
     Footer,
+  },
 
+  methods: {
+    scrollToAnchor(anchor) {
+      const target = document.querySelector(`#${anchor}`);
+      target.scrollIntoView({behavior: "smooth"});
+    }
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <section :style="{opacity: bannerDisplay}" class="banner07_component cookie-banner-action">
+  <section v-if="!$store.state.cookies.hasAcceptedCookies" :style="{opacity: bannerDisplay}" class="banner07_component cookie-banner-action">
       <div :style="{transform: bannerPosition}" style="transform-style: preserve-3d" class="banner07_wrapper banner-move">
         <div class="banner07_content">
           <div class="banner07_icon-wrapper">
@@ -17,7 +17,7 @@
           </div>
         </div>
         <div class="button-row-cookie">
-          <div class="button-wrapper" @click="bannerClose">
+          <div class="button-wrapper" @click="cookieAccept">
             <a class="button-secondary is-button-small cookie-banner-action w-inline-block">
               <div class="text-block-3">Allow</div>
             </a>
@@ -28,6 +28,8 @@
 </template>
 
 <script>
+import {mapState, mapMutations} from 'vuex'
+
 export default {
   name: "CookieBanner",
   data() {
@@ -36,16 +38,44 @@ export default {
       bannerDisplay: '1',
     }
   },
+  beforeCreate() {
+    this.$store.commit('cookies/initializeStore')
+  },
+
+  computed: {
+    // ...mapState({
+    //   hasAcceptedCookies: state => state.cookies.hasAcceptedCookies
+    // })
+  },
+
+  methods: {
+    cookieAccept(){
+      this.bannerDisplay = '0'
+      this.$store.commit('cookies/cookieAccept')
+    },
+
+    // ...mapMutations({
+    //   cookieAccept: 'cookies/cookieAccept'
+    // })
+  },
+
   mounted() {
+    // if (localStorage.getItem('hasAcceptedCookies')) {
+    //   this.cookieAccept();
+    // }
+
     setTimeout(() => {
       this.bannerPosition = 'translate3d(0px, -15vh, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)'
     }, 2000)
   },
-  methods: {
-    bannerClose(){
-      this.bannerDisplay = '0'
-    }
-  }
+
+  //  beforeDestroy() {
+  //   if (this.hasAcceptedCookies) {
+  //     localStorage.setItem('hasAcceptedCookies', true);
+  //   }
+  // }
+
+
 }
 </script>
 

@@ -93,7 +93,7 @@
   border-bottom-color: #3898ec;
   border-left-color: #3898ec;
   border-right-color: #3898ec;
-  background-image: url(https://d3e54v103j8qbb.cloudfront.net/static/custom-checkbox-checkmark.589d534424.svg);
+  background-image: url(src/assets/icons/check.svg);
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -167,6 +167,7 @@
   padding: 1rem 1.75rem;
   grid-column-gap: 0.75rem;
   background-color: #ff5f29;
+   cursor: pointer;
 }
 
 .button.is-button-large:hover {
@@ -238,6 +239,7 @@
   text-align: center;
   text-decoration: none;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .button-secondary-gray:hover {
@@ -712,6 +714,10 @@
   padding-left: 2rem;
 }
 
+.footer04_logo-link {
+  cursor: pointer;
+}
+
 .section_heroheader07 {
   overflow: hidden;
   height: 91vh;
@@ -848,7 +854,7 @@
   border-color: #ff5f29;
   border-radius: 0.25rem;
   background-color: #fff7f5;
-  background-image: url("https://uploads-ssl.webflow.com/63cfbbc4b0fcf6e3eb429e41/63d4303fed0d3e5b7440c571_check.svg");
+  background-image: url(src/assets/icons/check.svg);
   background-position: 50% 50%;
   background-size: 15px;
   background-repeat: no-repeat;
@@ -1139,6 +1145,7 @@
   font-weight: 600;
   text-align: center;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .footer04_link:hover {
@@ -1283,6 +1290,7 @@
   grid-column-gap: 0.75rem;
   background-color: #ff5f29;
   font-size: 1.125rem;
+  cursor: pointer;
 }
 
 .button-3.is-button-large:hover {
@@ -1968,6 +1976,7 @@
 
 .stages-end-text-orange {
   color: #ff5f29;
+  cursor: pointer;
 }
 
 .stages-end-text-orange:hover {
@@ -2397,7 +2406,7 @@
   .navbar07_menu {
     position: absolute;
     overflow: auto;
-    height: 100vh;
+    height: 91vh;
     margin-left: 0rem;
     padding: 1.5rem 2rem 5rem;
     -webkit-box-align: start;
@@ -3288,22 +3297,8 @@
 }
 @font-face {
   font-family: 'MontHead';
-  src: url('https://uploads-ssl.webflow.com/63cfbbc4b0fcf6e3eb429e41/63d4fe2a13f3a7e91e2c348f_MontHeadGX.ttf') format('truetype');
+  src: url('src/assets/MontHeadGX.ttf') format('truetype');
   font-weight: 12 224;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Montdemo';
-  src: url('https://uploads-ssl.webflow.com/63cfbbc4b0fcf6e3eb429e41/63d50bca203c596f46575f10_MontDemo-Heavy.otf') format('opentype');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Montdemo';
-  src: url('https://uploads-ssl.webflow.com/63cfbbc4b0fcf6e3eb429e41/63d50cc8523677002a167e84_MontDemo-ExtraLight.otf') format('opentype');
-  font-weight: 200;
   font-style: normal;
   font-display: swap;
 }

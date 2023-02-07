@@ -5,8 +5,8 @@
         <div class="padding-vertical-xhuge">
           <h1 class="heading-xlarge">Stages of web application development</h1>
           <div class="space-large"></div>
-          <div id="w-node-_693d0c94-f92c-7ae6-2fa0-cbab607a522e-9f429e46" class="stages-container">
-            <div ref="progressBar" data-w-id="04797164-0ff9-c553-474b-58a91bb4fc3e" class="layout32_progress-bar-wrapper">
+          <div  class="stages-container">
+            <div ref="progressBar" class="layout32_progress-bar-wrapper">
               <div class="layout32_progress-bar" :style="{ height: height + '%' }"></div>
             </div>
             <div class="w-layout-grid layout32_component">
@@ -47,7 +47,7 @@
               <div class="layout32_timeline-left">
                 <div class="layout32_timeline-icon-wrapper">
                   <div class="icon-featured-outline-large">
-                    <img src="https://uploads-ssl.webflow.com/63cfbbc4b0fcf6e3eb429e41/63d46dfe965ab042b939c1c2_concept-02.svg" loading="lazy" width="20" alt="" />
+                    <img src="src/assets/icons/concept.svg" loading="lazy" width="20" alt="" />
                   </div>
                 </div>
               </div>
@@ -73,7 +73,7 @@
                 <div class="layout32_timeline-left">
                   <div class="layout32_timeline-icon-wrapper">
                     <div class="icon-featured-outline-large">
-                      <img src="https://uploads-ssl.webflow.com/63cfbbc4b0fcf6e3eb429e41/63d4703f468752ed08ceec0c_database.svg" loading="lazy" width="20" alt="" />
+                      <img src="src/assets/icons/database.svg" loading="lazy" width="20" alt="" />
                     </div>
                   </div>
                 </div>
@@ -115,7 +115,7 @@
                 <div class="layout32_timeline-left">
                   <div class="layout32_timeline-icon-wrapper">
                     <div class="icon-featured-outline-large">
-                      <img src="https://uploads-ssl.webflow.com/63cfbbc4b0fcf6e3eb429e41/63d4303fed0d3e5b7440c571_check.svg" loading="lazy" width="20" alt="" />
+                      <img src="src/assets/icons/check.svg" loading="lazy" width="20" alt="" />
                     </div>
                   </div>
                 </div>
@@ -126,7 +126,7 @@
                 <div class="layout32_timeline-left">
                   <div class="layout32_timeline-icon-wrapper">
                     <div class="icon-featured-outline-large">
-                      <img src="https://uploads-ssl.webflow.com/63cfbbc4b0fcf6e3eb429e41/63d46f60c09c1b66f496d1d7_deploy.svg" loading="lazy" width="25" alt="" />
+                      <img src="src/assets/icons/deploy.svg" loading="lazy" width="25" alt="" />
                     </div>
                   </div>
                 </div>
@@ -164,7 +164,7 @@
               <div class="layout32_timeline-left">
                 <div class="layout32_timeline-icon-wrapper">
                   <div class="icon-featured-outline-large">
-                    <img src="https://uploads-ssl.webflow.com/63cfbbc4b0fcf6e3eb429e41/63d46dfe965ab042b939c1c2_concept-02.svg" loading="lazy" width="20" alt="" />
+                    <img src="src/assets/icons/concept.svg" loading="lazy" width="20" alt="" />
                   </div>
                 </div>
               </div>
@@ -178,7 +178,7 @@
               <div class="layout32_timeline-left">
                 <div class="layout32_timeline-icon-wrapper">
                   <div class="icon-featured-outline-large">
-                    <img src="https://uploads-ssl.webflow.com/63cfbbc4b0fcf6e3eb429e41/63d4703f468752ed08ceec0c_database.svg" loading="lazy" width="20" alt="" />
+                    <img src="src/assets/icons/database.svg" loading="lazy" width="20" alt="" />
                   </div>
                 </div>
               </div>
@@ -210,7 +210,7 @@
               <div class="layout32_timeline-left">
                 <div class="layout32_timeline-icon-wrapper">
                   <div class="icon-featured-outline-large">
-                    <img src="https://uploads-ssl.webflow.com/63cfbbc4b0fcf6e3eb429e41/63d4303fed0d3e5b7440c571_check.svg" loading="lazy" width="20" alt="" />
+                    <img src="src/assets/icons/check.svg" loading="lazy" width="20" alt="" />
                   </div>
                 </div>
               </div>
@@ -224,7 +224,7 @@
               <div class="layout32_timeline-left">
                 <div class="layout32_timeline-icon-wrapper">
                   <div class="icon-featured-outline-large">
-                    <img src="https://uploads-ssl.webflow.com/63cfbbc4b0fcf6e3eb429e41/63d46f60c09c1b66f496d1d7_deploy.svg" loading="lazy" width="25" alt="" />
+                    <img src="src/assets/icons/deploy.svg" loading="lazy" width="25" alt="" />
                   </div>
                 </div>
               </div>
@@ -242,7 +242,7 @@
           <div class="stages-end-text">
             <div class="stages-end-text-black">
               <span class="text-span-2">Let me help you to </span>
-              <a href="#contact-section" class="link">
+              <a @click="scrollToAnchor('contact-section')" class="link">
                 <span class="stages-end-text-orange">bring your website</span>
               </a>
               <span> to the world</span>
@@ -260,6 +260,9 @@ import debounce from 'lodash/debounce';
 
 export default {
   name: "StagesSection",
+  props: [
+    'scrollToAnchor'
+  ],
   data(){
     return {
       height: 0

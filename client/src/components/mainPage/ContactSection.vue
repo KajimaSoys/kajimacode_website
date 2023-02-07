@@ -12,7 +12,7 @@
             </div>
           </div>
           <div class="contact01_component w-form">
-            <form @submit.prevent="onSubmit" id="wf-form-Contact-01-form" name="wf-form-Contact-01-form" data-name="Contact 01 form" method="get" class="contact01_form">
+            <form @submit.prevent="onSubmit" ref="sendForm" class="contact01_form">
               <div class="form-field-wrapper">
                 <label for="Contact-01-name" class="field-label">Name</label>
                 <input type="text" v-model="name" class="form_input w-input" maxlength="256" name="Contact-01-name" data-name="Contact 01 name" placeholder="Your name" id="Contact-01-name" required="" />
@@ -26,19 +26,20 @@
                 <textarea v-model="message" id="Contact-01-message" name="Contact-01-message" maxlength="5000" data-name="Contact 01 message" placeholder="Tell me what do you want?" required="" class="form_input text-area w-input"></textarea>
               </div>
               <label id="Contact-1-Checkbox" class="w-checkbox form-checkbox">
-                <div class="w-checkbox-input w-checkbox-input--inputType-custom form-checkbox-icon"></div>
-                <input type="checkbox" v-model="policy" id="Contact-01-checkbox" name="Contact-01-checkbox" data-name="Contact 01 checkbox" required="" style="opacity:0;position:absolute;z-index:-1" />
-                <span for="Contact-01-checkbox" class="form-checkbox-label w-form-label">You agree to our friendly <a href="#" class="text-style-link">privacy policy</a>. </span>
+                <div ref="checkbox" class="w-checkbox-input w-checkbox-input--inputType-custom form-checkbox-icon"></div>
+                <input type="checkbox" @change="checkChange" v-model="policy" id="Contact-01-checkbox" name="Contact-01-checkbox" data-name="Contact 01 checkbox" required="" style="opacity:0;position:absolute;z-index:-1" />
+                <span for="Contact-01-checkbox" class="form-checkbox-label w-form-label">You agree to our friendly <router-link to="/privacy" class="text-style-link">privacy policy</router-link>.</span>
               </label>
-              <div id="w-node-da303c11-a294-4460-67a2-4c54ae40d5db-9f429e46" class="form-button-wrapper">
-                <input type="submit" @click="checkForm" value="Send message" data-wait="Please wait..." id="w-node-da303c11-a294-4460-67a2-4c54ae40d5dc-9f429e46" class="button-2 w-button" />
+              <div class="form-button-wrapper">
+                <input type="submit" @click="checkForm" :value="sendValue" class="button-2 w-button" />
               </div>
             </form>
-            <div class="success-message w-form-done">
+            <div class="success-message w-form-done" ref="done">
               <div class="success-text">Thank you! Your submission has been received!</div>
             </div>
-            <div class="error-message w-form-fail">
-              <div class="error-text">Oops! Something went wrong while submitting the form.</div>
+            <div class="error-message w-form-fail" ref="fail">
+              <div class="error-text" style="text-align: center">Oops! Something went wrong while submitting the form.</div>
+              <input @click="retryForm" type="button" value="Retry" class="button-secondary-gray" style="position: relative;margin: 0 auto;margin-top: 2rem;">
             </div>
           </div>
         </div>
@@ -57,15 +58,18 @@ export default {
       name: '',
       email: '',
       message: '',
-      policy: false
+      policy: false,
+      sendValue: 'Send message'
     }
   },
+
   methods: {
     checkForm(){
       var regex = /^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
       if(this.name!=='' && regex.test(this.email) && this.policy){
         console.log('Sending request..')
+        this.sendValue = 'Please wait..'
         this.sendRequest()
       } else {
         console.log('Form error!')
@@ -74,19 +78,41 @@ export default {
 
     async sendRequest(){
       let body = {
-        name: this.name,
-        email: this.email,
-        message: this.message
+        request: {
+          name: this.name,
+          mail: this.email,
+          message: this.message
+        }
       }
 
       await axios
       .post('api/v1/send_request', body)
       .then(response => {
-      console.log('Success')
+      console.log(response.data.Success)
+        this.$refs.done.style.display = 'block'
+        this.$refs.sendForm.style.display = 'none'
       })
       .catch(error => {
         console.log('Error during post request')
+        this.$refs.fail.style.display = 'block'
+        this.$refs.sendForm.style.display = 'none'
       })
+
+      this.sendValue = 'Send message'
+    },
+
+    retryForm(){
+      this.$refs.fail.style.display = 'none'
+      this.$refs.sendForm.style.display = 'grid'
+    },
+
+    checkChange(){
+      if (this.policy){
+        this.$refs.checkbox.classList.value = 'w-checkbox-input w-checkbox-input--inputType-custom form-checkbox-icon w--redirected-checked'
+            // 'url(src/assets/icons/check.svg)'
+      } else {
+        this.$refs.checkbox.classList.value = 'w-checkbox-input w-checkbox-input--inputType-custom form-checkbox-icon'
+      }
     }
   }
 }

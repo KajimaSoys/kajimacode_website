@@ -2,6 +2,9 @@ from django.db import models
 
 
 class Group(models.Model):
+    """
+    Описание модели Group приложения Core
+    """
     class Meta:
         verbose_name = 'Группа работ'
         verbose_name_plural = 'Группы работ'
@@ -14,6 +17,9 @@ class Group(models.Model):
 
 
 class Project(models.Model):
+    """
+    Описание модели Project приложения Core
+    """
     class Meta:
         verbose_name = 'Проект'
         verbose_name_plural = 'Проекты'
@@ -29,6 +35,9 @@ class Project(models.Model):
 
 
 class Work(models.Model):
+    """
+    Описание модели Work приложения Core
+    """
     class Meta:
         verbose_name = 'Работа'
         verbose_name_plural = 'Работы'

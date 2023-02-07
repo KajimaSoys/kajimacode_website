@@ -12,7 +12,7 @@
                 <div class="max-width-small-main"></div>
                 <div id="w-node-ce1876c0-0d11-fbee-deef-74e9829160f6-9f429e46" class="button-row-main is-reverse-mobile-landscape">
                   <div class="button-wrapper max-width-full-mobile-landscape">
-                    <a href="#contact-section" class="button is-button-large w-inline-block">
+                    <a @click="scrollToAnchor('contact-section')" class="button is-button-large w-inline-block"> <!--href="#contact-section"-->
                       <div class="text-block-2">Contact me!</div>
                     </a>
                   </div>
@@ -20,7 +20,7 @@
               </div>
               <div class="heroheader07_image-wrapper">
                 <img src="src/assets/images/light_orig.png" loading="lazy" alt="Colorful gradient" class="heroheader07_light-overlay" />
-<!--                <ascii-render/>-->
+                <ascii-render/>
               </div>
             </div>
           </div>
@@ -38,6 +38,9 @@ export default {
   components: {
     AsciiRender,
   },
+  props: [
+    'scrollToAnchor'
+  ],
   data(){
     return {
       spans: [],
@@ -85,7 +88,7 @@ p .char {
 
 .char:hover {
   color: #ff5f29;
-	cursor: pointer;
+	/*cursor: pointer;*/
 }
 
 </style>

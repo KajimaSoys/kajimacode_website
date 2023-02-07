@@ -12,7 +12,7 @@
                 <div id="w-node-_473af96d-fe9a-7583-1058-afd0b4f508bd-9f429e46" class="layout18_item">
                   <div class="layout18_item-icon-wrapper">
                     <div class="icon-featured-outline-large-2">
-                      <img src="https://uploads-ssl.webflow.com/63cfbbc4b0fcf6e3eb429e41/63d520c729296119bc63108f_86d5478a27d696280a4f1034a99884a4-01.svg" loading="lazy" alt="" class="technologies-icon" />
+                      <img src="src/assets/icons/gear.svg" loading="lazy" alt="" class="technologies-icon" />
                     </div>
                   </div>
                   <div class="layout18_item-text-wrapper">
@@ -24,7 +24,7 @@
                 <div id="w-node-_473af96d-fe9a-7583-1058-afd0b4f508c7-9f429e46" class="layout18_item">
                   <div class="layout18_item-icon-wrapper">
                     <div class="icon-featured-outline-large-2">
-                      <img src="https://uploads-ssl.webflow.com/63cfbbc4b0fcf6e3eb429e41/63d4703f468752ed08ceec0c_database.svg" loading="lazy" alt="" class="technologies-icon db-icon" />
+                      <img src="src/assets/icons/database.svg" loading="lazy" alt="" class="technologies-icon db-icon" />
                     </div>
                   </div>
                   <div class="layout18_item-text-wrapper">
@@ -36,7 +36,7 @@
                 <div id="w-node-_473af96d-fe9a-7583-1058-afd0b4f508d1-9f429e46" class="layout18_item">
                   <div class="layout18_item-icon-wrapper">
                     <div class="icon-featured-outline-large-2">
-                      <img src="https://uploads-ssl.webflow.com/63cfbbc4b0fcf6e3eb429e41/63d521c2f7e09b7ff524f71c_tab-01.svg" loading="lazy" alt="" class="technologies-icon" />
+                      <img src="src/assets/icons/tab.svg" loading="lazy" alt="" class="technologies-icon" />
                     </div>
                   </div>
                   <div class="layout18_item-text-wrapper">
@@ -48,14 +48,14 @@
               </div>
               <div class="button-row is-reverse-mobile-landscape">
                 <div class="button-wrapper max-width-full-mobile-landscape">
-                  <a href="#" class="button-secondary-gray w-inline-block">
+                  <a @click="scrollToAnchor('contact-section')" class="button-secondary-gray w-inline-block">
                     <div>Get started</div>
                   </a>
                 </div>
                 <div class="button-wrapper max-width-full-mobile-landscape">
-                  <a href="#" class="button-3 w-inline-block">
-                    <div>Learn more</div>
-                  </a>
+                  <router-link to="/skills" class="button-3 w-inline-block">
+                      <div>Learn more</div>
+                  </router-link>
                 </div>
               </div>
             </div>
@@ -69,7 +69,10 @@
 
 <script>
 export default {
-  name: "TechnologiesSection"
+  name: "TechnologiesSection",
+  props: [
+    'scrollToAnchor'
+  ],
 }
 </script>
 

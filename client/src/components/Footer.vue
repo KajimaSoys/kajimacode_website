@@ -4,27 +4,35 @@
       <div class="container-large">
         <div class="padding-vertical-xlarge">
           <div class="w-layout-grid footer04_top-wrapper">
-            <a href="#" id="w-node-_8e86dbb8-08f7-b4c9-5aa4-81d1b45d7741-b45d773c" class="footer04_logo-link w-inline-block">
+            <a @click="scrollToAnchor('navbar')" id="w-node-_8e86dbb8-08f7-b4c9-5aa4-81d1b45d7741-b45d773c" class="footer04_logo-link w-inline-block">
               <div class="logo_component">
-                <img src="https://uploads-ssl.webflow.com/63cfbbc4b0fcf6e3eb429e41/63d415defd3057eedb9a8f79_kajimacode_black_orange.svg" loading="lazy" alt="Untitled UI logotext" class="logo_logotype" />
+                <img src="src/assets/kajimacode_black_orange.svg" loading="lazy" alt="Untitled UI logotext" class="logo_logotype" />
               </div>
             </a>
             <div class="w-layout-grid footer04_link-list">
-              <a href="#" class="footer04_link w-inline-block">
+              <a @click="scrollToAnchor('navbar')" class="footer04_link w-inline-block">
                 <div>Overview</div>
               </a>
-              <a href="#" class="footer04_link w-inline-block">
+
+              <router-link to="/projects" class="footer04_link w-inline-block">
                 <div>Projects</div>
-              </a>
-              <a href="#" class="footer04_link w-inline-block">
+              </router-link>
+
+              <router-link to="/skills" class="footer04_link w-inline-block">
                 <div>My skills</div>
-              </a>
-              <a href="#" class="footer04_link w-inline-block">
+              </router-link>
+
+              <router-link to="/about" class="footer04_link w-inline-block">
                 <div>About me</div>
-              </a>
-              <a href="#" class="footer04_link w-inline-block">
-                <div>Privacy</div>
-              </a>
+              </router-link>
+
+<!--              <router-link to="/privacy" class="footer04_link w-inline-block">-->
+<!--                <div>Privacy</div>-->
+<!--              </router-link>-->
+
+
+
+
             </div>
             <div id="w-node-_8e86dbb8-08f7-b4c9-5aa4-81d1b45d7757-b45d773c" class="w-layout-grid footer04_social-list">
               <a href="https://t.me/OneDudeAdam" target="_blank" class="footer04_social-link w-inline-block">
@@ -58,9 +66,19 @@
           <div class="footer04_bottom-wrapper">
             <div class="text-size-small text-color-gray500">© 2023 Kajima Code</div>
             <div class="w-layout-grid footer04_legal-list">
-              <a href="#" class="footer04_legal-link">Terms</a>
-              <a href="#" class="footer04_legal-link">Privacy</a>
-              <a href="#" class="footer04_legal-link">Cookies</a>
+
+              <router-link to="/terms" class="footer04_legal-link">
+                Terms
+              </router-link>
+
+              <router-link to="/privacy" class="footer04_legal-link">
+                Privacy
+              </router-link>
+
+              <router-link to="/cookies" class="footer04_legal-link">
+                Cookies
+              </router-link>
+
             </div>
           </div>
         </div>
@@ -71,7 +89,10 @@
 
 <script>
 export default {
-  name: "Footer"
+  name: "Footer",
+  props: [
+    'scrollToAnchor'
+  ],
 }
 </script>
 

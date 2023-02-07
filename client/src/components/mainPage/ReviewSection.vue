@@ -52,7 +52,7 @@
               <div class="heading-xxsmall text-weight-medium">&quot;5 звезд в Яндекс Такси&quot;</div>
               <div class="testimonial13_client">
                 <div class="testimonial13_client-image-wrapper">
-                  <img src="https://uploads-ssl.webflow.com/63cfbbc4b0fcf6e3eb429e41/63d41810734462be24a400f4_678-6781630_icon-profile-bio-avatar-person-symbol-chat-circle.png" loading="lazy" alt="" class="testimonial13_customer-image" />
+                  <img src="src/assets/images/person.png" loading="lazy" alt="" class="testimonial13_customer-image" />
                 </div>
                 <div class="testimonial13_client-info">
                   <div class="testimonial13_client-heading">Anastasia Belyh</div>
@@ -101,7 +101,7 @@
               <div class="heading-xxsmall text-weight-medium">&quot;Круто&quot;</div>
               <div class="testimonial13_client">
                 <div class="testimonial13_client-image-wrapper">
-                  <img src="https://uploads-ssl.webflow.com/63cfbbc4b0fcf6e3eb429e41/63d41810734462be24a400f4_678-6781630_icon-profile-bio-avatar-person-symbol-chat-circle.png" loading="lazy" alt="" class="testimonial13_customer-image" />
+                  <img src="src/assets/images/person.png" loading="lazy" alt="" class="testimonial13_customer-image" />
                 </div>
                 <div class="testimonial13_client-info">
                   <div class="testimonial13_client-heading">Alfred Batyrkhanov</div>
@@ -150,7 +150,7 @@
               <div class="heading-xxsmall text-weight-medium">&quot;Мощь&quot;</div>
               <div class="testimonial13_client">
                 <div class="testimonial13_client-image-wrapper">
-                  <img src="https://uploads-ssl.webflow.com/63cfbbc4b0fcf6e3eb429e41/63d41810734462be24a400f4_678-6781630_icon-profile-bio-avatar-person-symbol-chat-circle.png" loading="lazy" alt="" class="testimonial13_customer-image" />
+                  <img src="src/assets/images/person.png" loading="lazy" alt="" class="testimonial13_customer-image" />
                 </div>
                 <div class="testimonial13_client-info">
                   <div class="testimonial13_client-heading">Somebody</div>
