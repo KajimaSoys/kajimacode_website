@@ -20,10 +20,34 @@ class CoreGroupSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('name', )
 
 
-class CoreProjectSerializer(serializers.HyperlinkedModelSerializer):
+# class CoreProjectSerializer(serializers.HyperlinkedModelSerializer):
+#     group = CoreGroupSerializer()
+#     class Meta:
+#         model = Project
+#         fields = ('group', 'name', 'name_ru', 'description', 'description_ru',  'link', 'git',)
+
+
+class CoreImageSerializer(serializers.ModelSerializer):
+    # project = CoreProjectSerializer()
+
+    class Meta:
+        model = ProjectImages
+        fields = ('main', 'image')#'__all__'#('image', 'main', 'project')
+
+
+class ProjectGroupSerializer(serializers.ModelSerializer):
+    """Предположительно ProjectGroupSerializer"""
+    image_set = serializers.SerializerMethodField()
+    group = CoreGroupSerializer()
+
+    def get_image_set(self, obj):
+        queryset = ProjectImages.objects.filter(project=obj).prefetch_related().order_by('-main')
+        serializer = CoreImageSerializer(queryset, many=True)
+        return serializer.data
+
     class Meta:
         model = Project
-        fields = ('group', 'name', 'description', 'link', )
+        fields = ('id', 'name', 'name_ru', 'description', 'description_ru', 'image_set', 'link', 'git', 'group')
 
 
 class CoreWorkSerializer(serializers.HyperlinkedModelSerializer):

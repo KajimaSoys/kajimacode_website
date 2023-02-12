@@ -18,11 +18,15 @@ from django.urls import path, include
 from rest_framework import routers
 from core import views
 from requests.views import OrderCreateView
+from django.conf import settings
+from django.conf.urls.static import static
 
 router = routers.DefaultRouter()
 router.register(r'groups', views.GroupViewSet)
-router.register(r'projects', views.ProjectViewSet)
+# router.register(r'projects', views.ProjectViewSet)
 router.register(r'works', views.WorkViewSet)
+# router.register(r'images', views.ImagesViewSet)
+router.register(r'projects', views.ProjectGroupViewSet)
 # router.register(r'get_ascii', views.get_ascii, basename='get_ascii')
 
 
@@ -32,4 +36,4 @@ urlpatterns = [
     path('api/v1/get_ascii', views.get_ascii),
     path('api/v1/send_request', OrderCreateView.as_view()),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

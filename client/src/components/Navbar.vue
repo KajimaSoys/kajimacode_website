@@ -1,11 +1,17 @@
 <template>
   <div data-animation="default" class="navbar07_component w-nav" data-easing2="ease" data-easing="ease" data-collapse="medium" data-w-id="2a86f3d7-e75a-cfd6-5e9f-bf6e1eddba30" role="banner" data-duration="400" id="navbar">
       <div class="navbar07_container">
-        <a ref="logo" href="/" aria-current="page" class="navbar07_logo-link w-nav-brand w--current">
-          <div class="logo_component">
-            <img src="src/assets/kajimacode_white_orange.svg" loading="lazy" alt="Untitled UI logotext" class="logo_logotype" />
-          </div>
-        </a>
+        <div class="logo-container" ref="logo">
+          <router-link to="/" href="/" aria-current="page" class="navbar07_logo-link w-nav-brand w--current">
+            <div class="logo_component">
+              <img src="src/assets/kajimacode_white_orange.svg" alt="kajimacode logo" class="logo_logotype" />
+            </div>
+          </router-link>
+        </div>
+
+<!--        <a ref="logo" href="/" aria-current="page" class="navbar07_logo-link w-nav-brand w&#45;&#45;current">-->
+<!--         -->
+<!--        </a>-->
 
           <nav ref="navbar" role="navigation" class="navbar07_menu w-nav-menu">
               <div class="navbar07_menu-left">
@@ -188,6 +194,7 @@ input#menu, label.icon {
     position: relative;
     z-index: 200;
     padding-right: 5%;
+    padding-bottom: 30px
   }
 
   .icon .menu,

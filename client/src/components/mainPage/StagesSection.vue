@@ -293,6 +293,7 @@ export default {
   },
 
   beforeDestroy() {
+    // FIXME EventListener not removing when user routes to another page
     window.removeEventListener('scroll', this.handleDebouncedScroll);
   }
 }

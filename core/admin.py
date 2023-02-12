@@ -1,13 +1,51 @@
 from django.contrib import admin
 from .models import *
+from django.http import HttpResponse
+from django.urls import re_path as url
+
+@admin.register(ProjectImages)
+class ProjectImagesAdmin(admin.ModelAdmin):
+    def save_image(self, request, *args, **kwargs):
+        image = ProjectImages.objects.filter(id=kwargs['id']).values('image')[0]['image']
+        file_path = 'media/' + image
+
+        if os.path.exists(file_path):
+            with open(file_path, 'rb') as fh:
+                response = HttpResponse(fh.read(),
+                                        content_type='image/jpeg')
+                response['Content-Disposition'] = 'inline; filename=' + '.jpeg'
+                return response
+
+    def get_urls(self):
+        urls = super(ProjectImagesAdmin, self).get_urls()
+        custom_urls = [
+            url(
+                r'^(?P<id>.+)/save_image/$',
+                self.admin_site.admin_view(self.save_image),
+                name='save_image',
+            ),
+        ]
+        return custom_urls + urls
+
+
+class ProjectImagesInline(admin.StackedInline):
+    model = ProjectImages
+    fields = ('image', 'main', 'image_tag', )
+    readonly_fields = ('image_tag', )
+    extra = 0
+
 
 @admin.register(Group)
 class GroupAdmin(admin.ModelAdmin):
     pass
 
+
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'group', 'isActive')
+
+    inlines = (ProjectImagesInline,)
+
 
 @admin.register(Work)
 class WorkAdmin(admin.ModelAdmin):
