@@ -3,7 +3,6 @@
     <el-carousel :interval="10000" arrow="always">
       <el-carousel-item v-for="project in projects" :key="project.id">
         <div class="image-container">
-<!--          FIXME Fix hover-->
           <div class="gradient"> </div>
           <div class="image">
             <img v-if="project.image_set.length !== 0" :src="'http://127.0.0.1:8000' + project.image_set[0].image">
@@ -13,7 +12,7 @@
 
         <div class="text-container">
           <div class="hover-area"> </div>
-
+          <!-- TODO create links to project personal pages -->
           <h1 class="title">
             {{project.name}}
           </h1>
@@ -29,38 +28,31 @@
 
             <div class="links">
 
+              <a v-if="project.git" :href="project.git" class="navbar_social-link w-inline-block" target="_blank">
+                <div class="project-icons">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M12,0a12.11,12.11,0,0,0-3.8,23.58c.6.12.82-.26.82-.58s0-1.25,0-2.25c-3.34.72-4-1.44-4-1.44a3.11,3.11,0,0,0-1.33-1.76c-1.09-.74.08-.74.08-.74a2.53,2.53,0,0,1,1.85,1.24,2.55,2.55,0,0,0,3.5,1,2.56,2.56,0,0,1,.75-1.62c-2.66-.28-5.47-1.32-5.47-6A4.74,4.74,0,0,1,5.59,8.21,4.36,4.36,0,0,1,5.71,5s1-.32,3.3,1.24a11.29,11.29,0,0,1,3-.4,11.54,11.54,0,0,1,3,.4C17.3,4.69,18.31,5,18.31,5a4.36,4.36,0,0,1,.12,3.2,4.65,4.65,0,0,1,1.24,3.25c0,4.65-2.81,5.67-5.49,6A2.89,2.89,0,0,1,15,19.67c0,1.62,0,2.93,0,3.33s.22.7.82.58A12.11,12.11,0,0,0,12,0Z" fill="currentColor"/>
+                  </svg>
+                </div>
+              </a>
+
+
+              <a v-if="project.link" :href="project.link" class="navbar_social-link w-inline-block" target="_blank">
+                <div class="project-icons">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M23.7,11.29,21.22,8.87A13.11,13.11,0,0,0,12,5.15,13.09,13.09,0,0,0,2.78,8.87L.3,11.29a1,1,0,0,0,0,1.43l2.48,2.42A13.12,13.12,0,0,0,12,18.85a13.14,13.14,0,0,0,9.22-3.71l2.48-2.42a1,1,0,0,0,0-1.43ZM12,15.42A3.42,3.42,0,1,1,15.42,12,3.42,3.42,0,0,1,12,15.42ZM2.43,12l1.75-1.7A10.91,10.91,0,0,1,8.87,7.58a5.4,5.4,0,0,0,0,8.83A11,11,0,0,1,4.18,13.7L2.43,12Zm17.39,1.71a11.07,11.07,0,0,1-4.69,2.7,5.39,5.39,0,0,0,0-8.82,11,11,0,0,1,4.69,2.71L21.56,12l-1.74,1.7Z" fill="currentColor"/>
+                  </svg>
+                </div>
+              </a>
+
             </div>
           </div>
         </div>
 
 
-
-
-<!--        <h3 text="2xl" justify="center">keke</h3>-->
       </el-carousel-item>
     </el-carousel>
-
-  <!--    <div class="project" v-for="project in projects">-->
-  <!--      <div class="project-img">-->
-  <!--        <img v-if="project.image_set.length !== 0" :src="'http://127.0.0.1:8000' + project.image_set[0].image">-->
-  <!--        <img v-else src="src/assets/images/no-image.jpg">-->
-  <!--      </div>-->
-
-  <!--      {{project.name}}-->
-
-  <!--        <br><br>-->
-
-  <!--      {{project.description}}-->
-
-  <!--      <br><br><br><br>-->
-
-  <!--       {{project.name_ru}}-->
-
-  <!--        <br><br>-->
-
-  <!--      {{project.description_ru}}-->
-  <!--    </div>-->
-    </div>
+  </div>
 
 </template>
 
@@ -132,7 +124,7 @@ export default {
   --tw-gradient-to: rgb(15 25 34 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
   background-image: linear-gradient(to top,var(--tw-gradient-stops));
-  top: 20%;
+  top: 10%;
   z-index: 100;
 }
 
@@ -214,6 +206,14 @@ export default {
 .additional {
   border-bottom: white solid 1px;
   margin: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  position: inherit;
+  z-index: 110;
+}
+
+.project-icons{
+  padding-left: 20px;
 }
 
 .groups {

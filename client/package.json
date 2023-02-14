@@ -12,6 +12,7 @@
     "element-plus": "^2.2.30",
     "gsap": "^3.11.4",
     "lodash": "^4.17.21",
+    "smoothscroll-for-websites": "^1.4.10",
     "splitting": "^1.0.6",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6",

@@ -291,9 +291,7 @@ export default {
     this.handleDebouncedScroll = debounce(this.handleScroll, 50);
     window.addEventListener('scroll', this.handleDebouncedScroll);
   },
-
-  beforeDestroy() {
-    // FIXME EventListener not removing when user routes to another page
+  unmounted() {
     window.removeEventListener('scroll', this.handleDebouncedScroll);
   }
 }

@@ -1,23 +1,31 @@
 <template>
-  <Navbar/>
 
-  <MainSection :scrollToAnchor="scrollToAnchor"/>
+<!--  <div id="scroll-area">-->
+<!--    <smooth-scrollbar>-->
+<!--      <div id="content">-->
+        <Navbar/>
 
-  <CookieBanner/>
+        <MainSection :scrollToAnchor="scrollToAnchor"/>
 
-  <IntroduceSection/>
+        <CookieBanner/>
 
-  <ProjectSection :scrollToAnchor="scrollToAnchor"/>
+        <IntroduceSection/>
 
-  <StagesSection :scrollToAnchor="scrollToAnchor"/>
+        <ProjectSection :scrollToAnchor="scrollToAnchor"/>
 
-  <TechnologiesSection :scrollToAnchor="scrollToAnchor"/>
+        <StagesSection :scrollToAnchor="scrollToAnchor"/>
 
-  <ContactSection/>
+        <TechnologiesSection :scrollToAnchor="scrollToAnchor"/>
 
-  <ReviewSection/>
+        <ContactSection/>
 
-  <Footer :scrollToAnchor="scrollToAnchor"/>
+        <ReviewSection/>
+
+        <Footer :scrollToAnchor="scrollToAnchor"/>
+
+<!--    </smooth-scrollbar>-->
+<!--  </div>-->
+
 
 </template>
 
@@ -32,6 +40,9 @@ import TechnologiesSection from "@/components/mainPage/TechnologiesSection.vue";
 import ContactSection from "@/components/mainPage/ContactSection.vue";
 import ReviewSection from "@/components/mainPage/ReviewSection.vue";
 import Footer from "@/components/Footer.vue";
+// TODO make back to top component
+// TODO make navbar sticky
+// TODO make IntoduceSection going up when scroll instead of MainSection
 
 export default {
   name: "MainView",
@@ -53,10 +64,63 @@ export default {
       const target = document.querySelector(`#${anchor}`);
       target.scrollIntoView({behavior: "smooth"});
     }
-  }
+  },
+
+  // mounted() {
+  //   document.addEventListener('wheel', event => {
+  //     event.preventDefault();
+  //
+  //     console.log(event)
+  //     const delta = event.deltaY;
+  //     const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+  //
+  //     // window.requestAnimationFrame(() => {
+  //     //   document.documentElement.scrollTop = scrollTop + delta * 5;
+  //     //   document.body.scrollTop = scrollTop + delta * 5;
+  //     // });
+  //   }, {passive:false});
+  // }
+  // directives: {
+  //   smoothScroll: {
+  //     inserted(el) {
+  //       function smoothScroll(e) {
+  //
+  //         e.preventDefault();
+  //         const delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
+  //         const scrollTop = el.scrollTop;
+  //         window.requestAnimationFrame(() => {
+  //           el.scrollTop = scrollTop + delta * 30;
+  //         });
+  //       }
+  //       el.addEventListener('mousewheel', smoothScroll, { passive: false });
+  //       el.addEventListener('DOMMouseScroll', smoothScroll, { passive: false });
+  //     },
+  //     unbind(el) {
+  //       el.removeEventListener('mousewheel', smoothScroll);
+  //       el.removeEventListener('DOMMouseScroll', smoothScroll);
+  //     }
+  //   }
+  // }
 }
 </script>
 
-<style>
+<style scoped>
+  /*.navbar07_component:deep(.footer04_social-link:hover)  {*/
+  /*  color: #ffffff!important;*/
+  /*}*/
 
+  /*.navbar07_component:deep(.footer04_social-link)  {*/
+  /*  color: #cdd1d8!important;*/
+
+  /*}*/
+
+  /*#scroll-area {*/
+  /*  width: 500px;*/
+  /*  height: 500px;*/
+  /*}*/
+
+  /*#content {*/
+  /*  width: 2000px;*/
+  /*  height: 2000px;*/
+  /*}*/
 </style>

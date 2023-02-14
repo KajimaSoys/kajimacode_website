@@ -34,6 +34,9 @@ class Project(models.Model):
     description = models.TextField(verbose_name='Описание (англ.)', max_length=5000, blank=True)
     description_ru = models.TextField(verbose_name='Описание (рус.)', max_length=5000, blank=True)
 
+    # TODO create full and short description
+    # TODO create get_absolute_url method, to allow route to the project page
+
     link = models.URLField(verbose_name='Ссылка на проект', blank=True)
     git = models.URLField(verbose_name='Ссылка на гит', blank=True)
 
