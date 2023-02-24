@@ -27,15 +27,17 @@ class Project(models.Model):
         verbose_name_plural = 'Проекты'
 
     id = models.BigAutoField(verbose_name='Идентификатор', primary_key=True)
-    group = models.ForeignKey(verbose_name='Группа', to=Group, on_delete=models.CASCADE)
+    group = models.ManyToManyField(verbose_name='Группа', to=Group, blank=True)
 
-    name = models.CharField(verbose_name='Название проекта (англ.)', max_length=250)
     name_ru = models.CharField(verbose_name='Название проекта (рус.)', max_length=250)
-    description = models.TextField(verbose_name='Описание (англ.)', max_length=5000, blank=True)
-    description_ru = models.TextField(verbose_name='Описание (рус.)', max_length=5000, blank=True)
+    name = models.CharField(verbose_name='Название проекта (англ.)', max_length=250, blank=True)
 
-    # TODO create full and short description
-    # TODO create get_absolute_url method, to allow route to the project page
+    description_ru = models.TextField(verbose_name='Описание полное (рус.)', max_length=5000, blank=True)
+    description = models.TextField(verbose_name='Описание (англ.)', max_length=5000, blank=True)
+
+    description_short_ru = models.TextField(verbose_name='Описание короткое (рус.)', max_length=2500, blank=True)
+    description_short = models.TextField(verbose_name='Описание (англ.)', max_length=2500, blank=True)
+
 
     link = models.URLField(verbose_name='Ссылка на проект', blank=True)
     git = models.URLField(verbose_name='Ссылка на гит', blank=True)
@@ -44,7 +46,7 @@ class Project(models.Model):
     isActive = models.BooleanField(verbose_name='Активен?', default=True)
 
     def __str__(self):
-        return self.name
+        return self.name_ru
 
     def save(self, *args, **kwargs):
         if self.pk is None:
@@ -58,14 +60,20 @@ class Project(models.Model):
         super(Project, self).save(*args, **kwargs)
 
 
+    def get_group(self):
+        return ', '.join(group.name for group in self.group.all())
+
+    get_group.short_description = 'Группы'
+
+
 class ProjectImages(models.Model):
-    project = models.ForeignKey(to=Project, on_delete=models.CASCADE)
+    project = models.ForeignKey(to=Project, on_delete=models.CASCADE, verbose_name='Проект')
     main = models.BooleanField(verbose_name='Главное изображение?', default=False)
-    # TODO create alt field
+    alt = models.CharField(verbose_name='Альтернативный текст', max_length=500, blank=True)
 
     def get_upload_path(self, filename):
         path = Project.objects.get(id=self.project_id).path
-        return f'media/{path}/{filename}'
+        return f'{path}/{filename}'
 
     image = models.ImageField(verbose_name='Изображение проекта', blank=True, upload_to=get_upload_path, max_length=500)
 
@@ -90,7 +98,6 @@ class ProjectImages(models.Model):
 
     def __str__(self):
         return str(self.image).replace('projects/', '')
-
 
 
 class Work(models.Model):

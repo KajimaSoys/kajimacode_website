@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 // Core Views
 import MainView from '../views/MainView.vue'
 import ProjectsView from "../views/ProjectsView.vue";
+import SoloProjectView from "../views/SoloProjectView.vue";
 import SkillsView from "../views/SkillsView.vue";
 import AboutView from "../views/AboutView.vue";
 import CookieView from "../views/CookieView.vue";
@@ -28,6 +29,11 @@ const router = createRouter({
       path: '/projects',
       name: 'projects',
       component: ProjectsView
+    },
+    {
+      path: '/projects/:id',
+      name: 'project',
+      component: SoloProjectView
     },
     {
       path: '/skills',

@@ -47,7 +47,7 @@
               <div class="layout32_timeline-left">
                 <div class="layout32_timeline-icon-wrapper">
                   <div class="icon-featured-outline-large">
-                    <img src="src/assets/icons/concept.svg" loading="lazy" width="20" alt="" />
+                    <img :src="`${frontendUrl}/src/assets/icons/concept.svg`" loading="lazy" width="20" alt="" />
                   </div>
                 </div>
               </div>
@@ -73,7 +73,7 @@
                 <div class="layout32_timeline-left">
                   <div class="layout32_timeline-icon-wrapper">
                     <div class="icon-featured-outline-large">
-                      <img src="src/assets/icons/database.svg" loading="lazy" width="20" alt="" />
+                      <img :src="`${frontendUrl}/src/assets/icons/database.svg`" loading="lazy" width="20" alt="" />
                     </div>
                   </div>
                 </div>
@@ -115,7 +115,7 @@
                 <div class="layout32_timeline-left">
                   <div class="layout32_timeline-icon-wrapper">
                     <div class="icon-featured-outline-large">
-                      <img src="src/assets/icons/check.svg" loading="lazy" width="20" alt="" />
+                      <img :src="`${frontendUrl}/src/assets/icons/check.svg`" loading="lazy" width="20" alt="" />
                     </div>
                   </div>
                 </div>
@@ -126,7 +126,7 @@
                 <div class="layout32_timeline-left">
                   <div class="layout32_timeline-icon-wrapper">
                     <div class="icon-featured-outline-large">
-                      <img src="src/assets/icons/deploy.svg" loading="lazy" width="25" alt="" />
+                      <img :src="`${frontendUrl}/src/assets/icons/deploy.svg`" loading="lazy" width="25" alt="" />
                     </div>
                   </div>
                 </div>
@@ -164,7 +164,7 @@
               <div class="layout32_timeline-left">
                 <div class="layout32_timeline-icon-wrapper">
                   <div class="icon-featured-outline-large">
-                    <img src="src/assets/icons/concept.svg" loading="lazy" width="20" alt="" />
+                    <img :src="`${frontendUrl}/src/assets/icons/concept.svg`" loading="lazy" width="20" alt="" />
                   </div>
                 </div>
               </div>
@@ -178,7 +178,7 @@
               <div class="layout32_timeline-left">
                 <div class="layout32_timeline-icon-wrapper">
                   <div class="icon-featured-outline-large">
-                    <img src="src/assets/icons/database.svg" loading="lazy" width="20" alt="" />
+                    <img :src="`${frontendUrl}/src/assets/icons/database.svg`" loading="lazy" width="20" alt="" />
                   </div>
                 </div>
               </div>
@@ -210,7 +210,7 @@
               <div class="layout32_timeline-left">
                 <div class="layout32_timeline-icon-wrapper">
                   <div class="icon-featured-outline-large">
-                    <img src="src/assets/icons/check.svg" loading="lazy" width="20" alt="" />
+                    <img :src="`${frontendUrl}/src/assets/icons/check.svg`" loading="lazy" width="20" alt="" />
                   </div>
                 </div>
               </div>
@@ -224,7 +224,7 @@
               <div class="layout32_timeline-left">
                 <div class="layout32_timeline-icon-wrapper">
                   <div class="icon-featured-outline-large">
-                    <img src="src/assets/icons/deploy.svg" loading="lazy" width="25" alt="" />
+                    <img :src="`${frontendUrl}/src/assets/icons/deploy.svg`" loading="lazy" width="25" alt="" />
                   </div>
                 </div>
               </div>
@@ -261,7 +261,8 @@ import debounce from 'lodash/debounce';
 export default {
   name: "StagesSection",
   props: [
-    'scrollToAnchor'
+    'scrollToAnchor',
+    'frontendUrl'
   ],
   data(){
     return {

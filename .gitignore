@@ -3,7 +3,6 @@
 core/local_static/ascii_raw
 core/local_static/ascii_raw_temp
 core/local_static/ascii_raw
-*.mp4
-*.sh
-test
-*.pyc
+/media/
+env.txt
+kajimasoys_portfolio/local_settings.py

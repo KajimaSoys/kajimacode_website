@@ -9,8 +9,6 @@ import SmoothScroll from 'smoothscroll-for-websites'
 
 import './assets/main.css'
 
-axios.defaults.baseURL = 'http://127.0.0.1:8000'
-
 const app = createApp(App)
 
 app.use(store)
@@ -28,5 +26,20 @@ app.use(SmoothScroll({
                         pulseNormalize   : 1,
         }))
 
-
 app.mount('#app')
+
+// local
+app.config.globalProperties.$backendUrl= 'http://localhost:8000'
+// prod
+//app.config.globalProperties.$hostname = 'https://kajimacode.com'
+
+// local
+app.config.globalProperties.$frontendUrl= 'http://localhost:5173'
+// prod
+//app.config.globalProperties.$hostname = 'https://kajimacode.com'
+
+// local
+axios.defaults.baseURL = 'http://localhost:8000'
+// prod
+// axios.defaults.baseURL = 'https://kajimacode.com'
+

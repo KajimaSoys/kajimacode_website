@@ -1,38 +1,27 @@
 <template>
+      <Navbar :frontendUrl="frontendUrl"/>
 
-<!--  <div id="scroll-area">-->
-<!--    <smooth-scrollbar>-->
-<!--      <div id="content">-->
-        <Navbar/>
+      <MainSection :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl"/>
 
-        <MainSection :scrollToAnchor="scrollToAnchor"/>
+      <IntroduceSection :frontendUrl="frontendUrl"/>
 
-        <CookieBanner/>
+      <ProjectSection :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl"/>
 
-        <IntroduceSection/>
+      <StagesSection :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl"/>
 
-        <ProjectSection :scrollToAnchor="scrollToAnchor"/>
+      <TechnologiesSection :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl"/>
 
-        <StagesSection :scrollToAnchor="scrollToAnchor"/>
+      <ContactSection/>
 
-        <TechnologiesSection :scrollToAnchor="scrollToAnchor"/>
+      <ReviewSection :frontendUrl="frontendUrl"/>
 
-        <ContactSection/>
-
-        <ReviewSection/>
-
-        <Footer :scrollToAnchor="scrollToAnchor"/>
-
-<!--    </smooth-scrollbar>-->
-<!--  </div>-->
-
+      <Footer :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl"/>
 
 </template>
 
 <script>
 import Navbar from "@/components/Navbar.vue";
 import MainSection from "@/components/mainPage/MainSection.vue";
-import CookieBanner from "@/components/CookieBanner.vue";
 import IntroduceSection from "@/components/mainPage/IntroduceSection.vue";
 import ProjectSection from "@/components/mainPage/ProjectSection.vue";
 import StagesSection from "@/components/mainPage/StagesSection.vue";
@@ -43,13 +32,18 @@ import Footer from "@/components/Footer.vue";
 // TODO make back to top component
 // TODO make navbar sticky
 // TODO make IntoduceSection going up when scroll instead of MainSection
+// TODO All objects should appear with animation using scrolling
 
 export default {
   name: "MainView",
+  data (){
+    return {
+      frontendUrl: this.$frontendUrl,
+    }
+  },
   components: {
     Navbar,
     MainSection,
-    CookieBanner,
     IntroduceSection,
     ProjectSection,
     StagesSection,

@@ -6,7 +6,7 @@
           <div class="w-layout-grid footer04_top-wrapper">
             <a @click="scrollToAnchor('navbar')" id="w-node-_8e86dbb8-08f7-b4c9-5aa4-81d1b45d7741-b45d773c" class="footer04_logo-link w-inline-block">
               <div class="logo_component">
-                <img src="src/assets/kajimacode_black_orange.svg" loading="lazy" alt="Untitled UI logotext" class="logo_logotype" />
+                <img :src="`${frontendUrl}/src/assets/kajimacode_black_orange.svg`" loading="lazy" alt="Untitled UI logotext" class="logo_logotype" />
               </div>
             </a>
             <div class="w-layout-grid footer04_link-list">
@@ -95,7 +95,8 @@
 export default {
   name: "Footer",
   props: [
-    'scrollToAnchor'
+    'scrollToAnchor',
+    'frontendUrl'
   ],
 }
 </script>

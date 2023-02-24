@@ -1,10 +1,10 @@
 <template>
 
-  <Navbar/>
+  <Navbar :backendUrl="backendUrl" :frontendUrl="frontendUrl"/>
 
-  <MainSection/>
+  <MainSection :backendUrl="backendUrl" :frontendUrl="frontendUrl"/>
 
-  <Footer/>
+  <Footer :backendUrl="backendUrl" :frontendUrl="frontendUrl"/>
 
 </template>
 
@@ -15,6 +15,12 @@ import Footer from "@/components/Footer.vue";
 
 export default {
   name: "ProjectsView",
+  data (){
+    return {
+      backendUrl: this.$backendUrl,
+      frontendUrl: this.$frontendUrl,
+    }
+  },
   components: {
     Navbar,
     MainSection,
@@ -24,13 +30,14 @@ export default {
 </script>
 
 <style scoped>
-
-  footer {
-    margin-top: 100vh;
+  .project-container {
+    position: static;
   }
 
  .navbar07_component{
     background-color: transparent;
     backdrop-filter: blur(4px) brightness(50%);
+    width: 100vw;
+    position: fixed;
   }
 </style>

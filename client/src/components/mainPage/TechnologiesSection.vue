@@ -12,7 +12,7 @@
                 <div id="w-node-_473af96d-fe9a-7583-1058-afd0b4f508bd-9f429e46" class="layout18_item">
                   <div class="layout18_item-icon-wrapper">
                     <div class="icon-featured-outline-large-2">
-                      <img src="src/assets/icons/gear.svg" loading="lazy" alt="" class="technologies-icon" />
+                      <img :src="`${frontendUrl}/src/assets/icons/gear.svg`" loading="lazy" alt="" class="technologies-icon" />
                     </div>
                   </div>
                   <div class="layout18_item-text-wrapper">
@@ -24,7 +24,7 @@
                 <div id="w-node-_473af96d-fe9a-7583-1058-afd0b4f508c7-9f429e46" class="layout18_item">
                   <div class="layout18_item-icon-wrapper">
                     <div class="icon-featured-outline-large-2">
-                      <img src="src/assets/icons/database.svg" loading="lazy" alt="" class="technologies-icon db-icon" />
+                      <img :src="`${frontendUrl}/src/assets/icons/database.svg`" loading="lazy" alt="" class="technologies-icon db-icon" />
                     </div>
                   </div>
                   <div class="layout18_item-text-wrapper">
@@ -36,7 +36,7 @@
                 <div id="w-node-_473af96d-fe9a-7583-1058-afd0b4f508d1-9f429e46" class="layout18_item">
                   <div class="layout18_item-icon-wrapper">
                     <div class="icon-featured-outline-large-2">
-                      <img src="src/assets/icons/tab.svg" loading="lazy" alt="" class="technologies-icon" />
+                      <img :src="`${frontendUrl}/src/assets/icons/tab.svg`" loading="lazy" alt="" class="technologies-icon" />
                     </div>
                   </div>
                   <div class="layout18_item-text-wrapper">
@@ -59,7 +59,7 @@
                 </div>
               </div>
             </div>
-            <img src="src/assets/technologies2.gif" loading="lazy" id="w-node-_45e33f72-7130-365c-f243-d91ee3a0b293-9f429e46" sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 43vw, 45vw" alt="" />
+            <img :src="`${frontendUrl}/src/assets/technologies2.gif`" loading="lazy" id="w-node-_45e33f72-7130-365c-f243-d91ee3a0b293-9f429e46" sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 43vw, 45vw" alt="" />
           </div>
         </div>
       </div>
@@ -71,7 +71,8 @@
 export default {
   name: "TechnologiesSection",
   props: [
-    'scrollToAnchor'
+    'scrollToAnchor',
+    'frontendUrl'
   ],
 }
 </script>

@@ -4,7 +4,7 @@
         <div class="logo-container" ref="logo">
           <router-link to="/" href="/" aria-current="page" class="navbar07_logo-link w-nav-brand w--current">
             <div class="logo_component">
-              <img src="src/assets/kajimacode_white_orange.svg" alt="kajimacode logo" class="logo_logotype" />
+              <img :src="`${frontendUrl}/src/assets/kajimacode_white_orange.svg`" alt="kajimacode logo" class="logo_logotype" />
             </div>
           </router-link>
         </div>
@@ -80,6 +80,9 @@
 <script>
 export default {
   name: "Navbar",
+  props: [
+    'frontendUrl'
+  ],
   data(){
     return {
       menu: false,
@@ -117,10 +120,12 @@ export default {
     openMenu(){
       if (!this.menu){
         this.$refs.navbar.style.transform = 'translateY(0px) translateX(0px)'
+        this.$refs.overlay.style.visibility = 'visible'
 
         this.menu = true
       } else {
         this.$refs.navbar.style.transform = 'translateY(-100vh) translateX(0px)'
+        this.$refs.overlay.style.visibility = 'hidden'
 
         this.menu = false
       }
@@ -259,6 +264,7 @@ input#menu, label.icon {
 
   .w-nav-overlay{
     height: 91vh;
+    visibility: hidden;
   }
 
   .navbar07_menu {

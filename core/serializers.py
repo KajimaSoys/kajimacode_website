@@ -1,17 +1,5 @@
 from rest_framework import serializers
-from .models import *
-
-
-# class UserSerializer(serializers.HyperlinkedModelSerializer):
-#     class Meta:
-#         model = User
-#         fields = ['url', 'username', 'email', 'groups']
-
-
-# class GroupSerializer(serializers.HyperlinkedModelSerializer):
-#     class Meta:
-#         model = Group
-#         fields = ['url', 'name']
+from core.models import *
 
 
 class CoreGroupSerializer(serializers.HyperlinkedModelSerializer):
@@ -20,25 +8,15 @@ class CoreGroupSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('name', )
 
 
-# class CoreProjectSerializer(serializers.HyperlinkedModelSerializer):
-#     group = CoreGroupSerializer()
-#     class Meta:
-#         model = Project
-#         fields = ('group', 'name', 'name_ru', 'description', 'description_ru',  'link', 'git',)
-
-
 class CoreImageSerializer(serializers.ModelSerializer):
-    # project = CoreProjectSerializer()
-
     class Meta:
         model = ProjectImages
-        fields = ('main', 'image')#'__all__'#('image', 'main', 'project')
+        fields = ('main', 'image', 'alt')
 
 
 class ProjectGroupSerializer(serializers.ModelSerializer):
-    """Предположительно ProjectGroupSerializer"""
     image_set = serializers.SerializerMethodField()
-    group = CoreGroupSerializer()
+    # group = Project.get_group(self)
 
     def get_image_set(self, obj):
         queryset = ProjectImages.objects.filter(project=obj).prefetch_related().order_by('-main')
@@ -47,7 +25,17 @@ class ProjectGroupSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
-        fields = ('id', 'name', 'name_ru', 'description', 'description_ru', 'image_set', 'link', 'git', 'group')
+        fields = ('id',
+                  'name',
+                  'name_ru',
+                  'description',
+                  'description_ru',
+                  'description_short',
+                  'description_short_ru',
+                  'image_set',
+                  'link',
+                  'git',
+                  'get_group')
 
 
 class CoreWorkSerializer(serializers.HyperlinkedModelSerializer):

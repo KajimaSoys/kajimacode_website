@@ -5,7 +5,7 @@
         <div class="padding-vertical-xhuge">
           <div class="w-layout-grid heroheader04_component">
             <div class="heroheader04_image-wrapper">
-              <img src="src/assets/images/rezal_laptop_mockup.png" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 96vw, (max-width: 991px) 94vw, 1184px" srcset="src/assets/images/rezal_laptop_mockup-p-500.png 500w, src/assets/images/rezal_laptop_mockup-p-800.png 800w, src/assets/images/rezal_laptop_mockup-p-1080.png 1080w, src/assets/images/rezal_laptop_mockup-p-1600.png 1600w, src/assets/images/rezal_laptop_mockup.png 1920w" alt="MacBook mockup" class="heroheader04_image" />
+              <img :src="`${frontendUrl}/src/assets/images/rezal_laptop_mockup.png`" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 96vw, (max-width: 991px) 94vw, 1184px" :srcset="`${frontendUrl}/src/assets/images/rezal_laptop_mockup-p-500.png 500w, ${frontendUrl}/src/assets/images/rezal_laptop_mockup-p-800.png 800w, ${frontendUrl}/src/assets/images/rezal_laptop_mockup-p-1080.png 1080w, ${frontendUrl}/src/assets/images/rezal_laptop_mockup-p-1600.png 1600w, ${frontendUrl}/src/assets/images/rezal_laptop_mockup.png 1920w`" alt="MacBook mockup" class="heroheader04_image" />
             </div>
             <div class="heroheader04_content">
               <h1 class="heading-xlarge-2">The perfect site for doing business</h1>
@@ -38,7 +38,8 @@
 export default {
   name: "ProjectSection",
   props: [
-    'scrollToAnchor'
+    'scrollToAnchor',
+    'frontendUrl'
   ],
 }
 </script>

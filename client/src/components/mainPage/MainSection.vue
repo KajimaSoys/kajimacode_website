@@ -19,7 +19,7 @@
                 </div>
               </div>
               <div class="heroheader07_image-wrapper">
-                <img src="src/assets/images/light_orig.png" loading="lazy" alt="Colorful gradient" class="heroheader07_light-overlay" />
+                <img :src="`${frontendUrl}/src/assets/images/light_orig.png`" loading="lazy" alt="Colorful gradient" class="heroheader07_light-overlay" />
                 <ascii-render/>
               </div>
             </div>
@@ -35,11 +35,13 @@ import Splitting from 'splitting';
 
 export default {
   name: "MainSection",
+
   components: {
     AsciiRender,
   },
   props: [
-    'scrollToAnchor'
+    'scrollToAnchor',
+    'frontendUrl'
   ],
   data(){
     return {
