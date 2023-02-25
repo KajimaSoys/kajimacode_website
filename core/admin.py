@@ -45,6 +45,20 @@ class ProjectAdmin(admin.ModelAdmin):
     list_display = ('name_ru', 'get_group', 'isActive')
     inlines = (ProjectImagesInline,)
 
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        return qs
+        # if request.user.is_superuser:
+        #     return qs
+        # else:
+        #     return qs.filter(personal=False)
+
+
+    def has_change_permission(self, request, obj=None):
+        if obj is not None and obj.personal and not request.user.is_superuser:
+            return False
+        return super().has_change_permission(request, obj=obj)
+
 
 @admin.register(Work)
 class WorkAdmin(admin.ModelAdmin):

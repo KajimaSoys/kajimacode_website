@@ -14,7 +14,7 @@ class CoreImageSerializer(serializers.ModelSerializer):
         fields = ('main', 'image', 'alt')
 
 
-class ProjectGroupSerializer(serializers.ModelSerializer):
+class ProjectSerializer(serializers.ModelSerializer):
     image_set = serializers.SerializerMethodField()
     # group = Project.get_group(self)
 

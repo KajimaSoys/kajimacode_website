@@ -14,8 +14,9 @@ import PrivacyView from "../views/PrivacyView.vue";
 
 
 // Secondary Views
-import AsciiView from "../views/AsciiView.vue";
-import MainViewBackup from "../views/MainViewBackup.vue";
+// import TeamProjectsView from "../views/minorViews/TeamProjectsView.vue";
+import AsciiView from "../views/minorViews/AsciiView.vue";
+import MainViewBackup from "../views/minorViews/MainViewBackup.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -31,8 +32,18 @@ const router = createRouter({
       component: ProjectsView
     },
     {
+      path: '/projects/team',
+      name: 'teamProjects',
+      component: ProjectsView
+    },
+    {
       path: '/projects/:id',
       name: 'project',
+      component: SoloProjectView
+    },
+    {
+      path: '/projects/team/:id',
+      name: 'teamProject',
       component: SoloProjectView
     },
     {

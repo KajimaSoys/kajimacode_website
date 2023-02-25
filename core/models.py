@@ -1,6 +1,7 @@
 from django.db import models
 import os
 from django.utils.html import mark_safe
+# from django.contrib.auth.models import Permission
 
 class Group(models.Model):
     """
@@ -25,6 +26,9 @@ class Project(models.Model):
     class Meta:
         verbose_name = 'Проект'
         verbose_name_plural = 'Проекты'
+        # permissions = [
+        #     ("can_edit_personal_project", "Can edit personal project"),
+        # ]
 
     id = models.BigAutoField(verbose_name='Идентификатор', primary_key=True)
     group = models.ManyToManyField(verbose_name='Группа', to=Group, blank=True)
@@ -38,11 +42,12 @@ class Project(models.Model):
     description_short_ru = models.TextField(verbose_name='Описание короткое (рус.)', max_length=2500, blank=True)
     description_short = models.TextField(verbose_name='Описание (англ.)', max_length=2500, blank=True)
 
-
     link = models.URLField(verbose_name='Ссылка на проект', blank=True)
     git = models.URLField(verbose_name='Ссылка на гит', blank=True)
 
     path = models.CharField(verbose_name='Папка проекта', blank=True, max_length=200)
+
+    personal = models.BooleanField(verbose_name='Персональный проект? (Вадима?)', default=False)
     isActive = models.BooleanField(verbose_name='Активен?', default=True)
 
     def __str__(self):

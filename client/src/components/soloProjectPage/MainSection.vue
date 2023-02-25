@@ -11,7 +11,8 @@
                </div>
             </div>
             <div class="text-container">
-               <router-link to="../projects/" class="back-container">
+
+               <router-link v-if="apiEndpoint==='personal'" :to="{ name: 'projects' }" class="back-container">
                   <button type="button" class="arrow-back">
                      <i class="el-icon">
                         <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
@@ -23,6 +24,21 @@
                      Назад
                   </div>
                </router-link>
+
+
+              <router-link v-else :to="{ name: 'teamProjects' }" class="back-container">
+                  <button type="button" class="arrow-back">
+                     <i class="el-icon">
+                        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                           <path fill="currentColor" d="M340.864 149.312a30.592 30.592 0 0 0 0 42.752L652.736 512 340.864 831.872a30.592 30.592 0 0 0 0 42.752 29.12 29.12 0 0 0 41.728 0L714.24 534.336a32 32 0 0 0 0-44.672L382.592 149.376a29.12 29.12 0 0 0-41.728 0z"></path>
+                        </svg>
+                     </i>
+                  </button>
+                  <div class="back-link">
+                     Назад
+                  </div>
+               </router-link>
+
                <h1 class="title">
                   {{ project.name_ru }}
                </h1>
@@ -68,7 +84,8 @@
          </a>
       </div>
       <div class="back-button" v-if="project.image_set.length > 1">
-         <router-link to="../projects/">
+
+        <router-link v-if="apiEndpoint==='personal'" :to="{ name: 'projects' }">
             <button type="button" class="arrow-back">
                <i class="el-icon">
                   <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
@@ -80,6 +97,20 @@
                Вернуться
             </div>
          </router-link>
+
+        <router-link  v-else :to="{ name: 'teamProjects' }">
+            <button type="button" class="arrow-back">
+               <i class="el-icon">
+                  <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                     <path fill="currentColor" d="M340.864 149.312a30.592 30.592 0 0 0 0 42.752L652.736 512 340.864 831.872a30.592 30.592 0 0 0 0 42.752 29.12 29.12 0 0 0 41.728 0L714.24 534.336a32 32 0 0 0 0-44.672L382.592 149.376a29.12 29.12 0 0 0-41.728 0z"></path>
+                  </svg>
+               </i>
+            </button>
+            <div class="back-link">
+               Вернуться
+            </div>
+         </router-link>
+
       </div>
    </div>
 </template>
@@ -91,7 +122,8 @@ export default {
   name: "MainSection",
   props: [
     'backendUrl',
-    'frontendUrl'
+    'frontendUrl',
+    'apiEndpoint'
   ],
   data(){
     return {

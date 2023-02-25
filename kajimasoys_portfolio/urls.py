@@ -24,7 +24,9 @@ from django.conf.urls.static import static
 router = routers.DefaultRouter()
 router.register(r'groups', views.GroupViewSet)
 router.register(r'works', views.WorkViewSet)
-router.register(r'projects', views.ProjectGroupViewSet)
+router.register(r'projects/personal', views.PersonalProjectViewSet)
+router.register(r'projects/team', views.TeamProjectViewSet)
+router.register(r'projects', views.ProjectViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),

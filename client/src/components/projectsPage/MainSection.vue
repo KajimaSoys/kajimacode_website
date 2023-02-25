@@ -12,11 +12,19 @@
             </div>
             <div class="text-container">
                <div class="hover-area"> </div>
-               <router-link :to="{ name: 'project', params: { id: project.id } }" class="project-link">
+
+               <router-link v-if="apiEndpoint==='personal'" :to="{ name: 'project', params: { id: project.id } }" class="project-link">
                   <h1 class="title">
                      {{project.name_ru}}
                   </h1>
                </router-link>
+
+              <router-link v-else :to="{ name: 'teamProject', params: { id: project.id } }" class="project-link">
+                  <h1 class="title">
+                     {{project.name_ru}}
+                  </h1>
+               </router-link>
+
                <p class="description">
                   {{project.description_short_ru}}
                </p>
@@ -58,7 +66,8 @@ export default {
   ],
   props: [
     'backendUrl',
-    'frontendUrl'
+    'frontendUrl',
+    'apiEndpoint'
   ],
   data(){
     return {
@@ -72,7 +81,7 @@ export default {
   methods: {
     async get_projects(){
       await axios
-        .get('api/v1/projects/')
+        .get(`api/v1/projects/${this.apiEndpoint}/`)
         .then(response => {
           this.projects = response.data
           console.log(this.projects)

@@ -16,12 +16,30 @@ class GroupViewSet(viewsets.ModelViewSet):
 
 
 @permission_classes((permissions.IsAuthenticatedOrReadOnly,))
-class ProjectGroupViewSet(viewsets.ModelViewSet):
+class PersonalProjectViewSet(viewsets.ModelViewSet):
     """
-    API endpoint for ProjectGroups
+    API endpoint for Personal Projects
+    """
+    queryset = Project.objects.filter(isActive=True, personal=True)
+    serializer_class = ProjectSerializer
+
+
+@permission_classes((permissions.IsAuthenticatedOrReadOnly,))
+class TeamProjectViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint for Team Project
     """
     queryset = Project.objects.filter(isActive=True)
-    serializer_class = ProjectGroupSerializer
+    serializer_class = ProjectSerializer
+
+
+@permission_classes((permissions.IsAuthenticatedOrReadOnly,))
+class ProjectViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint for All Project
+    """
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
 
 
 @permission_classes((permissions.IsAuthenticatedOrReadOnly,))

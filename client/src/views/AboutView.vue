@@ -1,22 +1,44 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+
+  <Navbar :frontendUrl="frontendUrl"/>
+
+  <MainSection :backendUrl="backendUrl" :frontendUrl="frontendUrl"/>
+
+  <Footer :frontendUrl="frontendUrl"/>
+
 </template>
 
 <script>
+import Navbar from "@/components/Navbar.vue";
+import MainSection from "@/components/aboutPage/MainSection.vue";
+import Footer from "@/components/Footer.vue";
+
 export default {
-  name: 'AboutView'
+  name: 'AboutView',
+  data (){
+    return {
+      backendUrl: this.$backendUrl,
+      frontendUrl: this.$frontendUrl,
+    }
+  },
+  components: {
+    Navbar,
+    MainSection,
+    Footer,
+  }
 }
 
 </script>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
+<style scoped>
+.navbar07_component{
+    background-color: transparent;
+    backdrop-filter: blur(4px) brightness(50%);
+    width: 100vw;
+    position: fixed;
   }
-}
+
+  /*.footer04_component {*/
+  /*  position: absolute;*/
+  /*}*/
 </style>

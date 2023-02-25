@@ -1,10 +1,10 @@
 <template>
 
-  <Navbar :backendUrl="backendUrl" :frontendUrl="frontendUrl"/>
+  <Navbar v-if="personal" :frontendUrl="frontendUrl"/>
 
-  <MainSection :backendUrl="backendUrl" :frontendUrl="frontendUrl"/>
+  <MainSection :backendUrl="backendUrl" :frontendUrl="frontendUrl" :apiEndpoint="apiEndpoint"/>
 
-  <Footer :backendUrl="backendUrl" :frontendUrl="frontendUrl"/>
+  <Footer v-if="personal" :frontendUrl="frontendUrl"/>
 
 </template>
 
@@ -19,12 +19,20 @@ export default {
     return {
       backendUrl: this.$backendUrl,
       frontendUrl: this.$frontendUrl,
+      apiEndpoint: "personal",
+      personal: true
     }
   },
   components: {
     Navbar,
     MainSection,
     Footer,
+  },
+  beforeMount() {
+    if (window.location.pathname.includes('team')) {
+      this.apiEndpoint = 'team'
+      this.personal = false
+    }
   }
 }
 </script>

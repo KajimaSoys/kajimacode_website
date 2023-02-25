@@ -20,6 +20,7 @@
               </div>
               <div class="heroheader07_image-wrapper">
                 <img :src="`${frontendUrl}/src/assets/images/light_orig.png`" loading="lazy" alt="Colorful gradient" class="heroheader07_light-overlay" />
+<!--                <spline scene="https://prod.spline.design/DAnBj2USRzWxm2jA/scene.splinecode" />-->
                 <ascii-render/>
               </div>
             </div>
@@ -32,12 +33,14 @@
 <script>
 import AsciiRender from "@/components/mainPage/AsciiRender.vue";
 import Splitting from 'splitting';
+// import Spline from 'vue-spline';
 
 export default {
   name: "MainSection",
 
   components: {
     AsciiRender,
+    // Spline
   },
   props: [
     'scrollToAnchor',
