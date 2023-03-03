@@ -30,7 +30,7 @@ export default {
  .in-develop-image {
     display: block;
     margin-left: auto;
-    max-height: 73vh;
+    max-height: 70vh;
     margin-right: auto;
     padding-top: 18vh;
     padding-bottom: 18vh;

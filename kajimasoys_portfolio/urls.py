@@ -16,22 +16,34 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from core import views
+from core import views as coreViews
 from requests.views import OrderCreateView
+from pages import views as pageViews
 from django.conf import settings
 from django.conf.urls.static import static
 
 router = routers.DefaultRouter()
-router.register(r'groups', views.GroupViewSet)
-router.register(r'works', views.WorkViewSet)
-router.register(r'projects/personal', views.PersonalProjectViewSet)
-router.register(r'projects/team', views.TeamProjectViewSet)
-router.register(r'projects', views.ProjectViewSet)
+router.register(r'groups', coreViews.GroupViewSet)
+router.register(r'works', coreViews.WorkViewSet)
+router.register(r'projects/personal', coreViews.PersonalProjectViewSet)
+router.register(r'projects/team', coreViews.TeamProjectViewSet)
+router.register(r'projects', coreViews.ProjectViewSet)
+router.register(r'pages/navbar', pageViews.NavbarViewSet)
+router.register(r'pages/footer', pageViews.FooterViewSet)
+router.register(r'pages/cookie-element', pageViews.CookieElementViewSet)
+router.register(r'pages/main', pageViews.MainPageViewSet)
+router.register(r'pages/projects', pageViews.ProjectsPageViewSet)
+router.register(r'pages/skills', pageViews.SkillsPageViewSet)
+router.register(r'pages/about', pageViews.AboutPageViewSet)
+router.register(r'pages/terms', pageViews.TermsPageViewSet)
+router.register(r'pages/privacy', pageViews.PrivacyPageViewSet)
+router.register(r'pages/cookies', pageViews.CookiesPageViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
-    path('api/v1/get_ascii', views.get_ascii),
+    path('api/v1/get_ascii', coreViews.get_ascii),
     path('api/v1/send_request', OrderCreateView.as_view()),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

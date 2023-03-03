@@ -14,6 +14,8 @@
                 <div>Overview</div>
               </a>
 
+              <!-- FIXME if route is not '/', then scrollToAnchor switches to <router-link> -->
+
               <router-link to="/projects" class="footer04_link w-inline-block">
                 <div>Projects</div>
               </router-link>
