@@ -1,10 +1,10 @@
 <template>
 
-  <Navbar v-if="personal" :frontendUrl="frontendUrl"/>
+  <Navbar v-if="personal" :frontendUrl="frontendUrl" :text="navbar"/>
 
-  <MainSection :backendUrl="backendUrl" :frontendUrl="frontendUrl" :apiEndpoint="apiEndpoint"/>
+  <MainSection :backendUrl="backendUrl" :frontendUrl="frontendUrl" :apiEndpoint="apiEndpoint" :text="projectsPage"/>
 
-  <Footer v-if="personal" :frontendUrl="frontendUrl"/>
+  <Footer v-if="personal" :frontendUrl="frontendUrl" :text="footer"/>
 
 </template>
 
@@ -12,6 +12,7 @@
 import Navbar from "@/components/Navbar.vue";
 import MainSection from "@/components/soloProjectPage/MainSection.vue";
 import Footer from "@/components/Footer.vue";
+import axios from "axios";
 
 export default {
   name: "SoloProjectView",
@@ -20,7 +21,11 @@ export default {
       backendUrl: this.$backendUrl,
       frontendUrl: this.$frontendUrl,
       apiEndpoint: "personal",
-      personal: true
+      personal: true,
+
+      navbar: {},
+      projectsPage: {},
+      footer: {},
     }
   },
   components: {
@@ -28,7 +33,29 @@ export default {
     MainSection,
     Footer,
   },
+  methods: {
+    get_text(lang){
+
+    Promise.all([
+        axios.get(`http://localhost:8000/api/v1/pages/navbar/?language=${lang}`),
+        axios.get(`http://localhost:8000/api/v1/pages/projects/?language=${lang}`),
+        axios.get(`http://localhost:8000/api/v1/pages/footer/?language=${lang}`)
+      ])
+      .then(response => {
+        this.navbar = response[0].data[0]
+        this.projectsPage = response[1].data[0]
+        this.footer = response[2].data[0]
+      })
+      .catch(error => {
+        console.log('Ошибка при загрузке локализации')
+      })
+    }
+  },
+
   beforeMount() {
+    // FIXME add language switch
+    this.get_text('ru')
+
     if (window.location.pathname.includes('team')) {
       this.apiEndpoint = 'team'
       this.personal = false

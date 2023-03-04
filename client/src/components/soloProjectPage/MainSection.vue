@@ -21,7 +21,7 @@
                      </i>
                   </button>
                   <div class="back-link">
-                     Назад
+                    {{ text.back_button }}
                   </div>
                </router-link>
 
@@ -35,7 +35,7 @@
                      </i>
                   </button>
                   <div class="back-link">
-                     Назад
+                     {{ text.back_button }}
                   </div>
                </router-link>
 
@@ -94,7 +94,7 @@
                </i>
             </button>
             <div class="back-link">
-               Вернуться
+               {{ text.back_button }}
             </div>
          </router-link>
 
@@ -107,7 +107,7 @@
                </i>
             </button>
             <div class="back-link">
-               Вернуться
+              {{ text.back_button }}
             </div>
          </router-link>
 
@@ -123,7 +123,8 @@ export default {
   props: [
     'backendUrl',
     'frontendUrl',
-    'apiEndpoint'
+    'apiEndpoint',
+    'text'
   ],
   data(){
     return {

@@ -6,9 +6,9 @@
           <div class="padding-vertical-xhuge">
             <div class="heroheader24_component">
               <div class="max-width-large">
-                <h1 class="heading-xlarge">Welcome to the world of web development!</h1>
+                <h1 class="heading-xlarge">{{ text.introduce_title }}</h1>
                 <div class="space-small"></div>
-                <div class="text-size-xlarge">I am here to help bring your online vision to life. Whether you&#x27;re looking to create a new website, revamp an existing one, or add custom features to enhance user experience, I have the expertise to get the job done. <br />
+                <div class="text-size-xlarge">{{ text.introduce_description }} <br />
                 </div>
                 <div class="space-large"></div>
                 <div class="space-large"></div>
@@ -29,7 +29,8 @@
 export default {
   name: "IntroduceSection",
   props: [
-    'frontendUrl'
+    'frontendUrl',
+    'text'
   ],
 }
 </script>

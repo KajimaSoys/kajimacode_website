@@ -11,21 +11,21 @@
             </a>
             <div class="w-layout-grid footer04_link-list">
               <a @click="scrollToAnchor('navbar')" class="footer04_link w-inline-block">
-                <div>Overview</div>
+                <div>{{ text.overview_link }}</div>
               </a>
 
               <!-- FIXME if route is not '/', then scrollToAnchor switches to <router-link> -->
 
               <router-link to="/projects" class="footer04_link w-inline-block">
-                <div>Projects</div>
+                <div>{{ text.projects_link }}</div>
               </router-link>
 
               <router-link to="/skills" class="footer04_link w-inline-block">
-                <div>My skills</div>
+                <div>{{ text.skills_link }}</div>
               </router-link>
 
               <router-link to="/about" class="footer04_link w-inline-block">
-                <div>About me</div>
+                <div>{{ text.about_link }}</div>
               </router-link>
 
 <!--              <router-link to="/privacy" class="footer04_link w-inline-block">-->
@@ -74,15 +74,15 @@
             <div class="w-layout-grid footer04_legal-list">
 
               <router-link to="/terms" class="footer04_legal-link">
-                Terms
+                {{ text.terms_link }}
               </router-link>
 
               <router-link to="/privacy" class="footer04_legal-link">
-                Privacy
+                {{ text.privacy_link }}
               </router-link>
 
               <router-link to="/cookies" class="footer04_legal-link">
-                Cookies
+                {{ text.cookies_link }}
               </router-link>
 
             </div>
@@ -98,7 +98,8 @@ export default {
   name: "Footer",
   props: [
     'scrollToAnchor',
-    'frontendUrl'
+    'frontendUrl',
+    'text'
   ],
 }
 </script>

@@ -12,7 +12,8 @@ export default {
   },
   props: [
     'backendUrl',
-    'frontendUrl'
+    'frontendUrl',
+    'text'
   ],
 }
 </script>

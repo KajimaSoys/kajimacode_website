@@ -26,9 +26,9 @@ class PagesFooterSerializer(serializers.HyperlinkedModelSerializer):
 class PagesCookieElementSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = CookieElement
-        fields = ('overview_link',
-                  'projects_link',
-                  'skills_link')
+        fields = ('element_text',
+                  'link',
+                  'button')
 
 
 class PagesMainPageSerializer(serializers.HyperlinkedModelSerializer):

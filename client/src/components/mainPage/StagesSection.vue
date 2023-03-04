@@ -3,7 +3,7 @@
     <div class="page-padding-2">
       <div class="container-large-2">
         <div class="padding-vertical-xhuge">
-          <h1 class="heading-xlarge">Stages of web application development</h1>
+          <h1 class="heading-xlarge">{{ text.stages_title }}</h1>
           <div class="space-large"></div>
           <div  class="stages-container">
             <div ref="progressBar" class="layout32_progress-bar-wrapper">
@@ -14,9 +14,9 @@
                 <div class="w-layout-grid layout32_timeline-step left-text-timeline">
                   <div class="layout32_timeline-right">
                     <div class="layout32_text-wrapper">
-                      <h3 class="heading-xxsmall">Project discussion</h3>
+                      <h3 class="heading-xxsmall">{{ text.discussion_title }}</h3>
                       <div class="space-xxsmall"></div>
-                      <div class="text-size-medium">Project discussion allows to clearly understand the scope of the project, the goals and objectives, and the timeline for completion. I will listen to your needs, answer any questions you may have, and provide my professional insight and recommendations. </div>
+                      <div class="text-size-medium">{{ text.discussion_description }} </div>
                     </div>
                   </div>
                 </div>
@@ -54,18 +54,18 @@
               <div class="w-layout-grid layout32_timeline-step right-text-timeline">
                 <div class="layout32_timeline-right">
                   <div class="layout32_text-wrapper">
-                    <h3 class="heading-xxsmall">Concept development</h3>
+                    <h3 class="heading-xxsmall">{{ text.concept_title }}</h3>
                     <div class="space-xxsmall"></div>
-                    <div class="text-size-medium">Concept development is the process of creating and refining the ideas that will shape the design and functionality of your website. The end result will be a clear and detailed concept that will guide the development of your web application.</div>
+                    <div class="text-size-medium">{{ text.concept_description }}</div>
                   </div>
                 </div>
               </div>
               <div class="w-layout-grid layout32_timeline-step left-text-timeline">
                 <div class="layout32_timeline-right">
                   <div class="layout32_text-wrapper">
-                    <h3 class="heading-xxsmall">Server and database development</h3>
+                    <h3 class="heading-xxsmall">{{ text.server_dev_title }}</h3>
                     <div class="space-xxsmall"></div>
-                    <div class="text-size-medium">In this step, I&#x27;ll be developing the server with factors such as scalability, security, and performance in mind. I will also ensure that the database is properly structured and optimized for efficient data retrieval and management. </div>
+                    <div class="text-size-medium">{{ text.server_dev_description }} </div>
                   </div>
                 </div>
               </div>
@@ -96,18 +96,18 @@
               <div class="w-layout-grid layout32_timeline-step right-text-timeline">
                 <div class="layout32_timeline-right">
                   <div class="layout32_text-wrapper">
-                    <h3 class="heading-xxsmall">User interface development</h3>
+                    <h3 class="heading-xxsmall">{{ text.ui_dev_title }}</h3>
                     <div class="space-xxsmall"></div>
-                    <div class="text-size-medium">During this stage, I will create a UI that aligns with your vision. I&#x27;ll ensure that the UI is responsive, meaning it will adjust to different screen sizes and devices, and that it meets accessibility standards. The final outcome will be a UI that is not only pleasing to the eye but also intuitive and user-friendly, providing an enjoyable user experience.</div>
+                    <div class="text-size-medium">{{ text.ui_dev_description }}</div>
                   </div>
                 </div>
               </div>
               <div class="w-layout-grid layout32_timeline-step left-text-timeline">
                 <div class="layout32_timeline-right">
                   <div class="layout32_text-wrapper">
-                    <h3 class="heading-xxsmall">Project testing</h3>
+                    <h3 class="heading-xxsmall">{{ text.test_title }}</h3>
                     <div class="space-xxsmall"></div>
-                    <div class="text-size-medium">I will conduct thorough testing on your project to identify and fix any bugs, errors or issues that may arise. During this step, I&#x27;ll test the website or web application on different browsers, devices, and operating systems to ensure compatibility.</div>
+                    <div class="text-size-medium">{{ text.test_description }}</div>
                   </div>
                 </div>
               </div>
@@ -134,9 +134,9 @@
               <div class="w-layout-grid layout32_timeline-step right-text-timeline">
                 <div class="layout32_timeline-right">
                   <div class="layout32_text-wrapper">
-                    <h3 class="heading-xxsmall">Project deploying on a remote server</h3>
+                    <h3 class="heading-xxsmall">{{ text.deploy_title }}</h3>
                     <div class="space-xxsmall"></div>
-                    <div class="text-size-medium">It is the final step in the web development process. It makes the website or web application available to the public or intended users, and ensures that it runs smoothly and securely. <br />
+                    <div class="text-size-medium">{{ text.deploy_description }} <br />
                     </div>
                   </div>
                 </div>
@@ -156,9 +156,9 @@
               </div>
               <div class="layout32_timeline-right">
                 <div class="layout32_text-wrapper">
-                  <h3 class="heading-xxsmall">Project discussion</h3>
+                  <h3 class="heading-xxsmall">{{ text.discussion_title }}</h3>
                   <div class="space-xxsmall"></div>
-                  <div class="text-size-medium">Project discussion allows to clearly understand the scope of the project, the goals and objectives, and the timeline for completion. I will listen to your needs, answer any questions you may have, and provide my professional insight and recommendations. </div>
+                  <div class="text-size-medium">{{ text.discussion_description }} </div>
                 </div>
               </div>
               <div class="layout32_timeline-left">
@@ -170,9 +170,9 @@
               </div>
               <div class="layout32_timeline-right">
                 <div class="layout32_text-wrapper">
-                  <h3 class="heading-xxsmall">Concept development</h3>
+                  <h3 class="heading-xxsmall">{{ text.concept_title }}</h3>
                   <div class="space-xxsmall"></div>
-                  <div class="text-size-medium">Concept development is the process of creating and refining the ideas that will shape the design and functionality of your website. The end result will be a clear and detailed concept that will guide the development of your web application.</div>
+                  <div class="text-size-medium">{{ text.concept_description }}</div>
                 </div>
               </div>
               <div class="layout32_timeline-left">
@@ -184,9 +184,9 @@
               </div>
               <div class="layout32_timeline-right">
                 <div class="layout32_text-wrapper">
-                  <h3 class="heading-xxsmall">Server and database development</h3>
+                  <h3 class="heading-xxsmall">{{ text.server_dev_title }}</h3>
                   <div class="space-xxsmall"></div>
-                  <div class="text-size-medium">In this step, I&#x27;ll be developing the server with factors such as scalability, security, and performance in mind. I will also ensure that the database is properly structured and optimized for efficient data retrieval and management. </div>
+                  <div class="text-size-medium">{{ text.server_dev_description }}</div>
                 </div>
               </div>
               <div class="layout32_timeline-left">
@@ -202,9 +202,9 @@
               </div>
               <div class="layout32_timeline-right">
                 <div class="layout32_text-wrapper">
-                  <h3 class="heading-xxsmall">User interface development</h3>
+                  <h3 class="heading-xxsmall">{{ text.ui_dev_title }}</h3>
                   <div class="space-xxsmall"></div>
-                  <div class="text-size-medium">During this stage, I will create a UI that aligns with your vision. I&#x27;ll ensure that the UI is responsive, meaning it will adjust to different screen sizes and devices, and that it meets accessibility standards. The final outcome will be a UI that is not only pleasing to the eye but also intuitive and user-friendly, providing an enjoyable user experience.</div>
+                  <div class="text-size-medium">{{ text.ui_dev_description }}</div>
                 </div>
               </div>
               <div class="layout32_timeline-left">
@@ -216,9 +216,9 @@
               </div>
               <div class="layout32_timeline-right">
                 <div class="layout32_text-wrapper">
-                  <h3 class="heading-xxsmall">Project testing</h3>
+                  <h3 class="heading-xxsmall">{{ text.test_title }}</h3>
                   <div class="space-xxsmall"></div>
-                  <div class="text-size-medium">I will conduct thorough testing on your project to identify and fix any bugs, errors or issues that may arise. During this step, I&#x27;ll test the website or web application on different browsers, devices, and operating systems to ensure compatibility.</div>
+                  <div class="text-size-medium">{{ text.test_description }}</div>
                 </div>
               </div>
               <div class="layout32_timeline-left">
@@ -230,9 +230,9 @@
               </div>
               <div class="layout32_timeline-right">
                 <div class="layout32_text-wrapper">
-                  <h3 class="heading-xxsmall">Project deploying on a remote server</h3>
+                  <h3 class="heading-xxsmall">{{ text.deploy_title }}</h3>
                   <div class="space-xxsmall"></div>
-                  <div class="text-size-medium">It is the final step in the web development process. It makes the website or web application available to the public or intended users, and ensures that it runs smoothly and securely. <br />
+                  <div class="text-size-medium">{{ text.deploy_description }} <br />
                   </div>
                 </div>
               </div>
@@ -241,11 +241,11 @@
           <div class="space-large"></div>
           <div class="stages-end-text">
             <div class="stages-end-text-black">
-              <span class="text-span-2">Let me help you to </span>
+              <span class="text-span-2">{{ text.first_string }}</span>
               <a @click="scrollToAnchor('contact-section')" class="link">
-                <span class="stages-end-text-orange">bring your website</span>
+                <span class="stages-end-text-orange">&nbsp{{ text.second_string }}&nbsp</span>
               </a>
-              <span> to the world</span>
+              <span>{{ text.third_string }}</span>
               <br />
             </div>
           </div>
@@ -262,7 +262,8 @@ export default {
   name: "StagesSection",
   props: [
     'scrollToAnchor',
-    'frontendUrl'
+    'frontendUrl',
+    'text'
   ],
   data(){
     return {

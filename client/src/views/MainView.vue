@@ -1,21 +1,21 @@
 <template>
-      <Navbar :frontendUrl="frontendUrl"/>
+      <Navbar :frontendUrl="frontendUrl" :text="navbar"/>
 
-      <MainSection :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl"/>
+      <MainSection :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl" :text="mainPage"/>
 
-      <IntroduceSection :frontendUrl="frontendUrl"/>
+      <IntroduceSection :frontendUrl="frontendUrl" :text="mainPage"/>
 
-      <ProjectSection :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl"/>
+      <ProjectSection :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl" :text="mainPage"/>
 
-      <StagesSection :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl"/>
+      <StagesSection :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl" :text="mainPage"/>
 
-      <TechnologiesSection :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl"/>
+      <TechnologiesSection :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl" :text="mainPage"/>
 
-      <ContactSection/>
+      <ContactSection :text="mainPage"/>
 
-      <ReviewSection :frontendUrl="frontendUrl"/>
+      <ReviewSection :frontendUrl="frontendUrl" :text="mainPage"/>
 
-      <Footer :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl"/>
+      <Footer :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl" :text="footer"/>
 
 </template>
 
@@ -29,6 +29,7 @@ import TechnologiesSection from "@/components/mainPage/TechnologiesSection.vue";
 import ContactSection from "@/components/mainPage/ContactSection.vue";
 import ReviewSection from "@/components/mainPage/ReviewSection.vue";
 import Footer from "@/components/Footer.vue";
+import axios from "axios";
 // TODO make back to top component
 // TODO make navbar sticky
 // TODO make IntoduceSection going up when scroll instead of MainSection
@@ -39,6 +40,10 @@ export default {
   data (){
     return {
       frontendUrl: this.$frontendUrl,
+
+      navbar: {},
+      mainPage: {},
+      footer: {},
     }
   },
   components: {
@@ -57,64 +62,32 @@ export default {
     scrollToAnchor(anchor) {
       const target = document.querySelector(`#${anchor}`);
       target.scrollIntoView({behavior: "smooth"});
+    },
+    get_text(lang){
+
+    Promise.all([
+        axios.get(`http://localhost:8000/api/v1/pages/navbar/?language=${lang}`),
+        axios.get(`http://localhost:8000/api/v1/pages/main/?language=${lang}`),
+        axios.get(`http://localhost:8000/api/v1/pages/footer/?language=${lang}`)
+      ])
+      .then(response => {
+        this.navbar = response[0].data[0]
+        this.mainPage = response[1].data[0]
+        this.footer = response[2].data[0]
+      })
+      .catch(error => {
+        console.log('Ошибка при загрузке локализации')
+      })
     }
   },
+  beforeMount() {
+    // FIXME add language switch
+    this.get_text('ru')
+  }
 
-  // mounted() {
-  //   document.addEventListener('wheel', event => {
-  //     event.preventDefault();
-  //
-  //     console.log(event)
-  //     const delta = event.deltaY;
-  //     const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-  //
-  //     // window.requestAnimationFrame(() => {
-  //     //   document.documentElement.scrollTop = scrollTop + delta * 5;
-  //     //   document.body.scrollTop = scrollTop + delta * 5;
-  //     // });
-  //   }, {passive:false});
-  // }
-  // directives: {
-  //   smoothScroll: {
-  //     inserted(el) {
-  //       function smoothScroll(e) {
-  //
-  //         e.preventDefault();
-  //         const delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
-  //         const scrollTop = el.scrollTop;
-  //         window.requestAnimationFrame(() => {
-  //           el.scrollTop = scrollTop + delta * 30;
-  //         });
-  //       }
-  //       el.addEventListener('mousewheel', smoothScroll, { passive: false });
-  //       el.addEventListener('DOMMouseScroll', smoothScroll, { passive: false });
-  //     },
-  //     unbind(el) {
-  //       el.removeEventListener('mousewheel', smoothScroll);
-  //       el.removeEventListener('DOMMouseScroll', smoothScroll);
-  //     }
-  //   }
-  // }
 }
 </script>
 
 <style scoped>
-  /*.navbar07_component:deep(.footer04_social-link:hover)  {*/
-  /*  color: #ffffff!important;*/
-  /*}*/
 
-  /*.navbar07_component:deep(.footer04_social-link)  {*/
-  /*  color: #cdd1d8!important;*/
-
-  /*}*/
-
-  /*#scroll-area {*/
-  /*  width: 500px;*/
-  /*  height: 500px;*/
-  /*}*/
-
-  /*#content {*/
-  /*  width: 2000px;*/
-  /*  height: 2000px;*/
-  /*}*/
 </style>

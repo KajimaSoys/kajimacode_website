@@ -5,9 +5,9 @@
         <div class="padding-vertical-xhuge">
           <div class="text-align-center">
             <div class="max-width-large-2 align-center">
-              <h2 class="heading-medium">Don’t just take our word for it</h2>
+              <h2 class="heading-medium">{{ text.review_title }}</h2>
               <div class="space-xsmall"></div>
-              <div class="text-size-large">Hear from some of our amazing customers who are building faster.</div>
+              <div class="text-size-large">{{ text.review_description }}</div>
             </div>
           </div>
           <div class="testimonial13_component">
@@ -49,14 +49,14 @@
                   </svg>
                 </div>
               </div>
-              <div class="heading-xxsmall text-weight-medium">&quot;5 звезд в Яндекс Такси&quot;</div>
+              <div class="heading-xxsmall text-weight-medium">&quot;{{ text.first_text }}&quot;</div>
               <div class="testimonial13_client">
                 <div class="testimonial13_client-image-wrapper">
                   <img :src="`${frontendUrl}/src/assets/images/person.png`" loading="lazy" alt="" class="testimonial13_customer-image" />
                 </div>
                 <div class="testimonial13_client-info">
-                  <div class="testimonial13_client-heading">Anastasia Belyh</div>
-                  <div class="text-size-small">Product Manager, MFMK GK</div>
+                  <div class="testimonial13_client-heading">{{ text.first_author }}</div>
+                  <div class="text-size-small">{{ text.first_post }}</div>
                 </div>
               </div>
             </div>
@@ -98,14 +98,14 @@
                   </svg>
                 </div>
               </div>
-              <div class="heading-xxsmall text-weight-medium">&quot;Круто&quot;</div>
+              <div class="heading-xxsmall text-weight-medium">&quot;{{ text.second_text }}&quot;</div>
               <div class="testimonial13_client">
                 <div class="testimonial13_client-image-wrapper">
                   <img :src="`${frontendUrl}/src/assets/images/person.png`" loading="lazy" alt="" class="testimonial13_customer-image" />
                 </div>
                 <div class="testimonial13_client-info">
-                  <div class="testimonial13_client-heading">Alfred Batyrkhanov</div>
-                  <div class="text-size-small">General director, Uyut ot RezAl</div>
+                  <div class="testimonial13_client-heading">{{ text.second_author }}</div>
+                  <div class="text-size-small">{{ text.second_post }}</div>
                 </div>
               </div>
             </div>
@@ -147,14 +147,14 @@
                   </svg>
                 </div>
               </div>
-              <div class="heading-xxsmall text-weight-medium">&quot;Мощь&quot;</div>
+              <div class="heading-xxsmall text-weight-medium">&quot;{{ text.third_text }}&quot;</div>
               <div class="testimonial13_client">
                 <div class="testimonial13_client-image-wrapper">
                   <img :src="`${frontendUrl}/src/assets/images/person.png`" loading="lazy" alt="" class="testimonial13_customer-image" />
                 </div>
                 <div class="testimonial13_client-info">
-                  <div class="testimonial13_client-heading">Somebody</div>
-                  <div class="text-size-small">UX Designer, Kazan company</div>
+                  <div class="testimonial13_client-heading">{{ text.third_author }}</div>
+                  <div class="text-size-small">{{ text.third_post }}</div>
                 </div>
               </div>
             </div>
@@ -169,7 +169,8 @@
 export default {
   name: "ReviewSection",
   props: [
-    'frontendUrl'
+    'frontendUrl',
+    'text'
   ],
 }
 </script>

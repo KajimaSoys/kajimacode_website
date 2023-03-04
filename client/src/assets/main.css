@@ -1485,7 +1485,7 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 5rem;
+  width: 6rem;
   height: 3rem;
   padding: 0.625rem 1.125rem;
   -webkit-box-pack: center;
@@ -1631,7 +1631,7 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  max-width: 40vw;
+  max-width: 45vw;
   margin-right: 2vw;
   padding: 0.75rem;
   -webkit-box-pack: start;
@@ -2516,7 +2516,7 @@
   }
 
   .banner07_wrapper.banner-move {
-    max-width: 42vw;
+    max-width: 52vw;
   }
 
   .heroheader04_image {
@@ -2970,11 +2970,8 @@
 
   .banner07_content {
     position: absolute;
-    top: 35%;
-    max-width: none;
+    max-width: 80vw;
     min-width: 50vw;
-    margin-right: 2rem;
-    margin-bottom: 1rem;
   }
 
   .banner07_wrapper {
@@ -3189,6 +3186,10 @@
     margin-top: 25%;
     margin-right: 6rem;
     margin-bottom: 25%;
+  }
+
+  .banner07_text, .banner07_supporting-text {
+    font-size: 0.9rem;
   }
 
   .banner07_wrapper.banner-move {

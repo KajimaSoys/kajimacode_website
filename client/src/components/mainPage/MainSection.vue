@@ -6,14 +6,14 @@
             <div class="w-layout-grid heroheader07_component">
               <div class="heroheader07_content z-index-1">
                 <h1 class="main-text">
-                  <p data-splitting ref="text">I<br>DEVELOP<br>WEBSITES</p>
+                  <p data-splitting ref="text">{{ textArray[0] }}<br>{{ textArray[1] }}<br>{{ textArray[2] }}</p>
                 </h1>
                 <div class="space-small-main"></div>
                 <div class="max-width-small-main"></div>
                 <div id="w-node-ce1876c0-0d11-fbee-deef-74e9829160f6-9f429e46" class="button-row-main is-reverse-mobile-landscape">
                   <div class="button-wrapper max-width-full-mobile-landscape">
                     <a @click="scrollToAnchor('contact-section')" class="button is-button-large w-inline-block"> <!--href="#contact-section"-->
-                      <div class="text-block-2">Contact me!</div>
+                      <div class="text-block-2">{{ text.contact_button }}</div>
                     </a>
                   </div>
                 </div>
@@ -21,7 +21,7 @@
               <div class="heroheader07_image-wrapper">
                 <img :src="`${frontendUrl}/src/assets/images/light_orig.png`" loading="lazy" alt="Colorful gradient" class="heroheader07_light-overlay" />
 <!--                <spline scene="https://prod.spline.design/DAnBj2USRzWxm2jA/scene.splinecode" />-->
-                <ascii-render/>
+<!--                <ascii-render/>-->
               </div>
             </div>
           </div>
@@ -44,20 +44,32 @@ export default {
   },
   props: [
     'scrollToAnchor',
-    'frontendUrl'
+    'frontendUrl',
+    'text'
   ],
   data(){
     return {
       spans: [],
+      textArray: ['I', 'DEVELOP', 'WEBSITES'],
+      // requestd_text: ,
+      // splitted: []
     }
   },
   computed: {
+    // split_text(){
+    //   console.log(this.text.main_title.split(' '))
+    //   return this.text.main_title.split(' ')
+    // }
+  },
+  beforeMount() {
 
   },
   mounted() {
+    // this.textArray = this.text.main_title.split(' ')
     Splitting({
       target: this.$refs.text,
     });
+
     this.spans = this.$el.querySelectorAll('.char');
   },
   methods: {
@@ -78,6 +90,10 @@ export default {
 </script>
 
 <style>
+
+.text-block-2 {
+  font-size: 1.125rem;
+}
 
 .main-text{
     will-change: font-variation-settings;

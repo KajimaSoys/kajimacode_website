@@ -1,7 +1,7 @@
 <template>
 <!--  <InDevelop :frontendUrl="frontendUrl"/>-->
   <div class="main-block">
-    <h1 class="heading-xlarge">My skills</h1>
+    <h1 class="heading-xlarge">{{ text.title }}</h1>
     <div class="skills-container">
 
 
@@ -155,7 +155,8 @@ export default {
   },
   props: [
     'backendUrl',
-    'frontendUrl'
+    'frontendUrl',
+    'text'
   ],
   data () {
     return {

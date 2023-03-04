@@ -16,15 +16,15 @@
           <nav ref="navbar" role="navigation" class="navbar07_menu w-nav-menu">
               <div class="navbar07_menu-left">
                 <router-link to="/projects">
-                  <a class="navbar07_link w-nav-link">Projects</a>
+                  <a class="navbar07_link w-nav-link">{{ text.projects_link }}</a>
                 </router-link>
 
                 <router-link to="/skills">
-                  <a class="navbar07_link w-nav-link">My skills</a>
+                  <a class="navbar07_link w-nav-link">{{ text.skills_link }}</a>
                 </router-link>
 
                 <router-link to="/about">
-                  <a class="navbar07_link w-nav-link">About me</a>
+                  <a class="navbar07_link w-nav-link">{{ text.about_link }}</a>
                 </router-link>
 
               </div>
@@ -59,7 +59,7 @@
                     </a>
                   </div>
                   <a href="https://t.me/OneDudeAdam" target="_blank" class="button w-inline-block">
-                    <div class="text-block-4">Message in Telegram</div>
+                    <div class="text-block-4">{{ text.telegram_button }}</div>
                   </a>
                 </div>
               </div>
@@ -81,7 +81,8 @@
 export default {
   name: "Navbar",
   props: [
-    'frontendUrl'
+    'frontendUrl',
+    'text'
   ],
   data(){
     return {
@@ -186,7 +187,9 @@ input#menu, label.icon {
   color: #ffffff;
 }
 
-
+.button {
+  font-size: 1rem!important;
+}
 
 @media screen and (max-width: 991px) {
   input#menu, label.icon {

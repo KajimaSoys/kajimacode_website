@@ -67,7 +67,8 @@ export default {
   props: [
     'backendUrl',
     'frontendUrl',
-    'apiEndpoint'
+    'apiEndpoint',
+    'text'
   ],
   data(){
     return {
@@ -79,12 +80,13 @@ export default {
   },
 
   methods: {
+    // FIXME switch route to api/v1/projetcs/?personal=True
     async get_projects(){
       await axios
         .get(`api/v1/projects/${this.apiEndpoint}/`)
         .then(response => {
           this.projects = response.data
-          console.log(this.projects)
+          // console.log(this.projects)
           // console.log(this.projects.length)
         })
         .catch(error => {

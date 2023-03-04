@@ -12,14 +12,18 @@
             </div>
           </div>
           <div class="banner07_text-wrapper">
-            <div class="banner07_text">This website uses cookies.</div>
-            <div class="banner07_supporting-text">Learn more</div>
+            <div class="banner07_text">{{ text.element_text }}</div>
+            <div class="banner07_supporting-text">
+              <router-link to="/cookies">
+                {{ text.link }}
+              </router-link>
+            </div>
           </div>
         </div>
         <div class="button-row-cookie">
           <div class="button-wrapper" @click="cookieAccept">
             <a class="button-secondary is-button-small cookie-banner-action w-inline-block">
-              <div class="text-block-3">Allow</div>
+              <div class="text-block-3">{{ text.button }}</div>
             </a>
           </div>
         </div>
@@ -29,11 +33,18 @@
 
 <script>
 import {mapState, mapMutations} from 'vuex'
+import axios from "axios";
 
 export default {
   name: "CookieBanner",
   data() {
     return {
+      text: {
+        'element_text': 'This website uses cookies.',
+        'link': 'Learn more',
+        'button': 'Allow',
+      },
+
       bannerPosition: 'translate3d(0px, 0vh, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)',
       bannerDisplay: '1',
     }
@@ -53,6 +64,19 @@ export default {
       this.bannerDisplay = '0'
       this.$store.commit('cookies/cookieAccept')
     },
+    async get_text(lang){
+
+      // console.log(axios.defaults.baseURL)
+      await axios
+          .get(`http://localhost:8000/api/v1/pages/cookie-element/?language=${lang}`)
+          .then(response => {
+            // console.log(response.data[0])
+            this.text = response.data[0]
+          })
+          .catch(error => {
+            console.log('Ошибка при загрузке локализации для Cookie-element')
+          })
+    }
 
     // ...mapMutations({
     //   cookieAccept: 'cookies/cookieAccept'
@@ -63,11 +87,14 @@ export default {
     // if (localStorage.getItem('hasAcceptedCookies')) {
     //   this.cookieAccept();
     // }
-
     setTimeout(() => {
       this.bannerPosition = 'translate3d(0px, -15vh, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)'
     }, 2000)
   },
+  beforeMount() {
+    // FIXME add language switch
+    this.get_text('ru')
+  }
 
   //  beforeDestroy() {
   //   if (this.hasAcceptedCookies) {
@@ -86,5 +113,13 @@ export default {
 
  .cookie-banner-action{
    transition: opacity ease 0.2s;
+ }
+
+ .banner07_supporting-text a{
+   color: white;
+ }
+
+ .button-secondary.is-button-small.cookie-banner-action:hover{
+   transition: background-color 0.2s ease-in-out;
  }
 </style>

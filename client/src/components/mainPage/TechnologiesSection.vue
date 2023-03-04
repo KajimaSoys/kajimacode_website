@@ -3,7 +3,7 @@
     <div class="page-padding-2">
       <div class="container-large-2">
         <div class="padding-vertical-xhuge">
-          <h1 class="heading-xlarge">Technologies I use</h1>
+          <h1 class="heading-xlarge">{{ text.technologies_title }}</h1>
           <div class="space-large"></div>
           <div class="space-large"></div>
           <div class="w-layout-grid layout18_component">
@@ -16,8 +16,8 @@
                     </div>
                   </div>
                   <div class="layout18_item-text-wrapper">
-                    <h3 class="heading-xsmall">Django</h3>
-                    <div class="text-size-medium">It is a high-level Python web framework that allows for the rapid development of secure and maintainable web applications.</div>
+                    <h3 class="heading-xsmall">{{ text.django_title }}</h3>
+                    <div class="text-size-medium">{{ text.django_description }}</div>
                     <div class="space-xxsmall"></div>
                   </div>
                 </div>
@@ -28,9 +28,9 @@
                     </div>
                   </div>
                   <div class="layout18_item-text-wrapper">
-                    <h3 class="heading-xsmall">PostgreSQL</h3>
+                    <h3 class="heading-xsmall">{{ text.postgresql_title }}</h3>
                     <div class="space-xxsmall"></div>
-                    <div class="text-size-medium">PostgreSQL is a powerful relational database management system that offers advanced features for data integrity, scalability and performance.</div>
+                    <div class="text-size-medium">{{ text.postgresql_description }}</div>
                   </div>
                 </div>
                 <div id="w-node-_473af96d-fe9a-7583-1058-afd0b4f508d1-9f429e46" class="layout18_item">
@@ -40,21 +40,21 @@
                     </div>
                   </div>
                   <div class="layout18_item-text-wrapper">
-                    <h3 class="heading-xsmall">Vue.js</h3>
+                    <h3 class="heading-xsmall">{{ text.vue_title }}</h3>
                     <div class="space-xxsmall"></div>
-                    <div class="text-size-medium">Vue is a progressive JavaScript framework for building user interfaces that allows for building reusable, composable components and efficient updates, making it a great choice for building dynamic and interactive web applications.</div>
+                    <div class="text-size-medium">{{ text.vue_description }}</div>
                   </div>
                 </div>
               </div>
               <div class="button-row is-reverse-mobile-landscape">
                 <div class="button-wrapper max-width-full-mobile-landscape">
                   <a @click="scrollToAnchor('contact-section')" class="button-secondary-gray w-inline-block">
-                    <div>Get started</div>
+                    <div>{{ text.get_started_button }}</div>
                   </a>
                 </div>
                 <div class="button-wrapper max-width-full-mobile-landscape">
                   <router-link to="/skills" class="button-3 w-inline-block">
-                      <div>Learn more</div>
+                      <div>{{ text.learn_more_button }}</div>
                   </router-link>
                 </div>
               </div>
@@ -72,7 +72,8 @@ export default {
   name: "TechnologiesSection",
   props: [
     'scrollToAnchor',
-    'frontendUrl'
+    'frontendUrl',
+    'text'
   ],
 }
 </script>
