@@ -13,6 +13,7 @@ import Navbar from "@/components/Navbar.vue";
 import MainSection from "@/components/soloProjectPage/MainSection.vue";
 import Footer from "@/components/Footer.vue";
 import axios from "axios";
+import store from "../store";
 
 export default {
   name: "SoloProjectView",
@@ -51,10 +52,15 @@ export default {
       })
     }
   },
-
+  created() {
+    store.subscribe((mutation, state) => {
+      if (mutation.type === 'language/setLanguage'){
+        this.get_text(state.language.language)
+      }
+    })
+  },
   beforeMount() {
-    // FIXME add language switch
-    this.get_text('ru')
+    this.get_text(this.$store.state.language.language)
 
     if (window.location.pathname.includes('team')) {
       this.apiEndpoint = 'team'

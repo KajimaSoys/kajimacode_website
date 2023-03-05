@@ -9,6 +9,15 @@ import SmoothScroll from 'smoothscroll-for-websites'
 
 import './assets/main.css'
 
+const domain = window.location.hostname;
+let language = 'en';
+
+if (domain.startsWith('ru.')) {
+  language = 'ru';
+}
+
+store.commit('language/setLanguage', language)
+
 const app = createApp(App)
 
 app.use(store)

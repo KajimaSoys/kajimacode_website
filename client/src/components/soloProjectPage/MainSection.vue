@@ -39,12 +39,22 @@
                   </div>
                </router-link>
 
-               <h1 class="title">
+               <h1 v-if="lang_ru" class="title">
                   {{ project.name_ru }}
                </h1>
-               <p class="description">
+
+              <h1 v-else class="title">
+                  {{ project.name }}
+              </h1>
+
+               <p v-if="lang_ru" class="description">
                   {{project.description_ru}}
                </p>
+
+              <p v-else class="description">
+                  {{project.description}}
+              </p>
+
                <div class="additional">
                   <div class="groups">
                      {{project.get_group}}
@@ -117,6 +127,7 @@
 
 <script>
 import axios from "axios";
+import store from "../../store";
 
 export default {
   name: "MainSection",
@@ -131,29 +142,40 @@ export default {
       projects: [],
       project: {
         image_set: [],
-      }
-
+      },
+      lang_ru: false,
     }
   },
-
-  created() {
-    this.get_projects()
-  },
-
   methods: {
+    switchLanguage(lang) {
+      this.lang_ru = lang === 'ru';
+    },
+
     async get_projects(){
       await axios
         .get(`api/v1/projects/${this.$route.params.id}/`)
         .then(response => {
           this.project = response.data
-          console.log(this.project)
+          // console.log(this.project)
         })
         .catch(error => {
           console.log('Ошибка при загрузке проектов')
         })
     },
+  },
 
+  created() {
+    this.get_projects()
 
+    store.subscribe((mutation, state) => {
+      if (mutation.type === 'language/setLanguage'){
+        this.switchLanguage(state.language.language)
+      }
+    })
+  },
+
+  beforeMount() {
+    this.switchLanguage(this.$store.state.language.language)
   },
 }
 </script>

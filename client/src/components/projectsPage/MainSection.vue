@@ -14,20 +14,32 @@
                <div class="hover-area"> </div>
 
                <router-link v-if="apiEndpoint==='personal'" :to="{ name: 'project', params: { id: project.id } }" class="project-link">
-                  <h1 class="title">
-                     {{project.name_ru}}
+                  <h1 v-if="lang_ru" class="title">
+                     {{ project.name_ru}}
                   </h1>
+
+                 <h1 v-else class="title">
+                   {{ project.name}}
+                 </h1>
                </router-link>
 
               <router-link v-else :to="{ name: 'teamProject', params: { id: project.id } }" class="project-link">
-                  <h1 class="title">
+                  <h1 v-if="lang_ru" class="title">
                      {{project.name_ru}}
+                  </h1>
+
+                  <h1 v-else class="title">
+                     {{project.name}}
                   </h1>
                </router-link>
 
-               <p class="description">
+               <p v-if="lang_ru" class="description">
                   {{project.description_short_ru}}
                </p>
+               <p v-else class="description">
+                  {{project.description_short}}
+               </p>
+
                <div class="additional">
                   <div class="groups">
                      {{project.get_group}}
@@ -57,6 +69,8 @@
 
 <script>
 import axios from "axios";
+import store from "../../store";
+import {resolveTransitionHooks} from "vue";
 // import VueNprogress from 'vue-nprogress'
 
 export default {
@@ -70,56 +84,47 @@ export default {
     'apiEndpoint',
     'text'
   ],
-  data(){
+  data() {
     return {
       projects: [],
+      lang_ru: false,
     }
-  },
-  mounted() {
-    this.get_projects()
   },
 
   methods: {
+    switchLanguage(lang) {
+      this.lang_ru = lang === 'ru';
+    },
+
     // FIXME switch route to api/v1/projetcs/?personal=True
-    async get_projects(){
+    async get_projects() {
       await axios
-        .get(`api/v1/projects/${this.apiEndpoint}/`)
-        .then(response => {
-          this.projects = response.data
-          // console.log(this.projects)
-          // console.log(this.projects.length)
-        })
-        .catch(error => {
-          console.log('Ошибка при загрузке проектов')
-        })
+          .get(`api/v1/projects/${this.apiEndpoint}/`)
+          .then(response => {
+            this.projects = response.data
+            // console.log(this.projects)
+          })
+          .catch(error => {
+            console.log('Ошибка при загрузке проектов')
+          })
     },
   },
-  // beforeRouteEnter(to, from, next) {
-  //   const nprogress = next.vm.$nprogress
-  //
-  //   // Start the loading progress
-  //   nprogress.start()
-  //
-  //   // Update the loading progress as the route changes
-  //   const timer = setInterval(() => {
-  //     nprogress.inc()
-  //
-  //     if (nprogress.status === 1) {
-  //       clearInterval(timer)
-  //       nprogress.done()
-  //     }
-  //   }, 500)
-  //
-  //   next()
-  // },
-  // beforeRouteLeave(to, from, next) {
-  //   const nprogress = next.vm.$nprogress
-  //
-  //   // Stop the loading progress
-  //   nprogress.done()
-  //
-  //   next()
-  // }
+
+  created() {
+    this.get_projects()
+
+    store.subscribe((mutation, state) => {
+      if (mutation.type === 'language/setLanguage'){
+        this.switchLanguage(state.language.language)
+      }
+    })
+  },
+
+  beforeMount() {
+    this.switchLanguage(this.$store.state.language.language)
+  },
+
+
 }
 </script>
 

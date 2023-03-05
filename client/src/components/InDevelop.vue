@@ -1,6 +1,6 @@
 <template>
 <!--  <div class="image-container">-->
-    <img class="in-develop-image" :src="`${frontendUrl}/src/assets/images/underDevelop_eng.png`" alt="Section under develop">
+    <img class="in-develop-image" :src="`${frontendUrl}/src/assets/images/underDevelop_${this.$store.state.language.language}.png`" alt="Section under develop">
 <!--  </div>-->
 </template>
 

@@ -28,12 +28,27 @@
                 </router-link>
 
               </div>
+
               <div class="navbar07_menu-right">
                 <div class="navbar07_button-wrapper">
                   <a href="#" class="button-secondary-gray show-tablet w-inline-block">
                     <div>Log in</div>
                   </a>
                   <div class="w-layout-grid navbar-social-list">
+                    <div class="language-container" @click="langMenu = !langMenu">
+                      <img :src="`${frontendUrl}/src/assets/icons/${this.$store.state.language.language}.png`" class="language-icon">
+                      <transition name="fade">
+                        <div v-if="langMenu" class="available-languages">
+                          <div class="language" @click="switchLanguage('ru')">
+                            <img :src="`${frontendUrl}/src/assets/icons/ru.png`" class="language-icon">Русский
+                          </div>
+
+                          <div class="language" @click="switchLanguage('en')">
+                            <img :src="`${frontendUrl}/src/assets/icons/en.png`" class="language-icon">English
+                          </div>
+                        </div>
+                      </transition>
+                    </div>
                     <a href="https://www.instagram.com/kajimasoys/" target="_blank" class="navbar_social-link w-inline-block">
                       <div class="footer04_social-icon w-embed">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -78,6 +93,8 @@
 </template>
 
 <script>
+import store from "../store";
+
 export default {
   name: "Navbar",
   props: [
@@ -91,7 +108,9 @@ export default {
       changedToSmall: false,
 
       width: document.documentElement.clientWidth,
-      height: document.documentElement.clientHeight
+      height: document.documentElement.clientHeight,
+
+      langMenu: false,
     }
   },
   mounted() {
@@ -109,15 +128,25 @@ export default {
     }
 
     window.addEventListener('resize', this.getDimensions);
-
-
+    document.addEventListener('click', this.closeLangMenu);
   },
-
   unmounted() {
     window.removeEventListener('resize', this.getDimensions);
+    document.removeEventListener('click', this.closeLangMenu);
   },
 
   methods: {
+    switchLanguage(lang) {
+      this.$store.commit('language/setLanguage', lang)
+    },
+
+    closeLangMenu() {
+      if (this.langMenu && !this.$el.contains(event.target)) {
+        this.langMenu = false;
+      }
+
+    },
+
     openMenu(){
       if (!this.menu){
         this.$refs.navbar.style.transform = 'translateY(0px) translateX(0px)'
@@ -189,6 +218,65 @@ input#menu, label.icon {
 
 .button {
   font-size: 1rem!important;
+}
+
+.footer04_social-icon {
+  width: 24px!important;
+  height: 24px!important;
+}
+
+.navbar-social-list {
+  grid-column-gap: 1.1rem!important;
+}
+
+.available-languages {
+  position: absolute;
+  width: 120px;
+  height: 80px;
+  background-color: white;
+  border-radius: 16px;
+  border: 1px #1d2939 solid;
+  display: grid;
+  align-items: center;
+  transform: translate3d(-49px, 15px, 0px);
+}
+
+.language-icon{
+  cursor: pointer;
+}
+
+.language-icon {
+  width: 24px;
+  height: 24px;
+  border: 2px white solid!important;
+  border-radius: 12px;
+}
+
+.language > .language-icon {
+  margin: 0 10px;
+}
+
+.language {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  color: #000;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.language:hover {
+  color: #ff5f29;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.3s ease;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 
 @media screen and (max-width: 991px) {
@@ -289,6 +377,10 @@ input#menu, label.icon {
 
   .footer04_social-icon > img  {
     max-width: inherit;
+  }
+
+  .available-languages {
+    transform: translate3d(-12px, 15px, 0px);
   }
 }
 </style>

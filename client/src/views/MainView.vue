@@ -30,6 +30,7 @@ import ContactSection from "@/components/mainPage/ContactSection.vue";
 import ReviewSection from "@/components/mainPage/ReviewSection.vue";
 import Footer from "@/components/Footer.vue";
 import axios from "axios";
+import store from "../store";
 // TODO make back to top component
 // TODO make navbar sticky
 // TODO make IntoduceSection going up when scroll instead of MainSection
@@ -63,28 +64,33 @@ export default {
       const target = document.querySelector(`#${anchor}`);
       target.scrollIntoView({behavior: "smooth"});
     },
-    get_text(lang){
 
-    Promise.all([
-        axios.get(`http://localhost:8000/api/v1/pages/navbar/?language=${lang}`),
-        axios.get(`http://localhost:8000/api/v1/pages/main/?language=${lang}`),
-        axios.get(`http://localhost:8000/api/v1/pages/footer/?language=${lang}`)
-      ])
-      .then(response => {
-        this.navbar = response[0].data[0]
-        this.mainPage = response[1].data[0]
-        this.footer = response[2].data[0]
-      })
-      .catch(error => {
-        console.log('Ошибка при загрузке локализации')
-      })
+    get_text(lang){
+      Promise.all([
+          axios.get(`http://localhost:8000/api/v1/pages/navbar/?language=${lang}`),
+          axios.get(`http://localhost:8000/api/v1/pages/main/?language=${lang}`),
+          axios.get(`http://localhost:8000/api/v1/pages/footer/?language=${lang}`)
+        ])
+        .then(response => {
+          this.navbar = response[0].data[0]
+          this.mainPage = response[1].data[0]
+          this.footer = response[2].data[0]
+        })
+        .catch(error => {
+          console.log('Ошибка при загрузке локализации')
+        })
     }
   },
+  created() {
+    store.subscribe((mutation, state) => {
+      if (mutation.type === 'language/setLanguage'){
+        this.get_text(state.language.language)
+      }
+    })
+  },
   beforeMount() {
-    // FIXME add language switch
-    this.get_text('ru')
+    this.get_text(this.$store.state.language.language)
   }
-
 }
 </script>
 
