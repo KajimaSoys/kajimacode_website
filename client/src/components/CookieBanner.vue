@@ -49,60 +49,38 @@ export default {
       bannerDisplay: '1',
     }
   },
-  beforeCreate() {
-    this.$store.commit('cookies/initializeStore')
-  },
-
-  computed: {
-    // ...mapState({
-    //   hasAcceptedCookies: state => state.cookies.hasAcceptedCookies
-    // })
-  },
 
   methods: {
     cookieAccept(){
       this.bannerDisplay = '0'
       this.$store.commit('cookies/cookieAccept')
     },
-    async get_text(lang){
 
-      // console.log(axios.defaults.baseURL)
+    async get_text(lang){
       await axios
           .get(`http://localhost:8000/api/v1/pages/cookie-element/?language=${lang}`)
           .then(response => {
-            // console.log(response.data[0])
             this.text = response.data[0]
           })
           .catch(error => {
             console.log('Ошибка при загрузке локализации для Cookie-element')
           })
     }
+  },
 
-    // ...mapMutations({
-    //   cookieAccept: 'cookies/cookieAccept'
-    // })
+  beforeCreate() {
+    this.$store.commit('cookies/initializeStore')
+  },
+
+  created() {
+    this.get_text(this.$store.state.language.language)
   },
 
   mounted() {
-    // if (localStorage.getItem('hasAcceptedCookies')) {
-    //   this.cookieAccept();
-    // }
     setTimeout(() => {
       this.bannerPosition = 'translate3d(0px, -15vh, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg)'
     }, 2000)
   },
-  beforeMount() {
-    // FIXME add language switch
-    this.get_text('ru')
-  }
-
-  //  beforeDestroy() {
-  //   if (this.hasAcceptedCookies) {
-  //     localStorage.setItem('hasAcceptedCookies', true);
-  //   }
-  // }
-
-
 }
 </script>
 

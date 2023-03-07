@@ -709,7 +709,7 @@
 }
 
 .page-padding {
-  height: 0vh;
+  /*height: 0vh;*/
   padding-right: 2rem;
   padding-left: 2rem;
 }
@@ -1025,7 +1025,7 @@
 }
 
 .section_contact01 {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .footer04_legal-link {

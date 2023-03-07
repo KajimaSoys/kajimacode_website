@@ -27,7 +27,7 @@ app.use(router, axios)
 app.use(ElementPlus)
 
 app.use(SmoothScroll({
-                        animationTime    : 500 ,
+                        animationTime    : 400 ,
                         accelerationDelta : 100,
                         accelerationMax   : 3,
                         touchpadSupport   : true,

@@ -44,3 +44,10 @@ class CoreWorkSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('name', 'description', 'link')
 
 
+class CoreSkillSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Skill
+        fields = ('id', 'skill_type', 'name', 'name_ru', 'description', 'description_ru')
+
+
+

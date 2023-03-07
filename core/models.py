@@ -3,6 +3,7 @@ import os
 from django.utils.html import mark_safe
 # from django.contrib.auth.models import Permission
 
+
 class Group(models.Model):
     """
     Описание модели Group приложения Core
@@ -13,7 +14,6 @@ class Group(models.Model):
 
     id = models.BigAutoField(verbose_name='Идентификатор', primary_key=True)
     name = models.CharField(verbose_name='Название группы', max_length=100)
-
 
     def __str__(self):
         return self.name
@@ -72,6 +72,9 @@ class Project(models.Model):
 
 
 class ProjectImages(models.Model):
+    """
+    Описание модели ProjectImages приложения Core
+    """
     project = models.ForeignKey(to=Project, on_delete=models.CASCADE, verbose_name='Проект')
     main = models.BooleanField(verbose_name='Главное изображение?', default=False)
     alt = models.CharField(verbose_name='Альтернативный текст', max_length=500, blank=True)
@@ -85,7 +88,6 @@ class ProjectImages(models.Model):
     def delete(self, using=None, keep_parents=False):
         self.image.storage.delete(self.image.path)
         super().delete()
-
 
     def image_tag(self):
         if self.pk is None:
@@ -121,3 +123,36 @@ class Work(models.Model):
 
     def __str__(self):
         return self.name
+
+
+
+class Skill(models.Model):
+    """
+    Описание модели Skill приложения Core
+    """
+    class Meta:
+        verbose_name = 'Навык'
+        verbose_name_plural = 'Навыки'
+
+    id = models.BigAutoField(verbose_name='Идентификатор', primary_key=True)
+
+    skill_type_choices = (
+        ('frontend', 'Frontend'),
+        ('backend', 'Backend'),
+        ('other', 'Other'),
+    )
+
+    skill_type = models.CharField(verbose_name='Типа навыка', choices=skill_type_choices, max_length=15, default='backend')
+
+    name = models.CharField(verbose_name='Навык (англ.)', max_length=250)
+    name_ru = models.CharField(verbose_name='Навык (рус.)', max_length=250)
+
+    description = models.TextField(verbose_name='Описание (англ.)', max_length=5000, blank=True)
+    description_ru = models.TextField(verbose_name='Описание (рус.)', max_length=5000, blank=True)
+
+    isActive = models.BooleanField(verbose_name='Активен?', default=True)
+
+    def __str__(self):
+        return self.name
+
+

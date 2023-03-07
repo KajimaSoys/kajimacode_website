@@ -82,15 +82,14 @@ export default {
     }
   },
   created() {
+    this.get_text(this.$store.state.language.language)
+
     store.subscribe((mutation, state) => {
       if (mutation.type === 'language/setLanguage'){
         this.get_text(state.language.language)
       }
     })
   },
-  beforeMount() {
-    this.get_text(this.$store.state.language.language)
-  }
 }
 </script>
 

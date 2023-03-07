@@ -101,7 +101,13 @@ class PagesProjectsPageSerializer(serializers.HyperlinkedModelSerializer):
 class PagesSkillsPageSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = SkillsPage
-        fields = ('title',)
+        fields = ('title',
+                  'backend_title',
+                  'backend_description',
+                  'frontend_title',
+                  'frontend_description',
+                  'other_title',
+                  'other_description',)
 
 
 class PagesAboutPageSerializer(serializers.HyperlinkedModelSerializer):

@@ -51,6 +51,15 @@ class WorkViewSet(viewsets.ModelViewSet):
     serializer_class = CoreWorkSerializer
 
 
+@permission_classes((permissions.IsAuthenticatedOrReadOnly,))
+class SkillViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint for Skills
+    """
+    queryset = Skill.objects.filter(isActive=True)
+    serializer_class = CoreSkillSerializer
+
+
 def get_ascii(request):
     with open('core/local_static/ascii_raw_new', 'r', encoding='UTF-8') as file:
         lines = file.readlines()

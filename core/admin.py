@@ -63,3 +63,8 @@ class ProjectAdmin(admin.ModelAdmin):
 @admin.register(Work)
 class WorkAdmin(admin.ModelAdmin):
     pass
+
+
+@admin.register(Skill)
+class SkillAdmin(admin.ModelAdmin):
+    pass

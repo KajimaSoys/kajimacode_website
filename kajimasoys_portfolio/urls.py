@@ -25,6 +25,7 @@ from django.conf.urls.static import static
 router = routers.DefaultRouter()
 router.register(r'groups', coreViews.GroupViewSet)
 router.register(r'works', coreViews.WorkViewSet)
+router.register(r'skills', coreViews.SkillViewSet)
 router.register(r'projects/personal', coreViews.PersonalProjectViewSet)
 router.register(r'projects/team', coreViews.TeamProjectViewSet)
 router.register(r'projects', coreViews.ProjectViewSet)

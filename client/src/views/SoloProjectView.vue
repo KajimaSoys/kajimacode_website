@@ -53,6 +53,13 @@ export default {
     }
   },
   created() {
+    this.get_text(this.$store.state.language.language)
+
+    if (window.location.pathname.includes('team')) {
+      this.apiEndpoint = 'team'
+      this.personal = false
+    }
+
     store.subscribe((mutation, state) => {
       if (mutation.type === 'language/setLanguage'){
         this.get_text(state.language.language)
@@ -60,12 +67,7 @@ export default {
     })
   },
   beforeMount() {
-    this.get_text(this.$store.state.language.language)
 
-    if (window.location.pathname.includes('team')) {
-      this.apiEndpoint = 'team'
-      this.personal = false
-    }
   }
 }
 </script>

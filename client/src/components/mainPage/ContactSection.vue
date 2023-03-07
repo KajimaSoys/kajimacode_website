@@ -20,7 +20,7 @@
               <div class="form-field-wrapper">
                 <label for="Contact-01-email" class="field-label">{{ text.email_label }}</label>
                 <input type="email" v-model="email" class="form_input w-input" maxlength="256" name="Contact-01-email" data-name="Contact 01 email" :placeholder="text.email_placeholder " id="Contact-01-email" required="" />
-              </div>:
+              </div>
               <div class="form-field-wrapper">
                 <label for="Contact-01-message" class="field-label">{{ text.message_label }}</label>
                 <textarea v-model="message" id="Contact-01-message" name="Contact-01-message" maxlength="5000" data-name="Contact 01 message" :placeholder="text.message_placeholder" required="" class="form_input text-area w-input"></textarea>
@@ -123,5 +123,16 @@ export default {
 </script>
 
 <style scoped>
+@media screen and (max-width: 767px){
+  .padding-vertical-xhuge {
+      padding-top: 2rem;
+  }
+  .contact01_component {
+    margin-top: 2rem;
+}
 
+  .form_input.text-area {
+    min-height: 6.25rem;
+}
+}
 </style>
