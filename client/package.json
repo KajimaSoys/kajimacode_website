@@ -16,7 +16,7 @@
     "smoothscroll-for-websites": "^1.4.10",
     "splitting": "^1.0.6",
     "vue": "^3.2.45",
-    "vue-meta": "^2.4.0",
+    "vue-meta": "^3.0.0-alpha.10",
     "vue-router": "^4.1.6",
     "vuex": "^4.0.2"
   },

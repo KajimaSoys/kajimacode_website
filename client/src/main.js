@@ -6,6 +6,7 @@ import axios from "axios";
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import SmoothScroll from 'smoothscroll-for-websites'
+import { createMetaManager } from 'vue-meta'
 
 import './assets/main.css'
 
@@ -25,6 +26,8 @@ app.use(store)
 app.use(router, axios)
 
 app.use(ElementPlus)
+
+app.use(createMetaManager())
 
 app.use(SmoothScroll({
                         animationTime    : 400 ,

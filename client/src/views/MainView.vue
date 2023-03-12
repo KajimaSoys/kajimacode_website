@@ -1,4 +1,8 @@
 <template>
+      <metainfo>
+        <template v-slot:title="{ content, metainfo }">{{ content }}</template>
+      </metainfo>
+
       <Navbar :frontendUrl="frontendUrl" :text="navbar"/>
 
       <MainSection :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl" :text="mainPage"/>
@@ -29,8 +33,11 @@ import TechnologiesSection from "@/components/mainPage/TechnologiesSection.vue";
 import ContactSection from "@/components/mainPage/ContactSection.vue";
 import ReviewSection from "@/components/mainPage/ReviewSection.vue";
 import Footer from "@/components/Footer.vue";
+
+
 import axios from "axios";
 import store from "../store";
+import { useMeta } from 'vue-meta'
 // TODO make back to top component
 // TODO make navbar sticky
 // TODO make IntoduceSection going up when scroll instead of MainSection
@@ -46,6 +53,46 @@ export default {
       mainPage: {},
       footer: {},
     }
+  },
+  setup() {
+    useMeta({
+      title: window.location.hostname.startsWith('ru.')
+          ? 'KajimaCode | Создание инновационных и качественных веб-сайтов'
+          : 'KajimaCode | Building Innovative and High-Quality Websites',
+      description: window.location.hostname.startsWith('ru.')
+          ? 'KajimaCode - это компания, специализирующаяся на полном цикле разработки веб-сайтов, готовая воплотить ваши уникальные идеи в жизнь с помощью наших навыков в программировании и дизайне. Мы создаем инновационные и качественные веб-сайты, которые будут соответствовать вашим потребностям и привлекать новых клиентов.'
+          : 'KajimaCode is a full-service web development company specializing in creating innovative and high-quality websites. Let us bring your digital vision to life with our expertise in coding and design.',
+      og: {
+        title: window.location.hostname.startsWith('ru.')
+          ? 'KajimaCode | Создание инновационных и качественных веб-сайтов'
+          : 'KajimaCode | Building Innovative and High-Quality Websites',
+        type: 'website',
+        url: 'https://kajimacode.com',
+        description: window.location.hostname.startsWith('ru.')
+          ? 'KajimaCode - это компания, специализирующаяся на полном цикле разработки веб-сайтов, готовая воплотить ваши уникальные идеи в жизнь с помощью наших навыков в программировании и дизайне. Мы создаем инновационные и качественные веб-сайты, которые будут соответствовать вашим потребностям и привлекать новых клиентов.'
+          : 'KajimaCode is a full-service web development company specializing in creating innovative and high-quality websites. Let us bring your digital vision to life with our expertise in coding and design.',
+        site_name: 'KajimaCode',
+        locale: window.location.hostname.startsWith('ru.')
+          ? 'ru_RU'
+          : 'en_GB',
+        'locale:alternate': window.location.hostname.startsWith('ru.')
+          ? 'en_GB'
+          : 'ru_RU',
+        image: 'https://kajimacode.com/src/assets/images/main_page.png',
+        'image:alt': 'This is the main page of the kajimacode.com website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
+      },
+      twitter: {
+        card: 'summary',
+        title: window.location.hostname.startsWith('ru.')
+          ? 'KajimaCode | Создание инновационных и качественных веб-сайтов'
+          : 'KajimaCode | Building Innovative and High-Quality Websites',
+        description: window.location.hostname.startsWith('ru.')
+          ? 'KajimaCode - это компания, специализирующаяся на полном цикле разработки веб-сайтов, готовая воплотить ваши уникальные идеи в жизнь с помощью наших навыков в программировании и дизайне. Мы создаем инновационные и качественные веб-сайты, которые будут соответствовать вашим потребностям и привлекать новых клиентов.'
+          : 'KajimaCode is a full-service web development company specializing in creating innovative and high-quality websites. Let us bring your digital vision to life with our expertise in coding and design.',
+        image: 'https://kajimacode.com/src/assets/images/main_page.png',
+        'image:alt': 'This is the main page of the kajimacode.com website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
+      },
+    })
   },
   components: {
     Navbar,
