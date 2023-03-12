@@ -19,9 +19,9 @@
                 </div>
               </div>
               <div class="heroheader07_image-wrapper">
-                <img :src="`${frontendUrl}/src/assets/images/light_orig.png`" loading="lazy" alt="Colorful gradient" class="heroheader07_light-overlay" />
+                <img :src="`${frontendUrl}/src/assets/images/light_orig.png`" alt="Colorful gradient" class="heroheader07_light-overlay" />
 <!--                <spline scene="https://prod.spline.design/DAnBj2USRzWxm2jA/scene.splinecode" />-->
-<!--                <ascii-render/>-->
+                <spline-component/>
               </div>
             </div>
           </div>
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import AsciiRender from "@/components/mainPage/AsciiRender.vue";
+import SplineComponent from "./SplineComponent.vue";
 import Splitting from 'splitting';
 // import Spline from 'vue-spline';
 
@@ -39,8 +39,7 @@ export default {
   name: "MainSection",
 
   components: {
-    AsciiRender,
-    // Spline
+    SplineComponent
   },
   props: [
     'scrollToAnchor',
@@ -110,6 +109,14 @@ p .char {
 .char:hover {
   color: #ff5f29;
 	/*cursor: pointer;*/
+}
+
+@media screen and (max-width: 479px){
+  .heroheader07_light-overlay {
+    right: -53%!important;
+    bottom: -72%!important;
+  }
+
 }
 
 </style>

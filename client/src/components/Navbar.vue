@@ -367,12 +367,12 @@ input#menu, label.icon {
   }
 
   .navbar_social-link {
-    color: #98a2b3;
+    color: #98a2b3!important;
     transition: all 300ms ease;
   }
 
   .navbar_social-link:hover{
-    color: #667085;
+    color: #667085!important;
   }
 
   .footer04_social-icon > img  {

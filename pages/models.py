@@ -223,7 +223,11 @@ class AboutPage(models.Model):
 
     language = models.CharField(verbose_name='Язык', max_length=6, choices=language_choices, default='en')
 
-    # TODO create AboutPage
+    title = models.CharField(verbose_name='Заголовок', max_length=40)
+    about_text = models.TextField(verbose_name='Текст о себе')
+
+    resume_text = models.CharField(verbose_name='Заголовок для блока резюме', max_length=60)
+    download_button = models.CharField(verbose_name='Кнопка для скачивания', max_length=40)
 
     def __str__(self):
         return f'About - {self.language}'

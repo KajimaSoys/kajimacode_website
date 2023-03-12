@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import AsciiRender from "@/components/mainPage/AsciiRender.vue";
+import AsciiRender from "@/components/aboutPage/AsciiRender.vue";
 
 export default {
   name: "MainView",
@@ -60,7 +60,7 @@ export default {
 </script>
 
 
-<style>
+<style scoped>
 .main {
   display: flex;
 }

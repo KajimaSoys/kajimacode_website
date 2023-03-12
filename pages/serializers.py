@@ -113,7 +113,10 @@ class PagesSkillsPageSerializer(serializers.HyperlinkedModelSerializer):
 class PagesAboutPageSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = AboutPage
-        fields = ('language',)
+        fields = ('title',
+                  'about_text',
+                  'resume_text',
+                  'download_button',)
 
 
 class PagesTermsPageSerializer(serializers.HyperlinkedModelSerializer):
