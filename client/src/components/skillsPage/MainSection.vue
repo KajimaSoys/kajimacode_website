@@ -7,9 +7,9 @@
 
       <div ref="backend" @click="expandCard($refs.backend)" class="card-container" :class="hidden ? 'hidden' : 'visible'">
         <el-card shadow="hover" >
-          <h1 class="heading-xxsmall">
+          <h2 class="heading-xxsmall">
             {{ text.backend_title }}
-          </h1>
+          </h2>
 
           <div class="primary-text" :class="primary ? 'full-opacity' : 'zero-opacity'">
             <div v-html="text.backend_description" class="text-size-medium"></div>

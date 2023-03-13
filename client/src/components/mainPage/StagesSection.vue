@@ -14,7 +14,7 @@
                 <div class="w-layout-grid layout32_timeline-step left-text-timeline">
                   <div class="layout32_timeline-right">
                     <div class="layout32_text-wrapper">
-                      <h3 class="heading-xxsmall">{{ text.discussion_title }}</h3>
+                      <h2 class="heading-xxsmall">{{ text.discussion_title }}</h2>
                       <div class="space-xxsmall"></div>
                       <div class="text-size-medium">{{ text.discussion_description }} </div>
                     </div>
@@ -54,7 +54,7 @@
               <div class="w-layout-grid layout32_timeline-step right-text-timeline">
                 <div class="layout32_timeline-right">
                   <div class="layout32_text-wrapper">
-                    <h3 class="heading-xxsmall">{{ text.concept_title }}</h3>
+                    <h2 class="heading-xxsmall">{{ text.concept_title }}</h2>
                     <div class="space-xxsmall"></div>
                     <div class="text-size-medium">{{ text.concept_description }}</div>
                   </div>
@@ -63,7 +63,7 @@
               <div class="w-layout-grid layout32_timeline-step left-text-timeline">
                 <div class="layout32_timeline-right">
                   <div class="layout32_text-wrapper">
-                    <h3 class="heading-xxsmall">{{ text.server_dev_title }}</h3>
+                    <h2 class="heading-xxsmall">{{ text.server_dev_title }}</h2>
                     <div class="space-xxsmall"></div>
                     <div class="text-size-medium">{{ text.server_dev_description }} </div>
                   </div>
@@ -96,7 +96,7 @@
               <div class="w-layout-grid layout32_timeline-step right-text-timeline">
                 <div class="layout32_timeline-right">
                   <div class="layout32_text-wrapper">
-                    <h3 class="heading-xxsmall">{{ text.ui_dev_title }}</h3>
+                    <h2 class="heading-xxsmall">{{ text.ui_dev_title }}</h2>
                     <div class="space-xxsmall"></div>
                     <div class="text-size-medium">{{ text.ui_dev_description }}</div>
                   </div>
@@ -105,7 +105,7 @@
               <div class="w-layout-grid layout32_timeline-step left-text-timeline">
                 <div class="layout32_timeline-right">
                   <div class="layout32_text-wrapper">
-                    <h3 class="heading-xxsmall">{{ text.test_title }}</h3>
+                    <h2 class="heading-xxsmall">{{ text.test_title }}</h2>
                     <div class="space-xxsmall"></div>
                     <div class="text-size-medium">{{ text.test_description }}</div>
                   </div>
@@ -134,7 +134,7 @@
               <div class="w-layout-grid layout32_timeline-step right-text-timeline">
                 <div class="layout32_timeline-right">
                   <div class="layout32_text-wrapper">
-                    <h3 class="heading-xxsmall">{{ text.deploy_title }}</h3>
+                    <h2 class="heading-xxsmall">{{ text.deploy_title }}</h2>
                     <div class="space-xxsmall"></div>
                     <div class="text-size-medium">{{ text.deploy_description }} <br />
                     </div>
@@ -156,7 +156,7 @@
               </div>
               <div class="layout32_timeline-right">
                 <div class="layout32_text-wrapper">
-                  <h3 class="heading-xxsmall">{{ text.discussion_title }}</h3>
+                  <h2 class="heading-xxsmall">{{ text.discussion_title }}</h2>
                   <div class="space-xxsmall"></div>
                   <div class="text-size-medium">{{ text.discussion_description }} </div>
                 </div>
@@ -170,7 +170,7 @@
               </div>
               <div class="layout32_timeline-right">
                 <div class="layout32_text-wrapper">
-                  <h3 class="heading-xxsmall">{{ text.concept_title }}</h3>
+                  <h2 class="heading-xxsmall">{{ text.concept_title }}</h2>
                   <div class="space-xxsmall"></div>
                   <div class="text-size-medium">{{ text.concept_description }}</div>
                 </div>
@@ -184,7 +184,7 @@
               </div>
               <div class="layout32_timeline-right">
                 <div class="layout32_text-wrapper">
-                  <h3 class="heading-xxsmall">{{ text.server_dev_title }}</h3>
+                  <h2 class="heading-xxsmall">{{ text.server_dev_title }}</h2>
                   <div class="space-xxsmall"></div>
                   <div class="text-size-medium">{{ text.server_dev_description }}</div>
                 </div>
@@ -202,7 +202,7 @@
               </div>
               <div class="layout32_timeline-right">
                 <div class="layout32_text-wrapper">
-                  <h3 class="heading-xxsmall">{{ text.ui_dev_title }}</h3>
+                  <h2 class="heading-xxsmall">{{ text.ui_dev_title }}</h2>
                   <div class="space-xxsmall"></div>
                   <div class="text-size-medium">{{ text.ui_dev_description }}</div>
                 </div>
@@ -216,7 +216,7 @@
               </div>
               <div class="layout32_timeline-right">
                 <div class="layout32_text-wrapper">
-                  <h3 class="heading-xxsmall">{{ text.test_title }}</h3>
+                  <h2 class="heading-xxsmall">{{ text.test_title }}</h2>
                   <div class="space-xxsmall"></div>
                   <div class="text-size-medium">{{ text.test_description }}</div>
                 </div>
@@ -230,7 +230,7 @@
               </div>
               <div class="layout32_timeline-right">
                 <div class="layout32_text-wrapper">
-                  <h3 class="heading-xxsmall">{{ text.deploy_title }}</h3>
+                  <h2 class="heading-xxsmall">{{ text.deploy_title }}</h2>
                   <div class="space-xxsmall"></div>
                   <div class="text-size-medium">{{ text.deploy_description }} <br />
                   </div>
@@ -241,12 +241,12 @@
           <div class="space-large"></div>
           <div class="stages-end-text">
             <div class="stages-end-text-black">
-              <span class="text-span-2">{{ text.first_string }}</span>
-              <a @click="scrollToAnchor('contact-section')" class="link">
-                <span class="stages-end-text-orange">&nbsp{{ text.second_string }}&nbsp</span>
-              </a>
-              <span>{{ text.third_string }}</span>
-              <br />
+                <span class="text-span-2">{{ text.first_string }}</span>
+                <a @click="scrollToAnchor('contact-section')" class="link">
+                  <span class="stages-end-text-orange">&nbsp{{ text.second_string }}&nbsp</span>
+                </a>
+                <span>{{ text.third_string }}</span>
+                <br />
             </div>
           </div>
         </div>

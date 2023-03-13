@@ -6,7 +6,7 @@
           <div class="text-align-center">
             <div class="max-width-large align-center">
               <div class="heading-subheading">{{ text.contact_pretitle }}</div>
-              <h2 class="heading-medium">{{ text.contact_title }}</h2>
+              <h1 class="heading-medium">{{ text.contact_title }}</h1>
               <div class="space-xsmall"></div>
               <div class="text-size-large">{{ text.contact_description }}</div>
             </div>

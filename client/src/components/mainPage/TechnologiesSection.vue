@@ -16,7 +16,7 @@
                     </div>
                   </div>
                   <div class="layout18_item-text-wrapper">
-                    <h3 class="heading-xsmall">{{ text.django_title }}</h3>
+                    <h2 class="heading-xsmall">{{ text.django_title }}</h2>
                     <div class="text-size-medium">{{ text.django_description }}</div>
                     <div class="space-xxsmall"></div>
                   </div>
@@ -28,7 +28,7 @@
                     </div>
                   </div>
                   <div class="layout18_item-text-wrapper">
-                    <h3 class="heading-xsmall">{{ text.postgresql_title }}</h3>
+                    <h2 class="heading-xsmall">{{ text.postgresql_title }}</h2>
                     <div class="space-xxsmall"></div>
                     <div class="text-size-medium">{{ text.postgresql_description }}</div>
                   </div>
@@ -40,7 +40,7 @@
                     </div>
                   </div>
                   <div class="layout18_item-text-wrapper">
-                    <h3 class="heading-xsmall">{{ text.vue_title }}</h3>
+                    <h2 class="heading-xsmall">{{ text.vue_title }}</h2>
                     <div class="space-xxsmall"></div>
                     <div class="text-size-medium">{{ text.vue_description }}</div>
                   </div>

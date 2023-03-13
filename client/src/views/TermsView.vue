@@ -33,27 +33,30 @@ export default {
     }
   },
   setup() {
+    let ru = window.location.hostname.startsWith('ru.')
     useMeta({
-      title: window.location.hostname.startsWith('ru.')
+      title: ru
           ? 'Политика конфиденциальности | KajimaCode'
           : 'Privacy Policy | KajimaCode',
-      description: window.location.hostname.startsWith('ru.')
+      description: ru
           ? 'Прочитайте политику конфиденциальности для KajimaCode.'
           : 'Read the privacy policy for KajimaCode.',
       og: {
-        title: window.location.hostname.startsWith('ru.')
+        title: ru
           ? 'Политика конфиденциальности | KajimaCode'
           : 'Privacy Policy | KajimaCode',
         type: 'website',
-        url: 'https://kajimacode.com',
-        description: window.location.hostname.startsWith('ru.')
+        url: ru
+          ? 'https://ru.kajimacode.com/terms'
+          : 'https://kajimacode.com/terms',
+        description: ru
           ? 'Прочитайте политику конфиденциальности для KajimaCode.'
           : 'Read the privacy policy for KajimaCode.',
         site_name: 'KajimaCode',
-        locale: window.location.hostname.startsWith('ru.')
+        locale: ru
           ? 'ru_RU'
           : 'en_GB',
-        'locale:alternate': window.location.hostname.startsWith('ru.')
+        'locale:alternate': ru
           ? 'en_GB'
           : 'ru_RU',
         image: 'https://kajimacode.com/src/assets/images/main_page.png',
@@ -61,15 +64,21 @@ export default {
       },
       twitter: {
         card: 'summary',
-        title: window.location.hostname.startsWith('ru.')
+        site: ru
+          ? 'https://ru.kajimacode.com/terms'
+          : 'https://kajimacode.com/terms',
+        title: ru
           ? 'Политика конфиденциальности | KajimaCode'
           : 'Privacy Policy | KajimaCode',
-        description: window.location.hostname.startsWith('ru.')
+        description: ru
           ? 'Прочитайте политику конфиденциальности для KajimaCode.'
           : 'Read the privacy policy for KajimaCode.',
         image: 'https://kajimacode.com/src/assets/images/main_page.png',
         'image:alt': 'This is the main page of the kajimacode.com website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
       },
+      link: [
+        {rel: 'canonical', href: ru ? 'https://ru.kajimacode.com' : 'https://kajimacode.com'}
+      ]
     })
   },
   components: {

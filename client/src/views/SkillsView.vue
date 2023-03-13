@@ -33,27 +33,30 @@ export default {
     }
   },
   setup() {
+    let ru = window.location.hostname.startsWith('ru.')
     useMeta({
-      title: window.location.hostname.startsWith('ru.')
+      title: ru
           ? 'Мои навыки | KajimaCode'
           : 'My Skills | KajimaCode',
-      description: window.location.hostname.startsWith('ru.')
+      description: ru
           ? 'Здесь я рассказываю о своих навыках веб-разработки и дизайна. Узнайте, как я могу помочь вашему бизнесу.'
           : 'Here I talk about my web development and design skills. Find out how I can help your business.',
       og: {
-        title: window.location.hostname.startsWith('ru.')
+        title: ru
           ? 'KajimaCode | Создание инновационных и качественных веб-сайтов'
           : 'KajimaCode | Building Innovative and High-Quality Websites',
         type: 'website',
-        url: 'https://kajimacode.com',
-        description: window.location.hostname.startsWith('ru.')
+        url: ru
+          ? 'https://ru.kajimacode.com/skills'
+          : 'https://kajimacode.com/skills',
+        description: ru
           ? 'Здесь я рассказываю о своих навыках веб-разработки и дизайна. Узнайте, как я могу помочь вашему бизнесу.'
           : 'Here I talk about my web development and design skills. Find out how I can help your business.',
         site_name: 'KajimaCode',
-        locale: window.location.hostname.startsWith('ru.')
+        locale: ru
           ? 'ru_RU'
           : 'en_GB',
-        'locale:alternate': window.location.hostname.startsWith('ru.')
+        'locale:alternate': ru
           ? 'en_GB'
           : 'ru_RU',
         image: 'https://kajimacode.com/src/assets/images/main_page.png',
@@ -61,15 +64,21 @@ export default {
       },
       twitter: {
         card: 'summary',
-        title: window.location.hostname.startsWith('ru.')
+        site: ru
+          ? 'https://ru.kajimacode.com/skills'
+          : 'https://kajimacode.com/skills',
+        title: ru
           ? 'KajimaCode | Создание инновационных и качественных веб-сайтов'
           : 'KajimaCode | Building Innovative and High-Quality Websites',
-        description: window.location.hostname.startsWith('ru.')
+        description: ru
           ? 'Здесь я рассказываю о своих навыках веб-разработки и дизайна. Узнайте, как я могу помочь вашему бизнесу.'
           : 'Here I talk about my web development and design skills. Find out how I can help your business.',
         image: 'https://kajimacode.com/src/assets/images/main_page.png',
         'image:alt': 'This is the main page of the kajimacode.com website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
       },
+      link: [
+        {rel: 'canonical', href: ru ? 'https://ru.kajimacode.com' : 'https://kajimacode.com'}
+      ]
     })
   },
   components: {

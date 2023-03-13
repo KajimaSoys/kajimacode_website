@@ -5,7 +5,8 @@
         <div class="padding-vertical-xhuge">
           <div class="text-align-center">
             <div class="max-width-large-2 align-center">
-              <h2 class="heading-medium">{{ text.review_title }}</h2>
+              <!-- TODO Write real reviews -->
+              <h1 class="heading-medium">{{ text.review_title }}</h1>
               <div class="space-xsmall"></div>
               <div class="text-size-large">{{ text.review_description }}</div>
             </div>
