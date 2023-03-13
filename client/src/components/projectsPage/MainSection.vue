@@ -13,7 +13,7 @@
             <div class="text-container">
                <div class="hover-area"> </div>
 
-               <router-link v-if="apiEndpoint==='personal'" :to="{ name: 'project', params: { id: project.id } }" class="project-link">
+               <router-link v-if="apiEndpoint==='True'" :to="{ name: 'project', params: { id: project.id } }" class="project-link">
                   <h1 v-if="lang_ru" class="title">
                      {{ project.name_ru}}
                   </h1>
@@ -95,11 +95,9 @@ export default {
     switchLanguage(lang) {
       this.lang_ru = lang === 'ru';
     },
-
-    // FIXME switch route to api/v1/projetcs/?personal=True
     async get_projects() {
       await axios
-          .get(`api/v1/projects/${this.apiEndpoint}/`)
+          .get(`api/v1/projects/?personal=${this.apiEndpoint}`)
           .then(response => {
             this.projects = response.data
             // console.log(this.projects)

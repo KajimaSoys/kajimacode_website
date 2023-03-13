@@ -79,6 +79,8 @@ class PagesMainPageSerializer(serializers.HyperlinkedModelSerializer):
                   'message_placeholder',
                   'privacy_text',
                   'privacy_link',
+                  'success_message',
+                  'error_message',
                   'review_title',
                   'review_description',
                   'first_text',

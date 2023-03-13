@@ -21,6 +21,8 @@
 
       <Footer :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl" :text="footer"/>
 
+      <el-backtop :right="50" :bottom="110" />
+
 </template>
 
 <script>
@@ -35,13 +37,12 @@ import ReviewSection from "@/components/mainPage/ReviewSection.vue";
 import Footer from "@/components/Footer.vue";
 
 
+
 import axios from "axios";
 import store from "../store";
 import { useMeta } from 'vue-meta'
-// TODO make back to top component
-// TODO make navbar sticky
-// TODO make IntoduceSection going up when scroll instead of MainSection
-// TODO All objects should appear with animation using scrolling
+import debounce from "lodash/debounce";
+
 
 export default {
   name: "MainView",
@@ -135,6 +136,52 @@ export default {
         .catch(error => {
           console.log('Ошибка при загрузке локализации')
         })
+    },
+    handleScroll(){
+      // document.body.style.setProperty('--scroll',window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
+      // console.log(document.body.style.getPropertyValue('--scroll'))
+      // navbar brightness
+      const backdrop = document.querySelector('.navbar07_component');
+      const scrollPosition = window.pageYOffset;
+      const brightness = Math.max(50, 100 - scrollPosition / 10);
+      backdrop.style.backdropFilter = `blur(4px) brightness(${brightness}%)`;
+
+      let screenPosition = window.innerHeight / 1.3; // регулирует когда элемент появится на экране
+
+      // opacity
+      let elements = document.querySelectorAll('.appear');
+      for (let i=0; i < elements.length; i++) {
+        const element = elements[i]
+        let elementPosition = element.getBoundingClientRect().top;
+
+        if (elementPosition < screenPosition) {
+          element.classList.add('appear-active');
+        } /*else {
+          element.classList.remove('appear-active');
+        }*/
+      }
+
+      // transform from left
+      elements = document.querySelectorAll('.from-left');
+      for (let i=0; i < elements.length; i++) {
+        const element = elements[i]
+        let elementPosition = element.getBoundingClientRect().top;
+
+        if (elementPosition < screenPosition) {
+          element.classList.add('from-left-active');
+        }
+      }
+
+      // transform from right
+      elements = document.querySelectorAll('.from-right');
+      for (let i=0; i < elements.length; i++) {
+        const element = elements[i]
+        let elementPosition = element.getBoundingClientRect().top;
+
+        if (elementPosition < screenPosition) {
+          element.classList.add('from-right-active');
+        }
+      }
     }
   },
   created() {
@@ -146,9 +193,70 @@ export default {
       }
     })
   },
+  mounted() {
+    this.handleDebouncedScroll = debounce(this.handleScroll, 10);
+    window.addEventListener('scroll', this.handleDebouncedScroll, false);
+  },
+  unmounted() {
+    window.removeEventListener('scroll', this.handleDebouncedScroll, false);
+  }
 }
 </script>
 
-<style scoped>
+<style>
+ .section_heroheader07 .page-padding {
+   margin-top: 9vh;
+ }
 
+ .el-backtop {
+   --el-backtop-text-color: #ff5f29!important;
+   --el-backtop-hover-bg-color: #fff4ee !important;
+ }
+
+ .appear {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+ }
+
+ .appear-active {
+    opacity: 1;
+}
+ 
+ @media screen and (min-width: 992px) {
+   .from-left{
+     transform: translateX(-1000px);
+     transition: transform 0.5s ease-in-out;
+   }
+   .from-left-active{
+     transform: translateX(0px);
+   }
+
+   .from-right{
+     transform: translateX(1000px);
+     transition: transform 0.5s ease-in-out;
+   }
+   .from-right-active{
+     transform: translateX(0px);
+   }
+ }
 </style>
+
+<style scoped>
+ .navbar07_component{
+    background-color: transparent;
+    backdrop-filter: blur(4px) brightness(100%);
+    width: 100vw;
+    position: fixed;
+   transition: backdrop-filter 0.05s ease-in-out;
+
+  }
+
+ .section_heroheader07 {
+   height: 100vh;
+ }
+
+ section {
+   overflow-x: auto;
+ }
+</style>
+

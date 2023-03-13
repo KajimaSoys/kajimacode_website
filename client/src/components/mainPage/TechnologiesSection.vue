@@ -3,13 +3,13 @@
     <div class="page-padding-2">
       <div class="container-large-2">
         <div class="padding-vertical-xhuge">
-          <h1 class="heading-xlarge">{{ text.technologies_title }}</h1>
+          <h1 class="heading-xlarge appear">{{ text.technologies_title }}</h1>
           <div class="space-large"></div>
           <div class="space-large"></div>
           <div class="w-layout-grid layout18_component">
             <div class="layout18_content">
               <div class="w-layout-grid layout18_item-list">
-                <div id="w-node-_473af96d-fe9a-7583-1058-afd0b4f508bd-9f429e46" class="layout18_item">
+                <div class="layout18_item appear from-left">
                   <div class="layout18_item-icon-wrapper">
                     <div class="icon-featured-outline-large-2">
                       <img :src="`${frontendUrl}/src/assets/icons/gear.svg`" loading="lazy" alt="" class="technologies-icon" />
@@ -21,7 +21,7 @@
                     <div class="space-xxsmall"></div>
                   </div>
                 </div>
-                <div id="w-node-_473af96d-fe9a-7583-1058-afd0b4f508c7-9f429e46" class="layout18_item">
+                <div class="layout18_item  from-left">
                   <div class="layout18_item-icon-wrapper">
                     <div class="icon-featured-outline-large-2">
                       <img :src="`${frontendUrl}/src/assets/icons/database.svg`" loading="lazy" alt="" class="technologies-icon db-icon" />
@@ -33,7 +33,7 @@
                     <div class="text-size-medium">{{ text.postgresql_description }}</div>
                   </div>
                 </div>
-                <div id="w-node-_473af96d-fe9a-7583-1058-afd0b4f508d1-9f429e46" class="layout18_item">
+                <div class="layout18_item appear from-left">
                   <div class="layout18_item-icon-wrapper">
                     <div class="icon-featured-outline-large-2">
                       <img :src="`${frontendUrl}/src/assets/icons/tab.svg`" loading="lazy" alt="" class="technologies-icon" />
@@ -59,7 +59,7 @@
                 </div>
               </div>
             </div>
-            <img :src="`${frontendUrl}/src/assets/technologies2.gif`" loading="lazy" id="w-node-_45e33f72-7130-365c-f243-d91ee3a0b293-9f429e46" sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 43vw, 45vw" alt="" />
+            <img :src="`${frontendUrl}/src/assets/technologies2.gif`" loading="lazy" sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 43vw, 45vw" alt="Technologies i use" class="from-right" />
           </div>
         </div>
       </div>

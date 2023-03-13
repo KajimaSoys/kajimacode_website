@@ -10,7 +10,7 @@
                 </h1>
                 <div class="space-small-main"></div>
                 <div class="max-width-small-main"></div>
-                <div id="w-node-ce1876c0-0d11-fbee-deef-74e9829160f6-9f429e46" class="button-row-main is-reverse-mobile-landscape">
+                <div class="button-row-main is-reverse-mobile-landscape">
                   <div class="button-wrapper max-width-full-mobile-landscape">
                     <a @click="scrollToAnchor('contact-section')" class="button is-button-large w-inline-block"> <!--href="#contact-section"-->
                       <div class="text-block-2">{{ text.contact_button }}</div>
@@ -111,10 +111,40 @@ p .char {
 	/*cursor: pointer;*/
 }
 
+.heroheader07_image-wrapper {
+  border-radius: 25px;
+}
+
+@media screen and (max-width: 767px){
+  .button-row-main.is-reverse-mobile-landscape {
+    top: 0!important;
+  }
+  .heroheader07_content.z-index-1 {
+    display: block!important;
+  }
+  .button-wrapper.max-width-full-mobile-landscape {
+    width: 100%!important;
+  }
+  .main-text {
+    font-size: 5rem!important;
+  }
+  .section_heroheader07 .padding-vertical-xhuge{
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .heroheader07_component {
+    grid-row-gap: 0!important;
+  }
+}
+
 @media screen and (max-width: 479px){
   .heroheader07_light-overlay {
     right: -53%!important;
     bottom: -72%!important;
+  }
+  .main-text {
+    font-size: 16vw!important;
   }
 
 }

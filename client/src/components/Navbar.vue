@@ -2,7 +2,14 @@
   <div data-animation="default" class="navbar07_component w-nav" data-easing2="ease" data-easing="ease" data-collapse="medium" data-w-id="2a86f3d7-e75a-cfd6-5e9f-bf6e1eddba30" role="banner" data-duration="400" id="navbar">
       <div class="navbar07_container">
         <div class="logo-container" ref="logo">
-          <router-link to="/" href="/" aria-current="page" class="navbar07_logo-link w-nav-brand w--current">
+          <a v-if="isMainPage" @click="scrollToTop" aria-current="page" class="navbar07_logo-link w-nav-brand w--current">
+            <div class="logo_component">
+              <img :src="`${frontendUrl}/src/assets/kajimacode_white_orange.svg`" alt="kajimacode logo" class="logo_logotype" />
+            </div>
+          </a>
+
+
+          <router-link v-else to="/" aria-current="page" class="navbar07_logo-link w-nav-brand w--current">
             <div class="logo_component">
               <img :src="`${frontendUrl}/src/assets/kajimacode_white_orange.svg`" alt="kajimacode logo" class="logo_logotype" />
             </div>
@@ -111,6 +118,13 @@ export default {
       height: document.documentElement.clientHeight,
 
       langMenu: false,
+
+    }
+  },
+  computed: {
+    isMainPage() {
+      console.log(window.location.pathname)
+      return window.location.pathname === '/'
     }
   },
   mounted() {
@@ -194,7 +208,12 @@ export default {
           this.changedToDefault = !this.changedToDefault
         }
       }
-
+    },
+    scrollToTop (){
+      const button = document.getElementsByClassName('el-backtop')[0];
+      if (button){
+        button.dispatchEvent(new Event('click'));
+      }
     }
   }
 
@@ -202,6 +221,10 @@ export default {
 </script>
 
 <style>
+
+.w-nav-brand {
+  cursor: pointer;
+}
 
 input#menu, label.icon {
   visibility: hidden;

@@ -152,6 +152,9 @@ class MainPage(models.Model):
     privacy_text = models.CharField(verbose_name='Сообщение согласия', max_length=50)
     privacy_link = models.CharField(verbose_name='Сообщение-ссылка на условия', max_length=50)
 
+    success_message = models.CharField(verbose_name='Сообщение об успехе', max_length=60, blank=True)
+    error_message = models.CharField(verbose_name='Сообщение об ошибке', max_length=60, blank=True)
+
     # review section
     review_title = models.CharField(verbose_name='Заголовок секции отзывов', max_length=150)
     review_description = models.CharField(verbose_name='Описание секции отзывов', max_length=300)

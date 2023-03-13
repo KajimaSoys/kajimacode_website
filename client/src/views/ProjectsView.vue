@@ -26,7 +26,7 @@ export default {
     return {
       backendUrl: this.$backendUrl,
       frontendUrl: this.$frontendUrl,
-      apiEndpoint: "personal",
+      apiEndpoint: "True",
       personal: true,
 
       navbar: {},
@@ -107,7 +107,7 @@ export default {
     this.get_text(this.$store.state.language.language)
 
     if (window.location.pathname.includes('team')) {
-      this.apiEndpoint = 'team'
+      this.apiEndpoint = 'False'
       this.personal = false
     }
 

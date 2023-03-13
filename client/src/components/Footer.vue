@@ -4,17 +4,27 @@
       <div class="container-large">
         <div class="padding-vertical-xlarge">
           <div class="w-layout-grid footer04_top-wrapper">
-            <a @click="scrollToAnchor('navbar')" id="w-node-_8e86dbb8-08f7-b4c9-5aa4-81d1b45d7741-b45d773c" class="footer04_logo-link w-inline-block">
+            <a v-if="isMainPage" @click="scrollToTop()" class="footer04_logo-link w-inline-block">
               <div class="logo_component">
-                <img :src="`${frontendUrl}/src/assets/kajimacode_black_orange.svg`" loading="lazy" alt="Untitled UI logotext" class="logo_logotype" />
+                <img :src="`${frontendUrl}/src/assets/kajimacode_black_orange.svg`" loading="lazy" alt="KajimaCode Black Orange Logo" class="logo_logotype" />
               </div>
             </a>
+
+            <router-link v-else to="/"  class="footer04_logo-link w-inline-block">
+              <div class="logo_component">
+                <img :src="`${frontendUrl}/src/assets/kajimacode_black_orange.svg`" loading="lazy" alt="KajimaCode Black Orange Logo" class="logo_logotype" />
+              </div>
+            </router-link>
+
+
             <div class="w-layout-grid footer04_link-list">
-              <a @click="scrollToAnchor('navbar')" class="footer04_link w-inline-block">
+              <a v-if="isMainPage" @click="scrollToTop()" class="footer04_link w-inline-block">
                 <div>{{ text.overview_link }}</div>
               </a>
 
-              <!-- FIXME if route is not '/', then scrollToAnchor switches to <router-link> -->
+              <router-link v-else to="/" class="footer04_link w-inline-block">
+                <div>{{ text.overview_link }}</div>
+              </router-link>
 
               <router-link to="/projects" class="footer04_link w-inline-block">
                 <div>{{ text.projects_link }}</div>
@@ -101,6 +111,19 @@ export default {
     'frontendUrl',
     'text'
   ],
+  computed: {
+    isMainPage() {
+      return window.location.pathname === '/'
+    }
+  },
+  methods: {
+    scrollToTop (){
+      const button = document.getElementsByClassName('el-backtop')[0];
+      if (button){
+        button.dispatchEvent(new Event('click'));
+      }
+    }
+  },
 }
 </script>
 

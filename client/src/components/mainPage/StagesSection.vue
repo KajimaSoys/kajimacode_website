@@ -3,7 +3,7 @@
     <div class="page-padding-2">
       <div class="container-large-2">
         <div class="padding-vertical-xhuge">
-          <h1 class="heading-xlarge">{{ text.stages_title }}</h1>
+          <h1 class="heading-xlarge appear">{{ text.stages_title }}</h1>
           <div class="space-large"></div>
           <div  class="stages-container">
             <div ref="progressBar" class="layout32_progress-bar-wrapper">
@@ -11,7 +11,7 @@
             </div>
             <div class="w-layout-grid layout32_component">
               <div class="layout32_content-left">
-                <div class="w-layout-grid layout32_timeline-step left-text-timeline">
+                <div class="w-layout-grid layout32_timeline-step left-text-timeline appear">
                   <div class="layout32_timeline-right">
                     <div class="layout32_text-wrapper">
                       <h2 class="heading-xxsmall">{{ text.discussion_title }}</h2>
@@ -51,7 +51,7 @@
                   </div>
                 </div>
               </div>
-              <div class="w-layout-grid layout32_timeline-step right-text-timeline">
+              <div class="w-layout-grid layout32_timeline-step right-text-timeline appear">
                 <div class="layout32_timeline-right">
                   <div class="layout32_text-wrapper">
                     <h2 class="heading-xxsmall">{{ text.concept_title }}</h2>
@@ -60,7 +60,7 @@
                   </div>
                 </div>
               </div>
-              <div class="w-layout-grid layout32_timeline-step left-text-timeline">
+              <div class="w-layout-grid layout32_timeline-step left-text-timeline appear">
                 <div class="layout32_timeline-right">
                   <div class="layout32_text-wrapper">
                     <h2 class="heading-xxsmall">{{ text.server_dev_title }}</h2>
@@ -93,7 +93,7 @@
                   </div>
                 </div>
               </div>
-              <div class="w-layout-grid layout32_timeline-step right-text-timeline">
+              <div class="w-layout-grid layout32_timeline-step right-text-timeline appear">
                 <div class="layout32_timeline-right">
                   <div class="layout32_text-wrapper">
                     <h2 class="heading-xxsmall">{{ text.ui_dev_title }}</h2>
@@ -102,7 +102,7 @@
                   </div>
                 </div>
               </div>
-              <div class="w-layout-grid layout32_timeline-step left-text-timeline">
+              <div class="w-layout-grid layout32_timeline-step left-text-timeline appear">
                 <div class="layout32_timeline-right">
                   <div class="layout32_text-wrapper">
                     <h2 class="heading-xxsmall">{{ text.test_title }}</h2>
@@ -131,7 +131,7 @@
                   </div>
                 </div>
               </div>
-              <div class="w-layout-grid layout32_timeline-step right-text-timeline">
+              <div class="w-layout-grid layout32_timeline-step right-text-timeline appear">
                 <div class="layout32_timeline-right">
                   <div class="layout32_text-wrapper">
                     <h2 class="heading-xxsmall">{{ text.deploy_title }}</h2>
@@ -154,7 +154,7 @@
                   </div>
                 </div>
               </div>
-              <div class="layout32_timeline-right">
+              <div class="layout32_timeline-right appear">
                 <div class="layout32_text-wrapper">
                   <h2 class="heading-xxsmall">{{ text.discussion_title }}</h2>
                   <div class="space-xxsmall"></div>
@@ -168,7 +168,7 @@
                   </div>
                 </div>
               </div>
-              <div class="layout32_timeline-right">
+              <div class="layout32_timeline-right appear">
                 <div class="layout32_text-wrapper">
                   <h2 class="heading-xxsmall">{{ text.concept_title }}</h2>
                   <div class="space-xxsmall"></div>
@@ -182,7 +182,7 @@
                   </div>
                 </div>
               </div>
-              <div class="layout32_timeline-right">
+              <div class="layout32_timeline-right appear">
                 <div class="layout32_text-wrapper">
                   <h2 class="heading-xxsmall">{{ text.server_dev_title }}</h2>
                   <div class="space-xxsmall"></div>
@@ -200,7 +200,7 @@
                   </div>
                 </div>
               </div>
-              <div class="layout32_timeline-right">
+              <div class="layout32_timeline-right appear">
                 <div class="layout32_text-wrapper">
                   <h2 class="heading-xxsmall">{{ text.ui_dev_title }}</h2>
                   <div class="space-xxsmall"></div>
@@ -214,7 +214,7 @@
                   </div>
                 </div>
               </div>
-              <div class="layout32_timeline-right">
+              <div class="layout32_timeline-right appear">
                 <div class="layout32_text-wrapper">
                   <h2 class="heading-xxsmall">{{ text.test_title }}</h2>
                   <div class="space-xxsmall"></div>
@@ -228,7 +228,7 @@
                   </div>
                 </div>
               </div>
-              <div class="layout32_timeline-right">
+              <div class="layout32_timeline-right appear">
                 <div class="layout32_text-wrapper">
                   <h2 class="heading-xxsmall">{{ text.deploy_title }}</h2>
                   <div class="space-xxsmall"></div>
@@ -239,7 +239,7 @@
             </div>
           </div>
           <div class="space-large"></div>
-          <div class="stages-end-text">
+          <div class="stages-end-text appear">
             <div class="stages-end-text-black">
                 <span class="text-span-2">{{ text.first_string }}</span>
                 <a @click="scrollToAnchor('contact-section')" class="link">
@@ -276,7 +276,7 @@ export default {
       const minHeight = 0
       const maxHeight = 100;
       const scrollRatio = 2 - bottom / window.innerHeight;
-
+      // FixMe scroll line in phone version is not working
       if (top <= window.innerHeight && bottom >= 0) {
         this.height = minHeight + scrollRatio * (maxHeight - minHeight)-50;
         if (scrollRatio-0.5 < 0) {

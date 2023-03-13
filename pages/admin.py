@@ -48,7 +48,8 @@ class MainPageAdmin(admin.ModelAdmin):
             'fields': (('contact_pretitle', 'contact_title', 'contact_description',),
                        ('name_label', 'name_placeholder', 'email_label', 'email_placeholder', 'message_label',
                         'message_placeholder',),
-                       ('privacy_text', 'privacy_link',),)
+                       ('privacy_text', 'privacy_link',),
+                       ('success_message', 'error_message',),)
         }),
         ('Review section', {
             'fields': (('review_title', 'review_description',),

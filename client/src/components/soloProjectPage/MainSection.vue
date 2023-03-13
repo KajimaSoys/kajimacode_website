@@ -12,7 +12,7 @@
             </div>
             <div class="text-container">
 
-               <router-link v-if="apiEndpoint==='personal'" :to="{ name: 'projects' }" class="back-container">
+               <router-link v-if="apiEndpoint==='True'" :to="{ name: 'projects' }" class="back-container">
                   <button type="button" class="arrow-back">
                      <i class="el-icon">
                         <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
@@ -95,7 +95,7 @@
       </div>
       <div class="back-button" v-if="project.image_set.length > 1">
 
-        <router-link v-if="apiEndpoint==='personal'" :to="{ name: 'projects' }">
+        <router-link v-if="apiEndpoint==='True'" :to="{ name: 'projects' }">
             <button type="button" class="arrow-back">
                <i class="el-icon">
                   <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">

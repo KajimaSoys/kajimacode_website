@@ -35,11 +35,10 @@
               </div>
             </form>
             <div class="success-message w-form-done" ref="done">
-              <!-- FIXME add success and error text to model -->
-              <div class="success-text">Thank you! Your submission has been received!</div>
+              <div class="success-text">{{ text.success_message }}</div>
             </div>
             <div class="error-message w-form-fail" ref="fail">
-              <div class="error-text" style="text-align: center">Oops! Something went wrong while submitting the form.</div>
+              <div class="error-text" style="text-align: center">{{ text.error_message }}</div>
               <input @click="retryForm" type="button" value="Retry" class="button-secondary-gray" style="position: relative;margin: 0 auto;margin-top: 2rem;">
             </div>
           </div>

@@ -15,22 +15,22 @@ class GroupViewSet(viewsets.ModelViewSet):
     serializer_class = CoreGroupSerializer
 
 
-@permission_classes((permissions.IsAuthenticatedOrReadOnly,))
-class PersonalProjectViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint for Personal Projects
-    """
-    queryset = Project.objects.filter(isActive=True, personal=True)
-    serializer_class = ProjectSerializer
-
-
-@permission_classes((permissions.IsAuthenticatedOrReadOnly,))
-class TeamProjectViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint for Team Project
-    """
-    queryset = Project.objects.filter(isActive=True)
-    serializer_class = ProjectSerializer
+# @permission_classes((permissions.IsAuthenticatedOrReadOnly,))
+# class PersonalProjectViewSet(viewsets.ModelViewSet):
+#     """
+#     API endpoint for Personal Projects
+#     """
+#     queryset = Project.objects.filter(isActive=True, personal=True)
+#     serializer_class = ProjectSerializer
+#
+#
+# @permission_classes((permissions.IsAuthenticatedOrReadOnly,))
+# class TeamProjectViewSet(viewsets.ModelViewSet):
+#     """
+#     API endpoint for Team Project
+#     """
+#     queryset = Project.objects.filter(isActive=True)
+#     serializer_class = ProjectSerializer
 
 
 @permission_classes((permissions.IsAuthenticatedOrReadOnly,))
@@ -38,8 +38,15 @@ class ProjectViewSet(viewsets.ModelViewSet):
     """
     API endpoint for All Project
     """
-    queryset = Project.objects.all()
+    queryset = Project.objects.filter(isActive=True)
     serializer_class = ProjectSerializer
+
+    def get_queryset(self):
+        queryset = self.queryset
+        personal = self.request.query_params.get('personal')
+        if personal == 'True':
+            queryset = queryset.filter(personal=personal)
+        return queryset
 
 
 @permission_classes((permissions.IsAuthenticatedOrReadOnly,))

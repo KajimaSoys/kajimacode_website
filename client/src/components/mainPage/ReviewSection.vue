@@ -2,7 +2,7 @@
   <section class="section_testimonial13">
     <div class="page-padding-2">
       <div class="container-large">
-        <div class="padding-vertical-xhuge">
+        <div class="padding-vertical-xhuge appear">
           <div class="text-align-center">
             <div class="max-width-large-2 align-center">
               <!-- TODO Write real reviews -->
