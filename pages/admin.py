@@ -17,6 +17,10 @@ class CookieAdmin(admin.ModelAdmin):
     pass
 
 
+@admin.register(RateElement)
+class RateAdmin(admin.ModelAdmin):
+    pass
+
 @admin.register(MainPage)
 class MainPageAdmin(admin.ModelAdmin):
     fieldsets = (
@@ -56,9 +60,14 @@ class MainPageAdmin(admin.ModelAdmin):
                        ('first_text', 'first_author', 'first_post', 'second_text', 'second_author', 'second_post',
                         'third_text', 'third_author', 'third_post',),)
         }),
+        # ('Feedback section', {
+        #     'fields': (('rate_title', 'rate_title_success', 'feedback_title', 'feedback_description',),
+        #                ('feedback_message_label', 'feedback_message_placeholder',),
+        #                ('feedback_success_message', 'feedback_error_message',),)
+        # }),
         ('Buttons', {
             'fields': ('contact_button', 'projects_button', 'get_started_button', 'learn_more_button',
-                       'send_message_button',)
+                       'send_message_button', 'send_message_button_wait', 'retry_button',)
         }),
 
     )

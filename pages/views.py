@@ -53,6 +53,22 @@ class CookieElementViewSet(viewsets.ModelViewSet):
 
 
 @permission_classes((permissions.IsAuthenticatedOrReadOnly,))
+class RateElementViewSet(viewsets.ModelViewSet):
+    """
+    Api endpoint that returns information about RateElement depending on the language
+    """
+    serializer_class = PagesRateElementSerializer
+    queryset = RateElement.objects.all()
+
+    def get_queryset(self):
+        queryset = self.queryset
+        language = self.request.query_params.get('language')
+        if language:
+            queryset = queryset.filter(language=language)
+        return queryset
+
+
+@permission_classes((permissions.IsAuthenticatedOrReadOnly,))
 class MainPageViewSet(viewsets.ModelViewSet):
     """
     Api endpoint that returns information about MainPage depending on the language

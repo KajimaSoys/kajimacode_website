@@ -23,6 +23,8 @@
 
       <el-backtop :right="50" :bottom="110" />
 
+      <Rate source="main" />
+
 </template>
 
 <script>
@@ -35,6 +37,7 @@ import TechnologiesSection from "@/components/mainPage/TechnologiesSection.vue";
 import ContactSection from "@/components/mainPage/ContactSection.vue";
 import ReviewSection from "@/components/mainPage/ReviewSection.vue";
 import Footer from "@/components/Footer.vue";
+import Rate from "@/components/Rate.vue";
 
 
 
@@ -114,6 +117,7 @@ export default {
     ContactSection,
     ReviewSection,
     Footer,
+    Rate,
   },
 
   methods: {

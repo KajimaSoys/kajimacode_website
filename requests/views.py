@@ -21,5 +21,39 @@ class OrderCreateView(APIView):
         if serializer.is_valid(raise_exception=True):
             order_saved = serializer.save()
 
-        return JsonResponse({"Success": "Order created successfully"})
+        return JsonResponse({"success": "Order created successfully"})
+
+
+@permission_classes((permissions.AllowAny,))
+class RateCreateView(APIView):
+    """
+    API endpoint that allows Rate to be created
+    """
+    def post(self, request):
+        # print(request.data)
+        request_data = request.data.get('request')
+        # print("REQUEST DATA", request_data)
+
+        serializer = RequestsRateSerializer(data=request_data)
+
+        if serializer.is_valid(raise_exception=True):
+            order_saved = serializer.save()
+
+        return JsonResponse({"success": "Rate created successfully"})
+
+
+@permission_classes((permissions.AllowAny,))
+class FeedbackCreateView(APIView):
+    """
+    API endpoint that allows Feedback to be created
+    """
+    def post(self, request):
+        request_data = request.data.get('request')
+
+        serializer = RequestsFeedbackSerializer(data=request_data)
+
+        if serializer.is_valid(raise_exception=True):
+            order_saved = serializer.save()
+
+        return JsonResponse({"success": "Feedback created successfully"})
 

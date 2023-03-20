@@ -10,12 +10,15 @@
 
   <Footer :frontendUrl="frontendUrl" :text="footer"/>
 
+  <Rate source="privacy" />
+
 </template>
 
 <script>
 import Navbar from "@/components/Navbar.vue";
 import MainSection from "@/components/privacyPage/MainSection.vue";
 import Footer from "@/components/Footer.vue";
+import Rate from "@/components/Rate.vue";
 import axios from "axios";
 import store from "../store";
 import { useMeta } from 'vue-meta'
@@ -85,6 +88,7 @@ export default {
     Navbar,
     MainSection,
     Footer,
+    Rate,
   },
   methods: {
     get_text(lang){

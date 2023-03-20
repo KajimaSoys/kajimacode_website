@@ -123,7 +123,6 @@ export default {
   },
   computed: {
     isMainPage() {
-      console.log(window.location.pathname)
       return window.location.pathname === '/'
     }
   },

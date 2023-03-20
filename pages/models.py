@@ -70,6 +70,38 @@ class CookieElement(models.Model):
         return f'Cookie - {self.language}'
 
 
+class RateElement(models.Model):
+    """
+    Описание модели Rate приложения Pages
+    """
+
+    class Meta:
+        verbose_name = 'Модуль обратной связи'
+        verbose_name_plural = 'Модули обратной связи'
+
+    language = models.CharField(verbose_name='Язык', max_length=6, choices=language_choices, default='en')
+
+    # rate section
+    rate_title = models.CharField(verbose_name='Заголовок оценки', max_length=50, blank=True)
+    rate_title_success = models.CharField(verbose_name='Заголовок оценки в случае отправки', max_length=50, blank=True)
+
+    feedback_title = models.CharField(verbose_name='Заголовок фидбека', max_length=150, blank=True)
+    feedback_description = models.CharField(verbose_name='Описание фидбека', max_length=300, blank=True)
+
+    feedback_message_label = models.CharField(verbose_name='Лейбл сообщения', max_length=50, blank=True)
+    feedback_message_placeholder = models.CharField(verbose_name='Плейсхолдер сообщения', max_length=50, blank=True)
+
+    feedback_success_message = models.CharField(verbose_name='Сообщение об успехе', max_length=60, blank=True)
+    feedback_error_message = models.CharField(verbose_name='Сообщение об ошибке', max_length=60, blank=True)
+
+    send_button = models.CharField(verbose_name='Кнопка отправки', max_length=60, blank=True)
+    send_button_wait = models.CharField(verbose_name='Кнопка отправки - ожидание', max_length=60, blank=True)
+    retry_button = models.CharField(verbose_name='Повторить', max_length=60, blank=True)
+
+    def __str__(self):
+        return f'Rate - {self.language}'
+
+
 class MainPage(models.Model):
     """
     Описание модели Main приложения Pages
@@ -86,6 +118,8 @@ class MainPage(models.Model):
     get_started_button = models.CharField(verbose_name='Начните', max_length=50)
     learn_more_button = models.CharField(verbose_name='Узнать больше', max_length=50)
     send_message_button = models.CharField(verbose_name='Отправить заявку', max_length=50)
+    send_message_button_wait = models.CharField(verbose_name='Кнопка отправки - ожидание', max_length=60, blank=True)
+    retry_button = models.CharField(verbose_name='Повторить', max_length=60, blank=True)
 
     # main section
     main_title = models.CharField(verbose_name='Заголовок главной секции', max_length=150)

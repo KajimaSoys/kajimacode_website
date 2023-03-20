@@ -31,6 +31,22 @@ class PagesCookieElementSerializer(serializers.HyperlinkedModelSerializer):
                   'button')
 
 
+class PagesRateElementSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = RateElement
+        fields = ('rate_title',
+                  'rate_title_success',
+                  'feedback_title',
+                  'feedback_description',
+                  'feedback_message_label',
+                  'feedback_message_placeholder',
+                  'feedback_success_message',
+                  'feedback_error_message',
+                  'send_button',
+                  'send_button_wait',
+                  'retry_button',)
+
+
 class PagesMainPageSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = MainPage
@@ -40,6 +56,8 @@ class PagesMainPageSerializer(serializers.HyperlinkedModelSerializer):
                   'get_started_button',
                   'learn_more_button',
                   'send_message_button',
+                  'send_message_button_wait',
+                  'retry_button',
                   'main_title',
                   'introduce_title',
                   'introduce_description',

@@ -31,7 +31,7 @@
                 <span for="Contact-01-checkbox" class="form-checkbox-label w-form-label">{{ text.privacy_text }} <router-link to="/privacy" class="text-style-link">{{ text.privacy_link }}</router-link>.</span>
               </label>
               <div class="form-button-wrapper">
-                <input type="submit" @click="checkForm" :value="text.send_message_button" class="button-2 w-button" />
+                <input type="submit" @click="checkForm" :value="!sending ? text.send_message_button : text.send_message_button_wait" class="button-2 w-button" />
               </div>
             </form>
             <div class="success-message w-form-done" ref="done">
@@ -39,7 +39,7 @@
             </div>
             <div class="error-message w-form-fail" ref="fail">
               <div class="error-text" style="text-align: center">{{ text.error_message }}</div>
-              <input @click="retryForm" type="button" value="Retry" class="button-secondary-gray" style="position: relative;margin: 0 auto;margin-top: 2rem;">
+              <input @click="retryForm" type="button" :value="text.retry_button" class="button-secondary-gray" style="position: relative;margin: 0 auto;margin-top: 2rem;">
             </div>
           </div>
         </div>
@@ -62,17 +62,17 @@ export default {
       email: '',
       message: '',
       policy: false,
-      // sendValue: 'Send message',
+
+      sending: false,
     }
   },
 
   methods: {
     checkForm(){
       var regex = /^[a-zA-Z0-9.!#$%&'*+=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-
-      if(this.name!=='' && regex.test(this.email) && this.policy){
+      if(this.name && regex.test(this.email) && this.policy){
         console.log('Sending request..')
-        this.sendValue = 'Please wait..'
+        this.sending = true
         this.sendRequest()
       } else {
         console.log('Form error!')
@@ -84,14 +84,20 @@ export default {
         request: {
           name: this.name,
           mail: this.email,
-          message: this.message
+          message: this.message,
+          project_version: this.$projectVersion,
+          user_agent: navigator.userAgent,
+          screen_resolution: `${window.screen.width}x${window.screen.height}`,
+          browser_language: navigator.language,
+          timezone: new Date().getTimezoneOffset(),
+          cookie: document.cookie
         }
       }
 
       await axios
       .post('api/v1/send_request', body)
       .then(response => {
-      console.log(response.data.Success)
+      console.log(response.data.success)
         this.$refs.done.style.display = 'block'
         this.$refs.sendForm.style.display = 'none'
       })
@@ -100,8 +106,7 @@ export default {
         this.$refs.fail.style.display = 'block'
         this.$refs.sendForm.style.display = 'none'
       })
-
-      this.sendValue = 'Send message'
+      this.sending = false
     },
 
     retryForm(){

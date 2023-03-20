@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from core import views as coreViews
-from requests.views import OrderCreateView
+from requests import views as requestViews
 from pages import views as pageViews
 from django.conf import settings
 from django.conf.urls.static import static
@@ -32,6 +32,7 @@ router.register(r'projects', coreViews.ProjectViewSet)
 router.register(r'pages/navbar', pageViews.NavbarViewSet)
 router.register(r'pages/footer', pageViews.FooterViewSet)
 router.register(r'pages/cookie-element', pageViews.CookieElementViewSet)
+router.register(r'pages/rate', pageViews.RateElementViewSet)
 router.register(r'pages/main', pageViews.MainPageViewSet)
 router.register(r'pages/projects', pageViews.ProjectsPageViewSet)
 router.register(r'pages/skills', pageViews.SkillsPageViewSet)
@@ -45,6 +46,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
     path('api/v1/get_ascii', coreViews.get_ascii),
-    path('api/v1/send_request', OrderCreateView.as_view()),
+    path('api/v1/send_request', requestViews.OrderCreateView.as_view()),
+    path('api/v1/send_rate', requestViews.RateCreateView.as_view()),
+    path('api/v1/send_feedback', requestViews.FeedbackCreateView.as_view()),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
