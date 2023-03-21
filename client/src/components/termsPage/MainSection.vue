@@ -1,15 +1,11 @@
 <template>
-  <InDevelop :frontendUrl="frontendUrl"/>
+  <div v-html="text.data" class="privacy"></div>
 </template>
 
 <script>
-import InDevelop from "../InDevelop.vue";
 
 export default {
   name: "MainSection",
-  components: {
-    InDevelop
-  },
   props: [
     'backendUrl',
     'frontendUrl',

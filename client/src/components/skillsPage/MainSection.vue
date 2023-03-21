@@ -249,6 +249,10 @@ export default {
           .catch(error => {
             console.log('Ошибка при загрузке навыков')
             console.log(error)
+            console.log('retrying..')
+            setTimeout(() => {
+              this.get_skills()
+            }, 1000)
           })
     }
   },

@@ -105,6 +105,10 @@ export default {
       })
       .catch(error => {
         console.log('Ошибка при загрузке локализации')
+        console.log('retrying..')
+        setTimeout(() => {
+          this.get_text()
+        }, 3000)
       })
     }
   },

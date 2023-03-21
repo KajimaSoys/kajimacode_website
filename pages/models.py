@@ -280,7 +280,7 @@ class TermsPage(models.Model):
 
     language = models.CharField(verbose_name='Язык', max_length=6, choices=language_choices, default='en')
 
-    # TODO create TermsPage
+    data = models.TextField(verbose_name='Политика', max_length=100000, blank=True)
 
     def __str__(self):
         return f'Terms - {self.language}'
@@ -296,7 +296,7 @@ class PrivacyPage(models.Model):
 
     language = models.CharField(verbose_name='Язык', max_length=6, choices=language_choices, default='en')
 
-        # TODO create PrivacyPage
+    data = models.TextField(verbose_name='Политика', max_length=100000, blank=True)
 
     def __str__(self):
         return f'Privacy - {self.language}'
@@ -312,7 +312,7 @@ class CookiesPage(models.Model):
 
     language = models.CharField(verbose_name='Язык', max_length=6, choices=language_choices, default='en')
 
-    # TODO create CookiesPage
+    data = models.TextField(verbose_name='Политика', max_length=100000, blank=True)
 
     def __str__(self):
         return f'Cookies - {self.language}'

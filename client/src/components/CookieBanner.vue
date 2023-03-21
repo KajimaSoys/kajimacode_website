@@ -64,6 +64,10 @@ export default {
           })
           .catch(error => {
             console.log('Ошибка при загрузке локализации для Cookie-element')
+            console.log('retrying..')
+            setTimeout(() => {
+              this.get_text()
+            }, 5000)
           })
     }
   },

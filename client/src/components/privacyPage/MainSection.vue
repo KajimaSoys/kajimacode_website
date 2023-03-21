@@ -1,20 +1,11 @@
 <template>
-  <InDevelop :frontendUrl="frontendUrl"/>
-<!--  <div class="fullscreen">-->
-<!--    <spline-component/>-->
-<!--  </div>-->
+  <div v-html="text.data" class="privacy"></div>
 </template>
 
 <script>
-import InDevelop from "../InDevelop.vue";
-import SplineComponent from "../mainPage/SplineComponent.vue";
 
 export default {
   name: "MainSection",
-  components: {
-    InDevelop,
-    SplineComponent
-  },
   props: [
     'backendUrl',
     'frontendUrl',
@@ -23,9 +14,7 @@ export default {
 }
 </script>
 
-<style scoped>
-.fullscreen {
-  height: 91vh;
-  margin-top: 9vh;
-}
+<style>
+
+
 </style>

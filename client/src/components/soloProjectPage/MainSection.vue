@@ -160,6 +160,10 @@ export default {
         })
         .catch(error => {
           console.log('Ошибка при загрузке проектов')
+          console.log('retrying..')
+            setTimeout(() => {
+              this.get_projects()
+            }, 1000)
         })
     },
   },

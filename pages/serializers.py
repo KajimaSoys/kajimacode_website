@@ -142,18 +142,21 @@ class PagesAboutPageSerializer(serializers.HyperlinkedModelSerializer):
 class PagesTermsPageSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = TermsPage
-        fields = ('language',)
+        fields = ('language',
+                  'data')
 
 
 class PagesPrivacyPageSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = PrivacyPage
-        fields = ('language',)
+        fields = ('language',
+                  'data')
 
 
 class PagesCookiesPageSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = CookiesPage
-        fields = ('language',)
+        fields = ('language',
+                  'data')
 
 

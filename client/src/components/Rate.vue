@@ -74,6 +74,10 @@ export default {
           })
           .catch(error => {
             console.log('Ошибка при загрузке локализации')
+            console.log('retrying..')
+            setTimeout(() => {
+              this.getText()
+            }, 5000)
           })
     },
 
@@ -103,6 +107,10 @@ export default {
           })
           .catch(() => {
             console.log('Error during post request')
+            console.log('retrying..')
+            setTimeout(() => {
+              this.sendRate()
+            }, 5000)
           })
     },
 

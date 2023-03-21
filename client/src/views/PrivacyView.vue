@@ -39,22 +39,25 @@ export default {
     let ru = window.location.hostname.startsWith('ru.')
     useMeta({
       title: ru
-          ? 'Условия и положения | KajimaCode'
-          : 'Terms and Conditions | KajimaCode',
+          ? 'Политика конфиденциальности | KajimaCode'
+          : 'Privacy Policy | KajimaCode',
       description: ru
-          ? 'Ознакомьтесь с условиями использования услуг KajimaCode'
-          : 'Read the terms and conditions for using KajimaCode services.',
+          ? 'Прочитайте политику конфиденциальности для KajimaCode.'
+          : 'Read the privacy policy for KajimaCode.',
+
       og: {
         title: ru
-          ? 'Условия и положения | KajimaCode'
-          : 'Terms and Conditions | KajimaCode',
+          ? 'Политика конфиденциальности | KajimaCode'
+          : 'Privacy Policy | KajimaCode',
+
         type: 'website',
         url: ru
           ? 'https://ru.kajimacode.com/privacy'
           : 'https://kajimacode.com/privacy',
         description: ru
-          ? 'Ознакомьтесь с условиями использования услуг KajimaCode'
-          : 'Read the terms and conditions for using KajimaCode services.',
+          ? 'Прочитайте политику конфиденциальности для KajimaCode.'
+          : 'Read the privacy policy for KajimaCode.',
+
         site_name: 'KajimaCode',
         locale: ru
           ? 'ru_RU'
@@ -71,11 +74,13 @@ export default {
           ? 'https://ru.kajimacode.com/privacy'
           : 'https://kajimacode.com/privacy',
         title: ru
-          ? 'Условия и положения | KajimaCode'
-          : 'Terms and Conditions | KajimaCode',
+          ? 'Политика конфиденциальности | KajimaCode'
+          : 'Privacy Policy | KajimaCode',
+
         description: ru
-          ? 'Ознакомьтесь с условиями использования услуг KajimaCode'
-          : 'Read the terms and conditions for using KajimaCode services.',
+          ? 'Прочитайте политику конфиденциальности для KajimaCode.'
+          : 'Read the privacy policy for KajimaCode.',
+
         image: 'https://kajimacode.com/src/assets/images/main_page.png',
         'image:alt': 'This is the main page of the kajimacode.com website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
       },
@@ -105,6 +110,10 @@ export default {
       })
       .catch(error => {
         console.log('Ошибка при загрузке локализации')
+        console.log('retrying..')
+        setTimeout(() => {
+          this.get_text()
+        }, 3000)
       })
     }
   },

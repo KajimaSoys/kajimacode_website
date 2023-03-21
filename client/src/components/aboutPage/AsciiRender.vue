@@ -40,6 +40,10 @@ export default {
       })
       .catch(error => {
         console.log('Ошибка при загрузке ascii-фреймов')
+        console.log('retrying..')
+            setTimeout(() => {
+              this.get_ascii()
+            }, 2000)
       })
     },
 

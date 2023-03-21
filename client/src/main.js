@@ -55,5 +55,5 @@ axios.defaults.baseURL = 'http://localhost:8000'
 // prod
 // axios.defaults.baseURL = 'https://kajimacode.com'
 
-app.config.globalProperties.$projectVersion = '2.6'
+app.config.globalProperties.$projectVersion = '2.7'
 
