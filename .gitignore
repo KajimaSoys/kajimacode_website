@@ -6,3 +6,5 @@ core/local_static/ascii_raw
 /media/
 env.txt
 kajimasoys_portfolio/local_settings.py
+/client/dist/
+

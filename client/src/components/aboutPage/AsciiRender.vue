@@ -1,7 +1,7 @@
 <template>
   <div class="loading" @click="stopAnimation" ref="loading">
     <div class="render" ref="render">
-      <svg id="svg-container" viewBox="0 0 1150 1000" xmlns="http://www.w3.org/2000/svg">
+      <svg id="svg-container" viewBox="0 0 1850 1300" xmlns="http://www.w3.org/2000/svg">
       </svg>
     </div>
 
@@ -63,7 +63,7 @@ export default {
           })
 
           document.getElementById("svg-container").innerHTML = text_attrs
-          await new Promise(resolve => setTimeout(resolve, 44));
+          await new Promise(resolve => setTimeout(resolve, 30));
         }
         // renderElementsWithDelay();
         // console.log('render finished')

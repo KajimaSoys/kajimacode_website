@@ -17,7 +17,8 @@
 
       <ContactSection :text="mainPage"/>
 
-      <ReviewSection :frontendUrl="frontendUrl" :text="mainPage"/>
+      <!-- TODO ENABLE BLOCK AFTER REAL REVIEW -->
+<!--      <ReviewSection :frontendUrl="frontendUrl" :text="mainPage"/>-->
 
       <Footer :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl" :text="footer"/>
 

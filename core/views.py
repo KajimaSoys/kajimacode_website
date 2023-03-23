@@ -68,14 +68,14 @@ class SkillViewSet(viewsets.ModelViewSet):
 
 
 def get_ascii(request):
-    with open('core/local_static/ascii_raw_new', 'r', encoding='UTF-8') as file:
+    with open('core/local_static/ascii_file', 'r', encoding='UTF-8') as file:
         lines = file.readlines()
 
     frame = []
     sequence = []
     for i, line in enumerate(lines):
         frame.append(line.replace('\n', ''))
-        if (i+1) % 62 == 0:
+        if (i+1) % 99 == 0:
             sequence.append(frame)
             frame = []
 

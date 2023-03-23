@@ -7,12 +7,13 @@
 
       <h1 class="heading-xlarge">{{ text.title }}</h1>
       <div class="about-container clearfix ">
-        <img :src="`${frontendUrl}/src/assets/images/about5.png`" alt="Me in about page of kajimacode" class="float-left">
+        <img :src="`${frontendUrl}/src/assets/images/about.png`" alt="Me in about page of kajimacode" class="float-left">
         <div class="about-text" v-html="text.about_text"></div>
       </div>
     </div>
 
-    <resume-section :text="text" :backendUrl="backendUrl"/>
+    <!-- TODO CREATE CV AND ENABLE BLOCK -->
+<!--    <resume-section :text="text" :backendUrl="backendUrl"/>-->
   </div>
 
 

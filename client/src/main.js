@@ -41,19 +41,19 @@ app.use(SmoothScroll({
 app.mount('#app')
 
 // local
-app.config.globalProperties.$backendUrl= 'http://localhost:8000'
+// app.config.globalProperties.$backendUrl= 'http://localhost:8000'
 // prod
-//app.config.globalProperties.$hostname = 'https://kajimacode.com'
+app.config.globalProperties.$hostname = 'https://kajimacode.com'
 
 // local
-app.config.globalProperties.$frontendUrl= 'http://localhost:5173'
+// app.config.globalProperties.$frontendUrl= 'http://localhost:4173'
 // prod
-//app.config.globalProperties.$hostname = 'https://kajimacode.com'
+app.config.globalProperties.$hostname = 'https://kajimacode.com'
 
 // local
-axios.defaults.baseURL = 'http://localhost:8000'
+// axios.defaults.baseURL = 'http://localhost:8000'
 // prod
-// axios.defaults.baseURL = 'https://kajimacode.com'
+axios.defaults.baseURL = 'https://kajimacode.com'
 
-app.config.globalProperties.$projectVersion = '2.7'
+app.config.globalProperties.$projectVersion = '2.8'
 
