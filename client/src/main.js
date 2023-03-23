@@ -43,17 +43,17 @@ app.mount('#app')
 // local
 // app.config.globalProperties.$backendUrl= 'http://localhost:8000'
 // prod
-app.config.globalProperties.$hostname = 'https://kajimacode.com'
+app.config.globalProperties.$backendUrl = 'https://kajimacode.com'
 
 // local
 // app.config.globalProperties.$frontendUrl= 'http://localhost:4173'
 // prod
-app.config.globalProperties.$hostname = 'https://kajimacode.com'
+app.config.globalProperties.$frontendUrl = 'https://kajimacode.com'
 
 // local
 // axios.defaults.baseURL = 'http://localhost:8000'
 // prod
 axios.defaults.baseURL = 'https://kajimacode.com'
 
-app.config.globalProperties.$projectVersion = '2.8.3'
+app.config.globalProperties.$projectVersion = '2.8.4'
 
