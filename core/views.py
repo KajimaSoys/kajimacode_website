@@ -4,6 +4,7 @@ from rest_framework import viewsets
 from rest_framework import permissions
 from django.http import HttpResponse, JsonResponse
 from rest_framework.decorators import permission_classes
+import os
 
 
 @permission_classes((permissions.IsAuthenticatedOrReadOnly,))
@@ -67,16 +68,24 @@ class SkillViewSet(viewsets.ModelViewSet):
     serializer_class = CoreSkillSerializer
 
 
-def get_ascii(request):
-    with open('core/local_static/ascii_file', 'r', encoding='UTF-8') as file:
-        lines = file.readlines()
-
+def create_sequence(lines):
     frame = []
     sequence = []
     for i, line in enumerate(lines):
         frame.append(line.replace('\n', ''))
-        if (i+1) % 99 == 0:
+        if (i + 1) % 99 == 0:
             sequence.append(frame)
             frame = []
 
+    return sequence
+
+
+def get_ascii(request, key):
+    filename = f'core/local_static/small_files/ascii_file_part{key}'
+    if not os.path.isfile(filename):
+        return JsonResponse({'error': 'Invalid key'})
+
+    with open(filename, 'r', encoding='UTF-8') as file:
+        lines = file.readlines()
+    sequence = create_sequence(lines)
     return JsonResponse({'res': sequence})

@@ -45,7 +45,7 @@ router.register(r'pages/cookies', pageViews.CookiesPageViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
-    path('api/v1/get_ascii', coreViews.get_ascii),
+    path('api/v1/get_ascii_part_<int:key>', coreViews.get_ascii, name='get_ascii'),
     path('api/v1/send_request', requestViews.OrderCreateView.as_view()),
     path('api/v1/send_rate', requestViews.RateCreateView.as_view()),
     path('api/v1/send_feedback', requestViews.FeedbackCreateView.as_view()),

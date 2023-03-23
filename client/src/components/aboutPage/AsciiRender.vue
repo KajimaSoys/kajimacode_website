@@ -24,57 +24,66 @@ export default {
   data(){
     return{
       ascii_array: [],
-
+      num_files: 15,
     }
   },
   methods: {
-    async get_ascii(){
-      await axios
-      .get('api/v1/get_ascii')
-      .then(response => {
-
-        this.ascii_array = response.data.res
-        // console.log(this.ascii_array)
-        this.fill_svg()
-
-      })
-      .catch(error => {
-        console.log('Ошибка при загрузке ascii-фреймов')
-        console.log('retrying..')
-            setTimeout(() => {
-              this.get_ascii()
-            }, 2000)
-      })
-    },
-
-
-    fill_svg(){
-      let frames = this.ascii_array
-
-      async function renderElementsWithDelay() {
-        console.log('render started')
-        for (const frame of frames) {
-          let text_attrs = ''
-          let i = 0
-
-          frame.forEach(function (row){
-            text_attrs = text_attrs + `<text x="0" y="${i}" style="font-size: 10.5202px; font-family: monospace; dominant-baseline: hanging; white-space: pre; fill: white;">${row}</text>`
-            i += 13
-          })
-
-          document.getElementById("svg-container").innerHTML = text_attrs
-          await new Promise(resolve => setTimeout(resolve, 30));
+    async get_ascii(index){
+      try {
+        const response = await axios.get(`api/v1/get_ascii_part_${index}`);
+        const ascii_array = response.data.res;
+        await this.build_text_attrs(ascii_array);
+        if (index < this.num_files) {
+          await this.get_ascii(index + 1);
+        } else {
+          this.stopAnimation();
         }
-        // renderElementsWithDelay();
-        // console.log('render finished')
-
+      } catch (error) {
+        console.log('Error');
       }
-      window.scrollTo({top:0,behavior:'auto'});
-      renderElementsWithDelay().then(() => {
-        this.stopAnimation()
-      })
-
     },
+
+    async build_text_attrs(ascii_array){
+      for (const frame of ascii_array) {
+        let text_attrs = '';
+        let i = 0;
+        for (const row of frame) {
+          text_attrs += `<text x="0" y="${i}" style="font-size: 10.5202px; font-family: monospace; dominant-baseline: hanging; white-space: pre; fill: white;">${row}</text>`;
+          i += 13;
+        }
+        document.getElementById('svg-container').innerHTML = text_attrs;
+        await new Promise(resolve => setTimeout(resolve, 30));
+      }
+    },
+
+    // fill_svg(){
+    //   let frames = this.ascii_array
+    //
+    //   async function renderElementsWithDelay() {
+    //     console.log('render started')
+    //     for (const frame of frames) {
+    //       let text_attrs = ''
+    //       let i = 0
+    //
+    //       frame.forEach(function (row){
+    //         text_attrs = text_attrs + `<text x="0" y="${i}" style="font-size: 10.5202px; font-family: monospace; dominant-baseline: hanging; white-space: pre; fill: white;">${row}</text>`
+    //         i += 13
+    //       })
+    //
+    //       document.getElementById("svg-container").innerHTML = text_attrs
+    //       await new Promise(resolve => setTimeout(resolve, 30));
+    //     }
+    //     // renderElementsWithDelay();
+    //     // console.log('render finished')
+    //
+    //   }
+    //
+    //   window.scrollTo({top:0,behavior:'auto'});
+    //   renderElementsWithDelay().then(() => {
+    //     this.stopAnimation()
+    //   })
+    //
+    // },
 
     stopAnimation(){
       // console.log('stop animation')
@@ -103,7 +112,7 @@ export default {
   },
   created() {
     document.body.style.overflow = 'hidden'
-    this.get_ascii()
+    this.get_ascii(1)
   },
 }
 </script>

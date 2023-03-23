@@ -3383,7 +3383,7 @@ ul {
   /*src: url('src/assets/MontHead.woff2') format('woff2'),*/
   /*      url('src/assets/MontHead.woff') format('woff'),*/
   /*      url('src/assets/MontHead.ttf') format('truetype');*/
-  src: url('src/assets/MontHeadGX.ttf') format('truetype');
+  src: url('../src/assets/MontHeadGX.ttf') format('truetype');
   font-weight: 12 224;
   font-style: normal;
   font-display: swap;
