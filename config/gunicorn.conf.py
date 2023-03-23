@@ -1,3 +1,6 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 bind = "127.0.0.1:8001"
 workers = 2
 user = "kajimasoys"
