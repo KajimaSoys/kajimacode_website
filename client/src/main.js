@@ -55,5 +55,5 @@ app.config.globalProperties.$hostname = 'https://kajimacode.com'
 // prod
 axios.defaults.baseURL = 'https://kajimacode.com'
 
-app.config.globalProperties.$projectVersion = '2.8.1'
+app.config.globalProperties.$projectVersion = '2.8.2'
 
