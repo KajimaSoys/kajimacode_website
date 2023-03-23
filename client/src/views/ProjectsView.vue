@@ -95,8 +95,8 @@ export default {
     get_text(lang){
 
     Promise.all([
-        axios.get(`${this.backendUrl}/api/v1/pages/navbar/?language=${lang}`),
-        axios.get(`${this.backendUrl}/api/v1/pages/footer/?language=${lang}`)
+        axios.get(`${this.$backendUrl}/api/v1/pages/navbar/?language=${lang}`),
+        axios.get(`${this.$backendUrl}/api/v1/pages/footer/?language=${lang}`)
       ])
       .then(response => {
         this.navbar = response[0].data[0]

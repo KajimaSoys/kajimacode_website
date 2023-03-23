@@ -58,7 +58,7 @@ export default {
 
     async get_text(lang){
       await axios
-          .get(`${this.backendUrl}/api/v1/pages/cookie-element/?language=${lang}`)
+          .get(`https://kajimacode.com/api/v1/pages/cookie-element/?language=${lang}`)
           .then(response => {
             this.text = response.data[0]
           })

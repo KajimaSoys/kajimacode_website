@@ -68,7 +68,7 @@ export default {
   methods: {
     async getText(lang){
       await axios
-          .get(`${this.backendUrl}/api/v1/pages/rate/?language=${lang}`)
+          .get(`${this.$backendUrl}/api/v1/pages/rate/?language=${lang}`)
           .then(response => {
             this.rateModule = response.data[0]
           })
