@@ -160,7 +160,7 @@ export default {
      --tw-gradient-to: rgb(15 25 34 / 0);
      --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
      background-image: linear-gradient(to top,var(--tw-gradient-stops));
-     top: 10%;
+     top: 1%;
      z-index: 100;
 }
  .gradient:hover ~ .image{
@@ -261,7 +261,7 @@ export default {
          right: 32px!important;
     }
      .el-carousel__arrow {
-         top: 90%!important;
+         top: 81%!important;
     }
      .text-container:hover .title {
          transform: none;
@@ -270,7 +270,7 @@ export default {
          transform: none;
     }
      .text-container {
-         top: 43%;
+         top: 35%;
          height: 40vh;
          display: flex;
          flex-direction: column;
