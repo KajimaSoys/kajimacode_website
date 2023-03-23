@@ -162,9 +162,9 @@ export default {
     handleScroll(){
       const scrollPosition = window.pageYOffset + window.innerHeight
       const documentHeight = document.documentElement.scrollHeight
-      if (scrollPosition === documentHeight) {
+      if (scrollPosition >= documentHeight-50) {
         setTimeout(() => {
-          if(window.pageYOffset + window.innerHeight === documentHeight){
+          if(window.pageYOffset + window.innerHeight >= documentHeight-50){
             this.showModule = true
           }
         },500)

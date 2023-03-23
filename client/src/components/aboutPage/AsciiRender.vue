@@ -30,11 +30,11 @@ export default {
   methods: {
     async get_ascii(index){
       try {
-        const response = await axios.get(`api/v1/get_ascii_part_${index}`);
-        const ascii_array = response.data.res;
-        await this.build_text_attrs(ascii_array);
-        if (index < this.num_files) {
-          await this.get_ascii(index + 1);
+        if (index <= this.num_files) {
+          const response = await axios.get(`api/v1/get_ascii_part_${index}`);
+          const ascii_array = response.data.res;
+          this.build_text_attrs(ascii_array);
+          this.get_ascii(index + 1);
         } else {
           this.stopAnimation();
         }
@@ -112,6 +112,7 @@ export default {
   },
   created() {
     document.body.style.overflow = 'hidden'
+    window.scrollTo({top:0,behavior:'auto'});
     this.get_ascii(1)
   },
 }
