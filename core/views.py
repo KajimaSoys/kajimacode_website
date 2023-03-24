@@ -88,4 +88,4 @@ def get_ascii(request, key):
     with open(filename, 'r', encoding='UTF-8') as file:
         lines = file.readlines()
     sequence = create_sequence(lines)
-    return JsonResponse({'res': sequence})
+    return JsonResponse({'key': key, 'res': sequence})

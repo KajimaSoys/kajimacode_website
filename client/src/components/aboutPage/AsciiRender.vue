@@ -23,69 +23,71 @@ export default {
   name: "AsciiRender",
   data(){
     return{
-      ascii_array: [],
+      ascii_array: {},
       num_files: 15,
+      ascii_active: true,
     }
   },
   methods: {
-    async get_ascii(index){
-      try {
-        if (index <= this.num_files) {
-          const response = await axios.get(`api/v1/get_ascii_part_${index}`);
-          const ascii_array = response.data.res;
-          this.build_text_attrs(ascii_array);
-          this.get_ascii(index + 1);
-        } else {
-          this.stopAnimation();
+    async get_ascii(index) {
+      if(this.ascii_active){
+        window.scrollTo({top:0,behavior:'auto'});
+        try {
+          if (index <= this.num_files) {
+            const response = await axios.get(`api/v1/get_ascii_part_${index}`);
+            this.ascii_array[response.data.key] = response.data.res
+
+            if (index === 1){
+              this.build_text_attrs()
+            }
+
+            this.get_ascii(index + 1)
+          }
+        } catch (error) {
+          console.log('Error');
+          await this.get_ascii(index); // retry downloading the same file if an error occurs
         }
-      } catch (error) {
-        console.log('Error');
       }
     },
 
-    async build_text_attrs(ascii_array){
-      for (const frame of ascii_array) {
-        let text_attrs = '';
-        let i = 0;
-        for (const row of frame) {
-          text_attrs += `<text x="0" y="${i}" style="font-size: 10.5202px; font-family: monospace; dominant-baseline: hanging; white-space: pre; fill: white;">${row}</text>`;
-          i += 13;
-        }
-        document.getElementById('svg-container').innerHTML = text_attrs;
-        await new Promise(resolve => setTimeout(resolve, 30));
-      }
-    },
+    async build_text_attrs() {
+      let ascii_keys = Object.keys(this.ascii_array);
+      let i = 0;
+      while (i < ascii_keys.length && i < 15) {
+        const key = ascii_keys[i];
+        const frames = this.ascii_array[key];
+        for (const frame of frames) {
+          let text_attrs = ''
+          let j = 0
 
-    // fill_svg(){
-    //   let frames = this.ascii_array
-    //
-    //   async function renderElementsWithDelay() {
-    //     console.log('render started')
-    //     for (const frame of frames) {
-    //       let text_attrs = ''
-    //       let i = 0
-    //
-    //       frame.forEach(function (row){
-    //         text_attrs = text_attrs + `<text x="0" y="${i}" style="font-size: 10.5202px; font-family: monospace; dominant-baseline: hanging; white-space: pre; fill: white;">${row}</text>`
-    //         i += 13
-    //       })
-    //
-    //       document.getElementById("svg-container").innerHTML = text_attrs
-    //       await new Promise(resolve => setTimeout(resolve, 30));
-    //     }
-    //     // renderElementsWithDelay();
-    //     // console.log('render finished')
-    //
-    //   }
-    //
-    //   window.scrollTo({top:0,behavior:'auto'});
-    //   renderElementsWithDelay().then(() => {
-    //     this.stopAnimation()
-    //   })
-    //
-    // },
+          frame.forEach(function (row){
+            text_attrs = text_attrs + `<text x="0" y="${j}" style="font-size: 10.5202px; font-family: monospace; dominant-baseline: hanging; white-space: pre; fill: white;">${row}</text>`
+            j += 13
+          })
+
+          document.getElementById("svg-container").innerHTML = text_attrs
+          await new Promise(resolve => setTimeout(resolve, 30));
+        }
+
+        ascii_keys = Object.keys(this.ascii_array);
+        i++;
+        if (i >= ascii_keys.length && i < this.num_files) {
+          await new Promise(resolve => {
+            const intervalId = setInterval(() => {
+              if (i < Object.keys(this.ascii_array).length && i < 15) {
+                ascii_keys = Object.keys(this.ascii_array);
+                clearInterval(intervalId);
+                resolve();
+              }
+            }, 100);
+          });
+        }
+      }
+      this.stopAnimation()
+    },
 
     stopAnimation(){
+      this.ascii_active = false
       // console.log('stop animation')
 
         this.$refs.render.style.opacity = '0'
@@ -114,6 +116,8 @@ export default {
     document.body.style.overflow = 'hidden'
     window.scrollTo({top:0,behavior:'auto'});
     this.get_ascii(1)
+
+    // this.load_ascii_files()
   },
 }
 </script>
