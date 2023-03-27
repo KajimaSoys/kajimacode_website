@@ -29,6 +29,6 @@ SESSION_COOKIE_SECURE = (os.environ.get('KAJIMASOYS_PORTFOLIO_SESSION_COOKIE_SEC
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': 'home/kajimasoys/kajimasoys_portfolio/kajimasoys_portfolio/cache'
+        'LOCATION': '/home/kajimasoys/kajimasoys_portfolio/kajimasoys_portfolio/cache'
     }
 }
