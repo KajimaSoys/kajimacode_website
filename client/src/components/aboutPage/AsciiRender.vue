@@ -1,7 +1,7 @@
 <template>
   <div class="loading" @click="stopAnimation" ref="loading">
     <div class="render" ref="render">
-      <svg id="svg-container" viewBox="0 0 1850 1300" xmlns="http://www.w3.org/2000/svg">
+      <svg id="svg-container" viewBox="0 0 1320 900" xmlns="http://www.w3.org/2000/svg">
       </svg>
     </div>
 
@@ -24,17 +24,19 @@ export default {
   data(){
     return{
       ascii_array: {},
-      num_files: 15,
+      num_files: 20,
       ascii_active: true,
     }
   },
   methods: {
     async get_ascii(index) {
+      // localStorage.clear()
       if(this.ascii_active){
         window.scrollTo({top:0,behavior:'auto'});
         try {
           if (index <= this.num_files) {
             const response = await axios.get(`api/v1/get_ascii_part_${index}`);
+            // const response = await this.$store.dispatch('asciiFiles/getFile', index);
             this.ascii_array[response.data.key] = response.data.res
 
             if (index === 1){
@@ -44,7 +46,7 @@ export default {
             this.get_ascii(index + 1)
           }
         } catch (error) {
-          console.log('Error');
+          console.log(error);
           await this.get_ascii(index); // retry downloading the same file if an error occurs
         }
       }

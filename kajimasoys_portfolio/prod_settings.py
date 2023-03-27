@@ -25,3 +25,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 
 CSRF_COOKIE_SECURE = (os.environ.get('KAJIMASOYS_PORTFOLIO_CSRF_COOKIE_SECURE', False) == 'True')
 SESSION_COOKIE_SECURE = (os.environ.get('KAJIMASOYS_PORTFOLIO_SESSION_COOKIE_SECURE', False) == 'True')
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': 'home/kajimasoys/kajimasoys_portfolio/kajimasoys_portfolio/cache'
+    }
+}
