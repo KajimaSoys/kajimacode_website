@@ -1,7 +1,9 @@
 from django.contrib import admin
-from .models import *
+from core.models import *
 from django.http import HttpResponse
 from django.urls import re_path as url
+from adminsortable2.admin import SortableAdminMixin, SortableInlineAdminMixin, SortableAdminBase
+
 
 @admin.register(ProjectImages)
 class ProjectImagesAdmin(admin.ModelAdmin):
@@ -28,7 +30,7 @@ class ProjectImagesAdmin(admin.ModelAdmin):
         return custom_urls + urls
 
 
-class ProjectImagesInline(admin.StackedInline):
+class ProjectImagesInline(SortableInlineAdminMixin, admin.StackedInline):
     model = ProjectImages
     fields = ('image', 'main', 'alt', 'image_tag', )
     readonly_fields = ('image_tag', )
@@ -41,8 +43,9 @@ class GroupAdmin(admin.ModelAdmin):
 
 
 @admin.register(Project)
-class ProjectAdmin(admin.ModelAdmin):
-    list_display = ('name_ru', 'get_group', 'isActive')
+class ProjectAdmin(SortableAdminBase, admin.ModelAdmin):
+    list_display = ('name_ru', 'order', 'get_group', 'isActive')
+    list_editable = ('order', )
     inlines = (ProjectImagesInline,)
 
     def get_queryset(self, request):
@@ -66,5 +69,5 @@ class WorkAdmin(admin.ModelAdmin):
 
 
 @admin.register(Skill)
-class SkillAdmin(admin.ModelAdmin):
-    pass
+class SkillAdmin(SortableAdminMixin, admin.ModelAdmin):
+    list_display = ('order', 'name_ru', 'skill_type', 'isActive')

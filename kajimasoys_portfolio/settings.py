@@ -19,17 +19,23 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 INSTALLED_APPS = [
+    # project apps
+    'core.apps.CoreConfig',
+    'requests.apps.RequestsConfig',
+    'pages.apps.PagesConfig',
+
+    # default
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core.apps.CoreConfig',
-    'requests.apps.RequestsConfig',
-    'pages.apps.PagesConfig',
+
+    # 3rd parties
     'rest_framework',
     'corsheaders',
+    'adminsortable2',
 ]
 
 MIDDLEWARE = [

@@ -23,13 +23,6 @@ class Project(models.Model):
     """
     Описание модели Project приложения Core
     """
-    class Meta:
-        verbose_name = 'Проект'
-        verbose_name_plural = 'Проекты'
-        # permissions = [
-        #     ("can_edit_personal_project", "Can edit personal project"),
-        # ]
-
     id = models.BigAutoField(verbose_name='Идентификатор', primary_key=True)
     group = models.ManyToManyField(verbose_name='Группа', to=Group, blank=True)
 
@@ -49,6 +42,21 @@ class Project(models.Model):
 
     personal = models.BooleanField(verbose_name='Персональный проект? (Вадима?)', default=False)
     isActive = models.BooleanField(verbose_name='Активен?', default=True)
+
+    order = models.PositiveIntegerField(
+        default=0,
+        blank=False,
+        null=False,
+        db_index=True,
+        verbose_name="Порядок")
+
+    class Meta:
+        verbose_name = 'Проект'
+        verbose_name_plural = 'Проекты'
+        ordering = ['order', ]
+        # permissions = [
+        #     ("can_edit_personal_project", "Can edit personal project"),
+        # ]
 
     def __str__(self):
         return self.name_ru
@@ -79,6 +87,13 @@ class ProjectImages(models.Model):
     main = models.BooleanField(verbose_name='Главное изображение?', default=False)
     alt = models.CharField(verbose_name='Альтернативный текст', max_length=500, blank=True)
 
+    order = models.PositiveIntegerField(
+        default=0,
+        blank=False,
+        null=False,
+        db_index=True,
+        verbose_name="Порядок")
+
     def get_upload_path(self, filename):
         path = Project.objects.get(id=self.project_id).path
         return f'{path}/{filename}'
@@ -102,6 +117,7 @@ class ProjectImages(models.Model):
     class Meta:
         verbose_name = 'Изображение'
         verbose_name_plural = 'Изображения'
+        ordering = ['order', ]
 
     def __str__(self):
         return str(self.image).replace('projects/', '')
@@ -130,10 +146,6 @@ class Skill(models.Model):
     """
     Описание модели Skill приложения Core
     """
-    class Meta:
-        verbose_name = 'Навык'
-        verbose_name_plural = 'Навыки'
-
     id = models.BigAutoField(verbose_name='Идентификатор', primary_key=True)
 
     skill_type_choices = (
@@ -152,7 +164,17 @@ class Skill(models.Model):
 
     isActive = models.BooleanField(verbose_name='Активен?', default=True)
 
+    order = models.PositiveIntegerField(
+        default=0,
+        blank=False,
+        null=False,
+        db_index=True,
+        verbose_name="Порядок")
+
+    class Meta:
+        verbose_name = 'Навык'
+        verbose_name_plural = 'Навыки'
+        ordering = ['order', ]
+
     def __str__(self):
         return self.name
-
-

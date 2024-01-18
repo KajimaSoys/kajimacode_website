@@ -11,7 +11,7 @@ class CoreGroupSerializer(serializers.HyperlinkedModelSerializer):
 class CoreImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProjectImages
-        fields = ('main', 'image', 'alt')
+        fields = ('main', 'image', 'alt', 'order')
 
 
 class ProjectSerializer(serializers.ModelSerializer):
@@ -19,13 +19,14 @@ class ProjectSerializer(serializers.ModelSerializer):
     # group = Project.get_group(self)
 
     def get_image_set(self, obj):
-        queryset = ProjectImages.objects.filter(project=obj).prefetch_related().order_by('-main')
+        queryset = ProjectImages.objects.filter(project=obj).prefetch_related().order_by('-main', 'order')
         serializer = CoreImageSerializer(queryset, many=True)
         return serializer.data
 
     class Meta:
         model = Project
         fields = ('id',
+                  'order',
                   'name',
                   'name_ru',
                   'description',
