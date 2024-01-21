@@ -1,15 +1,17 @@
 <template>
-<!--  <div class="image-container">-->
-    <img class="in-develop-image" :src="`${frontendURL}/src/assets/images/underDevelop_${this.$store.state.language.language}.png`" alt="Section under develop">
-<!--  </div>-->
+  <!--  <div class="image-container">-->
+  <img class="in-develop-image"
+       :src="`${frontendURL}/src/assets/images/underDevelop_${this.$store.state.language.language}.png`"
+       alt="Section under develop">
+  <!--  </div>-->
 </template>
 
 <script>
 export default {
   name: "InDevelop",
   inject: [
-      'backendURL',
-      'frontendURL'
+    'backendURL',
+    'frontendURL'
   ],
 }
 </script>
@@ -28,13 +30,13 @@ export default {
 /*     height: 100vh;*/
 /*}*/
 
- .in-develop-image {
-    display: block;
-    margin-left: auto;
-    max-height: 70vh;
-    margin-right: auto;
-    padding-top: 18vh;
-    padding-bottom: 18vh;
+.in-develop-image {
+  display: block;
+  margin-left: auto;
+  max-height: 70vh;
+  margin-right: auto;
+  padding-top: 18vh;
+  padding-bottom: 18vh;
 }
 
 @media screen and (max-width: 992px) {
@@ -42,6 +44,6 @@ export default {
     padding-bottom: 2vh;
     max-height: 60vh;
 
-}
+  }
 }
 </style>

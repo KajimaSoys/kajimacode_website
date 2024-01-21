@@ -10,7 +10,7 @@
 
   <Footer :text="footer"/>
 
-  <Rate source="privacy" />
+  <Rate source="privacy"/>
 
 </template>
 
@@ -21,15 +21,15 @@ import Footer from "@/components/Footer.vue";
 import Rate from "@/components/Rate.vue";
 import axios from "axios";
 import store from "../store";
-import { useMeta } from 'vue-meta'
+import {useMeta} from 'vue-meta'
 
 export default {
   name: "PrivacyView",
   inject: [
-      'backendURL',
-      'frontendURL'
+    'backendURL',
+    'frontendURL'
   ],
-  data (){
+  data() {
     return {
       navbar: {},
       privacyPage: {},
@@ -48,39 +48,39 @@ export default {
 
       og: {
         title: ru
-          ? 'Политика конфиденциальности | KajimaCode'
-          : 'Privacy Policy | KajimaCode',
+            ? 'Политика конфиденциальности | KajimaCode'
+            : 'Privacy Policy | KajimaCode',
 
         type: 'website',
         url: ru
-          ? 'https://ru.kajimacode.com/privacy'
-          : 'https://kajimacode.com/privacy',
+            ? 'https://ru.kajimacode.com/privacy'
+            : 'https://kajimacode.com/privacy',
         description: ru
-          ? 'Прочитайте политику конфиденциальности для KajimaCode.'
-          : 'Read the privacy policy for KajimaCode.',
+            ? 'Прочитайте политику конфиденциальности для KajimaCode.'
+            : 'Read the privacy policy for KajimaCode.',
 
         site_name: 'KajimaCode',
         locale: ru
-          ? 'ru_RU'
-          : 'en_GB',
+            ? 'ru_RU'
+            : 'en_GB',
         'locale:alternate': ru
-          ? 'en_GB'
-          : 'ru_RU',
+            ? 'en_GB'
+            : 'ru_RU',
         image: 'https://kajimacode.com/src/assets/images/main_page.png',
         'image:alt': 'This is the main page of the kajimacode.com website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
       },
       twitter: {
         card: 'summary',
         site: ru
-          ? 'https://ru.kajimacode.com/privacy'
-          : 'https://kajimacode.com/privacy',
+            ? 'https://ru.kajimacode.com/privacy'
+            : 'https://kajimacode.com/privacy',
         title: ru
-          ? 'Политика конфиденциальности | KajimaCode'
-          : 'Privacy Policy | KajimaCode',
+            ? 'Политика конфиденциальности | KajimaCode'
+            : 'Privacy Policy | KajimaCode',
 
         description: ru
-          ? 'Прочитайте политику конфиденциальности для KajimaCode.'
-          : 'Read the privacy policy for KajimaCode.',
+            ? 'Прочитайте политику конфиденциальности для KajimaCode.'
+            : 'Read the privacy policy for KajimaCode.',
 
         image: 'https://kajimacode.com/src/assets/images/main_page.png',
         'image:alt': 'This is the main page of the kajimacode.com website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
@@ -97,32 +97,32 @@ export default {
     Rate,
   },
   methods: {
-    get_text(lang){
+    get_text(lang) {
 
-    Promise.all([
+      Promise.all([
         axios.get(`${this.backendURL}/api/v1/pages/navbar/?language=${lang}`),
         axios.get(`${this.backendURL}/api/v1/pages/privacy/?language=${lang}`),
         axios.get(`${this.backendURL}/api/v1/pages/footer/?language=${lang}`)
       ])
-      .then(response => {
-        this.navbar = response[0].data[0]
-        this.privacyPage = response[1].data[0]
-        this.footer = response[2].data[0]
-      })
-      .catch(error => {
-        console.log('Ошибка при загрузке локализации')
-        console.log('retrying..')
-        setTimeout(() => {
-          this.get_text()
-        }, 3000)
-      })
+          .then(response => {
+            this.navbar = response[0].data[0]
+            this.privacyPage = response[1].data[0]
+            this.footer = response[2].data[0]
+          })
+          .catch(error => {
+            console.log('Ошибка при загрузке локализации')
+            console.log('retrying..')
+            setTimeout(() => {
+              this.get_text()
+            }, 3000)
+          })
     }
   },
   created() {
     this.get_text(this.$store.state.language.language)
 
     store.subscribe((mutation, state) => {
-      if (mutation.type === 'language/setLanguage'){
+      if (mutation.type === 'language/setLanguage') {
         this.get_text(state.language.language)
       }
     })
@@ -131,10 +131,10 @@ export default {
 </script>
 
 <style scoped>
-.navbar07_component{
-    background-color: transparent;
-    backdrop-filter: blur(4px) brightness(50%);
-    width: 100vw;
-    position: fixed;
-  }
+.navbar07_component {
+  background-color: transparent;
+  backdrop-filter: blur(4px) brightness(50%);
+  width: 100vw;
+  position: fixed;
+}
 </style>

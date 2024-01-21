@@ -15,8 +15,8 @@
 export default {
   name: "ResumeSection",
   inject: [
-      'backendURL',
-      'frontendURL'
+    'backendURL',
+    'frontendURL'
   ],
   data() {
     return {}

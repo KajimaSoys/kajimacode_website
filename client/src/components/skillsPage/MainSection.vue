@@ -1,12 +1,13 @@
 <template>
-<!--  <InDevelop :frontendURL="frontendURL"/>-->
+  <!--  <InDevelop :frontendURL="frontendURL"/>-->
   <div class="main-block">
     <h1 class="heading-xlarge">{{ text.title }}</h1>
     <div class="skills-container" ref="skillContainer">
 
 
-      <div ref="backend" @click="expandCard($refs.backend)" class="card-container" :class="hidden ? 'hidden' : 'visible'">
-        <el-card shadow="hover" >
+      <div ref="backend" @click="expandCard($refs.backend)" class="card-container"
+           :class="hidden ? 'hidden' : 'visible'">
+        <el-card shadow="hover">
           <h2 class="heading-xxsmall">
             {{ text.backend_title }}
           </h2>
@@ -20,8 +21,9 @@
                        text
                        @click="collapseCard($refs.backend)"
             >
-  <!--            :class="!primary ? 'full-opacity' : 'zero-opacity'"-->
-              <img :src="`${frontendURL}/src/assets/icons/arrow-left.svg`" loading="lazy" width="30" alt="collapse card" />
+              <!--            :class="!primary ? 'full-opacity' : 'zero-opacity'"-->
+              <img :src="`${frontendURL}/src/assets/icons/arrow-left.svg`" loading="lazy" width="30"
+                   alt="collapse card"/>
             </el-button>
 
             <el-collapse v-model="backendActiveName" accordion>
@@ -46,7 +48,8 @@
       </div>
 
 
-      <div ref="frontend" @click="expandCard($refs.frontend)" class="card-container" :class="hidden ? 'hidden' : 'visible'">
+      <div ref="frontend" @click="expandCard($refs.frontend)" class="card-container"
+           :class="hidden ? 'hidden' : 'visible'">
         <el-card shadow="hover">
           <h1 class="heading-xxsmall">
             {{ text.frontend_title }}
@@ -60,7 +63,8 @@
             <el-button class="button"
                        text
                        @click="collapseCard($refs.frontend)">
-              <img :src="`${frontendURL}/src/assets/icons/arrow-left.svg`" loading="lazy" width="30" alt="collapse card" />
+              <img :src="`${frontendURL}/src/assets/icons/arrow-left.svg`" loading="lazy" width="30"
+                   alt="collapse card"/>
             </el-button>
 
             <el-collapse v-model="frontendActiveName" accordion>
@@ -85,9 +89,8 @@
       </div>
 
 
-
       <div ref="other" @click="expandCard($refs.other)" class="card-container" :class="hidden ? 'hidden' : 'visible'">
-        <el-card shadow="hover" >
+        <el-card shadow="hover">
           <h1 class="heading-xxsmall">
             {{ text.other_title }}
           </h1>
@@ -100,7 +103,8 @@
             <el-button class="button"
                        text
                        @click="collapseCard($refs.other)">
-              <img :src="`${frontendURL}/src/assets/icons/arrow-left.svg`" loading="lazy" width="30" alt="collapse card" />
+              <img :src="`${frontendURL}/src/assets/icons/arrow-left.svg`" loading="lazy" width="30"
+                   alt="collapse card"/>
             </el-button>
 
             <el-collapse v-model="otherActiveName" accordion>
@@ -121,7 +125,7 @@
             </el-collapse>
           </div>
 
-      </el-card>
+        </el-card>
       </div>
 
     </div>
@@ -137,8 +141,8 @@ import store from "../../store";
 export default {
   name: "MainSection",
   inject: [
-      'backendURL',
-      'frontendURL'
+    'backendURL',
+    'frontendURL'
   ],
   components: {
     InDevelop
@@ -146,7 +150,7 @@ export default {
   props: [
     'text'
   ],
-  data () {
+  data() {
     return {
       lang_ru: false,
 
@@ -169,7 +173,7 @@ export default {
       this.lang_ru = lang === 'ru';
     },
 
-    expandCard(ref){
+    expandCard(ref) {
       if (!this.hidden) {
         ref.style.height = '100%'
         ref.style.opacity = '1'
@@ -177,13 +181,13 @@ export default {
         this.hidden = true
         this.primary = false
         this.$refs.skillContainer.style.gap = '0'
-        window.scrollTo({top:0,behavior:'smooth'});
+        window.scrollTo({top: 0, behavior: 'smooth'});
       }
     },
 
-    collapseCard(ref){
-      setTimeout(() =>{
-        if (this.hidden){
+    collapseCard(ref) {
+      setTimeout(() => {
+        if (this.hidden) {
           ref.style.height = ''
           ref.style.opacity = ''
           ref.style.cursor = 'pointer'
@@ -201,7 +205,7 @@ export default {
       this.expanded = false
     },
 
-    backendActiveNameChange: function (event){
+    backendActiveNameChange: function (event) {
       if (this.hidden) {
         this.timer = setTimeout(() => {
           if (!this.expanded) {
@@ -212,7 +216,7 @@ export default {
       }
     },
 
-    frontendActiveNameChange: function (event){
+    frontendActiveNameChange: function (event) {
       if (this.hidden) {
         this.timer = setTimeout(() => {
           if (!this.expanded) {
@@ -223,7 +227,7 @@ export default {
       }
     },
 
-    otherActiveNameChange: function (event){
+    otherActiveNameChange: function (event) {
       if (this.hidden) {
         this.timer = setTimeout(() => {
           if (!this.expanded) {
@@ -234,14 +238,14 @@ export default {
       }
     },
 
-    async get_skills(){
+    async get_skills() {
       await axios
           .get(`api/v1/skills/`)
           .then(response => {
             response.data.forEach(item => {
-              if(item.skill_type === 'backend'){
+              if (item.skill_type === 'backend') {
                 this.backend_skills.push(item)
-              } else if (item.skill_type === 'frontend'){
+              } else if (item.skill_type === 'frontend') {
                 this.frontend_skills.push(item)
               } else {
                 this.other_skills.push(item)
@@ -263,12 +267,12 @@ export default {
     this.get_skills()
 
     store.subscribe((mutation, state) => {
-      if (mutation.type === 'language/setLanguage'){
+      if (mutation.type === 'language/setLanguage') {
         this.switchLanguage(state.language.language)
       }
     })
 
-    if (document.documentElement.clientWidth <= 767){
+    if (document.documentElement.clientWidth <= 767) {
       this.backendActiveName = '-1'
       this.frontendActiveName = '-1'
       this.otherActiveName = '-1'
@@ -283,93 +287,93 @@ export default {
 </script>
 
 <style>
-  .el-collapse-item__header {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    color: #475467!important;
-    font-size: 16px!important;
-    font-weight: 600!important;
-  }
+.el-collapse-item__header {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  color: #475467 !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+}
 </style>
 
 <style scoped>
-  .main-block {
-    padding-top: 9vh;
-    max-width: 80rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.main-block {
+  padding-top: 9vh;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  .skills-container {
-    padding: 2rem;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
+.skills-container {
+  padding: 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
 
-  .heading-xlarge {
-    margin-top: 2rem;
-    font-size: 2.5rem;
-  }
+.heading-xlarge {
+  margin-top: 2rem;
+  font-size: 2.5rem;
+}
 
-  .button {
-    position: absolute;
-    transform: translateY(-44px);
-    transition: opacity 0s ease-in-out;
-  }
+.button {
+  position: absolute;
+  transform: translateY(-44px);
+  transition: opacity 0s ease-in-out;
+}
 
-  .heading-xxsmall {
-    text-align: center;
-    padding-bottom: 10px;
-    font-size: 1.5rem;
-  }
+.heading-xxsmall {
+  text-align: center;
+  padding-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.text-size-medium {
+  text-align: justify;
+}
+
+.card-container {
+  cursor: pointer;
+}
+
+.visible {
+  /*height: 30%;*/
+  visibility: visible;
+}
+
+.hidden {
+  height: 0;
+  /*visibility: hidden;*/
+  opacity: 0;
+}
+
+.primary-text, .secondary-text {
+  transition: opacity 0.2s ease-in-out;
+}
+
+.full-opacity {
+  opacity: 1;
+}
+
+.zero-opacity {
+  opacity: 0;
+  height: 0;
+  visibility: collapse;
+}
+
+.el-card.is-hover-shadow {
+  height: 100%;
+}
+
+.collapse-content {
+  text-align: justify;
+}
+
+@media screen and (max-width: 992px) {
 
   .text-size-medium {
-    text-align: justify;
+    font-size: 1rem;
   }
-
-  .card-container {
-    cursor: pointer;
-}
-
-  .visible {
-    /*height: 30%;*/
-    visibility: visible;
-  }
-
-  .hidden {
-    height: 0;
-    /*visibility: hidden;*/
-    opacity: 0;
-  }
-
-  .primary-text, .secondary-text {
-    transition: opacity 0.2s ease-in-out;
-  }
-
-  .full-opacity {
-    opacity: 1;
-  }
-
-  .zero-opacity {
-    opacity: 0;
-    height: 0;
-    visibility: collapse;
-  }
-
-  .el-card.is-hover-shadow {
-    height: 100%;
-}
-
-  .collapse-content{
-    text-align: justify;
-  }
-
-  @media screen and (max-width: 992px) {
-
-   .text-size-medium {
-     font-size: 1rem;
-   }
 }
 
 </style>

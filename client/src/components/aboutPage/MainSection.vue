@@ -1,19 +1,20 @@
 <template>
-    <ascii-render/>
-<!--    <div>Click to skip</div>-->
+  <ascii-render/>
+  <!--    <div>Click to skip</div>-->
 
   <div class="about-page">
     <div class="main-block">
 
       <h1 class="heading-xlarge">{{ text.title }}</h1>
       <div class="about-container clearfix ">
-        <img :src="`${frontendURL}/src/assets/images/about.png`" alt="Me in about page of kajimacode" class="float-left">
+        <img :src="`${frontendURL}/src/assets/images/about.png`" alt="Me in about page of kajimacode"
+             class="float-left">
         <div class="about-text" v-html="text.about_text"></div>
       </div>
     </div>
 
     <!-- TODO CREATE CV AND ENABLE BLOCK -->
-<!--    <resume-section :text="text" />-->
+    <!--    <resume-section :text="text" />-->
   </div>
 
 
@@ -23,11 +24,12 @@
 
 import AsciiRender from "./AsciiRender.vue";
 import ResumeSection from "./ResumeSection.vue";
+
 export default {
   name: "MainSection",
   inject: [
-      'backendURL',
-      'frontendURL'
+    'backendURL',
+    'frontendURL'
   ],
   components: {
     AsciiRender,
@@ -40,12 +42,12 @@ export default {
 </script>
 
 <style>
-.about-text b{
+.about-text b {
   color: #ff5f29;
   transition: color 0.2s ease-in-out;
 }
 
-.about-text a{
+.about-text a {
   text-decoration: none;
   color: white;
 }
@@ -102,25 +104,28 @@ export default {
   max-width: 43vh;
 }
 
-@media screen and (max-width: 992px){
+@media screen and (max-width: 992px) {
   .render {
     max-width: 80%;
     padding-top: 10%;
   }
+
   .float-left {
     margin-right: 45px;
     max-width: 16rem;
   }
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 767px) {
   .render {
     padding-top: 25%;
   }
+
   .float-left {
     margin-right: 0;
     max-width: 18rem;
   }
+
   .about-container {
     display: flex;
     flex-direction: column-reverse;
@@ -134,7 +139,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 479px){
+@media screen and (max-width: 479px) {
 
 }
 

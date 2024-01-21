@@ -1,10 +1,10 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import {RouterLink, RouterView} from 'vue-router'
 import CookieBanner from "@/components/CookieBanner.vue";
 </script>
 
 <template>
-  <RouterView />
+  <RouterView/>
   <CookieBanner/>
 </template>
 

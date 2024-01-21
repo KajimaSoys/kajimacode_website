@@ -3,7 +3,12 @@
     <div class="blur"/>
     <div class="background"/>
     <div class="greetings">
-      Welcome to the world of web development! As a skilled web developer, I am here to help bring your online vision to life. Whether you're looking to create a new website, revamp an existing one, or add custom features to enhance user experience, I have the expertise to get the job done. My services include responsive design, e-commerce integration, and SEO optimization to ensure your website is not only beautiful but also functional and easy to find. Let's work together to take your online presence to the next level. Contact me today to discuss your project.
+      Welcome to the world of web development! As a skilled web developer, I am here to help bring your online vision to
+      life. Whether you're looking to create a new website, revamp an existing one, or add custom features to enhance
+      user experience, I have the expertise to get the job done. My services include responsive design, e-commerce
+      integration, and SEO optimization to ensure your website is not only beautiful but also functional and easy to
+      find. Let's work together to take your online presence to the next level. Contact me today to discuss your
+      project.
     </div>
     <div class="ascii">
       <ascii-render/>
@@ -17,7 +22,7 @@
 import AsciiRender from "@/components/aboutPage/AsciiRender.vue";
 
 export default {
-    name: "AsciiView",
+  name: "AsciiView",
   components: {AsciiRender}
 }
 </script>
@@ -41,7 +46,7 @@ export default {
   z-index: -2;
 }
 
-.blur{
+.blur {
   position: fixed;
   height: 1080px;
   width: 1920px;

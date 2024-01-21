@@ -1,13 +1,16 @@
 <template>
-  <section class="feedback" @scroll="handleScroll" >
+  <section class="feedback" @scroll="handleScroll">
     <div @scroll="handleScroll"></div>
     <div class="page-padding" v-if="showModule">
       <div class="container-small">
         <div id="rate-section" class="padding-vertical-xhuge">
           <div class="text-align-center">
             <div class="rate-block">
-              <div class="heading-subheading">{{ !rateState ? rateModule.rate_title : rateModule.rate_title_success }}</div>
-              <el-rate v-model="rateValue" :colors="colors" size="large" :disabled="rateState" @change="rateSubmit" />
+              <div class="heading-subheading">{{
+                  !rateState ? rateModule.rate_title : rateModule.rate_title_success
+                }}
+              </div>
+              <el-rate v-model="rateValue" :colors="colors" size="large" :disabled="rateState" @change="rateSubmit"/>
             </div>
           </div>
           <div class="max-width-large align-center">
@@ -21,10 +24,14 @@
             <form @submit.prevent="onSubmit" ref="sendRateForm" class="contact01_form">
               <div class="form-field-wrapper">
                 <label class="field-label">{{ rateModule.feedback_message_label }}</label>
-                <textarea v-model="rateMessage" name="Contact-01-message" maxlength="5000" :placeholder="rateModule.feedback_message_placeholder" required="" class="form_input text-area w-input"></textarea>
+                <textarea v-model="rateMessage" name="Contact-01-message" maxlength="5000"
+                          :placeholder="rateModule.feedback_message_placeholder" required=""
+                          class="form_input text-area w-input"></textarea>
               </div>
               <div class="form-button-wrapper">
-                <input type="submit" @click="checkRateForm" :value="!this.sending_feedback ? rateModule.send_button : rateModule.send_button_wait" class="button-2 w-button" />
+                <input type="submit" @click="checkRateForm"
+                       :value="!this.sending_feedback ? rateModule.send_button : rateModule.send_button_wait"
+                       class="button-2 w-button"/>
               </div>
             </form>
             <div class="success-message w-form-done" ref="rateDone">
@@ -32,7 +39,8 @@
             </div>
             <div class="error-message w-form-fail" ref="rateFail">
               <div class="error-text" style="text-align: center">{{ rateModule.feedback_error_message }}</div>
-              <input @click="retryForm" type="button" :value="rateModule.retry_button" class="button-secondary-gray" style="position: relative;margin: 0 auto;margin-top: 2rem;">
+              <input @click="retryForm" type="button" :value="rateModule.retry_button" class="button-secondary-gray"
+                     style="position: relative;margin: 0 auto;margin-top: 2rem;">
             </div>
           </div>
         </div>
@@ -52,7 +60,7 @@ export default {
   props: [
     'source'
   ],
-  data(){
+  data() {
     return {
       showModule: false,
       rateModule: {},
@@ -67,7 +75,7 @@ export default {
     }
   },
   methods: {
-    async getText(lang){
+    async getText(lang) {
       await axios
           .get(`${this.backendURL}/api/v1/pages/rate/?language=${lang}`)
           .then(response => {
@@ -82,13 +90,13 @@ export default {
           })
     },
 
-    rateSubmit(){
+    rateSubmit() {
       this.rateState = true
       console.log('Sending request..')
       this.sendRate()
     },
 
-    async sendRate(){
+    async sendRate() {
       let rateBody = {
         request: {
           source: this.source,
@@ -115,8 +123,8 @@ export default {
           })
     },
 
-    checkRateForm(){
-      if(this.rateMessage){
+    checkRateForm() {
+      if (this.rateMessage) {
         console.log('Sending request..')
         this.sending_feedback = true
         this.sendFeedback()
@@ -125,7 +133,7 @@ export default {
       }
     },
 
-    async sendFeedback(){
+    async sendFeedback() {
       let feedbackBody = {
         request: {
           source: this.source,
@@ -154,21 +162,21 @@ export default {
       this.sending_feedback = false
     },
 
-    retryForm(){
+    retryForm() {
       this.$refs.rateFail.style.display = 'none'
       this.$refs.sendRateForm.style.display = 'grid'
     },
 
 
-    handleScroll(){
+    handleScroll() {
       const scrollPosition = window.pageYOffset + window.innerHeight
       const documentHeight = document.documentElement.scrollHeight
-      if (scrollPosition >= documentHeight-50) {
+      if (scrollPosition >= documentHeight - 50) {
         setTimeout(() => {
-          if(window.pageYOffset + window.innerHeight >= documentHeight-50){
+          if (window.pageYOffset + window.innerHeight >= documentHeight - 50) {
             this.showModule = true
           }
-        },500)
+        }, 500)
       }
     },
   },
@@ -176,7 +184,7 @@ export default {
     this.getText(this.$store.state.language.language)
 
     store.subscribe((mutation, state) => {
-      if (mutation.type === 'language/setLanguage'){
+      if (mutation.type === 'language/setLanguage') {
         this.getText(state.language.language)
       }
     })
@@ -205,13 +213,13 @@ export default {
 }
 
 .el-icon svg {
-    height: 1.2em;
-    width: 1.2em;
+  height: 1.2em;
+  width: 1.2em;
 }
 
 .contact01_component {
-    max-width: 30rem;
-    margin: 3rem auto 0px;
+  max-width: 30rem;
+  margin: 3rem auto 0px;
 }
 
 .max-width-large.align-center {

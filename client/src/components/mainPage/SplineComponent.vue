@@ -5,18 +5,16 @@
 </template>
 
 <script>
-import { Application } from '@splinetool/runtime';
+import {Application} from '@splinetool/runtime';
 
 export default {
   name: "SplineComponent",
-  data(){
+  data() {
     return {
       // isMouseOverCanvas: true
     }
   },
-  methods: {
-
-  },
+  methods: {},
   mounted() {
     const canvas = document.getElementById('canvas3d');
     const app = new Application(canvas);
@@ -33,8 +31,8 @@ export default {
     //   console.log("мы вышли")
     // });
 
-    document.addEventListener('mousemove', function(event) {
-      if  (event.target !== canvas) {
+    document.addEventListener('mousemove', function (event) {
+      if (event.target !== canvas) {
         // console.log('работаю')
         const rect = canvas.getBoundingClientRect();
 

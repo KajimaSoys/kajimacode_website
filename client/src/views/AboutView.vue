@@ -10,7 +10,7 @@
 
   <Footer :text="footer"/>
 
-  <Rate source="about" />
+  <Rate source="about"/>
 
 </template>
 
@@ -21,15 +21,15 @@ import Footer from "@/components/Footer.vue";
 import Rate from "@/components/Rate.vue";
 import axios from "axios";
 import store from "../store";
-import { useMeta } from 'vue-meta'
+import {useMeta} from 'vue-meta'
 
 export default {
   name: 'AboutView',
   inject: [
-      'backendURL',
-      'frontendURL'
+    'backendURL',
+    'frontendURL'
   ],
-  data (){
+  data() {
     return {
       navbar: {},
       aboutPage: {},
@@ -47,36 +47,36 @@ export default {
           : 'Learn more about me and my experience in web development. I\'m ready to help you build the perfect website for your business.',
       og: {
         title: ru
-          ? 'Обо мне | KajimaCode'
-          : 'About me | KajimaCode',
+            ? 'Обо мне | KajimaCode'
+            : 'About me | KajimaCode',
         type: 'website',
         url: ru
-          ? 'https://ru.kajimacode.com/about'
-          : 'https://kajimacode.com/about',
+            ? 'https://ru.kajimacode.com/about'
+            : 'https://kajimacode.com/about',
         description: ru
-          ? 'Узнайте больше обо мне и моем опыте в веб-разработке. Я готов помочь вам создать превосходный веб-сайт для вашего бизнеса.'
-          : 'Learn more about me and my experience in web development. I\'m ready to help you build the perfect website for your business.',
+            ? 'Узнайте больше обо мне и моем опыте в веб-разработке. Я готов помочь вам создать превосходный веб-сайт для вашего бизнеса.'
+            : 'Learn more about me and my experience in web development. I\'m ready to help you build the perfect website for your business.',
         site_name: 'KajimaCode',
         locale: ru
-          ? 'ru_RU'
-          : 'en_GB',
+            ? 'ru_RU'
+            : 'en_GB',
         'locale:alternate': ru
-          ? 'en_GB'
-          : 'ru_RU',
+            ? 'en_GB'
+            : 'ru_RU',
         image: 'https://kajimacode.com/src/assets/images/main_page.png',
         'image:alt': 'This is the main page of the kajimacode.com website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
       },
       twitter: {
         card: 'summary',
         site: ru
-          ? 'https://ru.kajimacode.com/about'
-          : 'https://kajimacode.com/about',
+            ? 'https://ru.kajimacode.com/about'
+            : 'https://kajimacode.com/about',
         title: ru
-          ? 'Обо мне | KajimaCode'
-          : 'About me | KajimaCode',
+            ? 'Обо мне | KajimaCode'
+            : 'About me | KajimaCode',
         description: ru
-          ? 'Узнайте больше обо мне и моем опыте в веб-разработке. Я готов помочь вам создать превосходный веб-сайт для вашего бизнеса.'
-          : 'Learn more about me and my experience in web development. I\'m ready to help you build the perfect website for your business.',
+            ? 'Узнайте больше обо мне и моем опыте в веб-разработке. Я готов помочь вам создать превосходный веб-сайт для вашего бизнеса.'
+            : 'Learn more about me and my experience in web development. I\'m ready to help you build the perfect website for your business.',
         image: 'https://kajimacode.com/src/assets/images/main_page.png',
         'image:alt': 'This is the main page of the kajimacode.com website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
       },
@@ -92,32 +92,32 @@ export default {
     Rate,
   },
   methods: {
-    get_text(lang){
+    get_text(lang) {
 
-    Promise.all([
+      Promise.all([
         axios.get(`${this.backendURL}/api/v1/pages/navbar/?language=${lang}`),
         axios.get(`${this.backendURL}/api/v1/pages/about/?language=${lang}`),
         axios.get(`${this.backendURL}/api/v1/pages/footer/?language=${lang}`)
       ])
-      .then(response => {
-        this.navbar = response[0].data[0]
-        this.aboutPage = response[1].data[0]
-        this.footer = response[2].data[0]
-      })
-      .catch(error => {
-        console.log('Ошибка при загрузке локализации')
-        console.log('retrying..')
-        setTimeout(() => {
-          this.get_text()
-        }, 3000)
-      })
+          .then(response => {
+            this.navbar = response[0].data[0]
+            this.aboutPage = response[1].data[0]
+            this.footer = response[2].data[0]
+          })
+          .catch(error => {
+            console.log('Ошибка при загрузке локализации')
+            console.log('retrying..')
+            setTimeout(() => {
+              this.get_text()
+            }, 3000)
+          })
     }
   },
   created() {
     this.get_text(this.$store.state.language.language)
 
     store.subscribe((mutation, state) => {
-      if (mutation.type === 'language/setLanguage'){
+      if (mutation.type === 'language/setLanguage') {
         this.get_text(state.language.language)
       }
     })
@@ -127,14 +127,14 @@ export default {
 </script>
 
 <style scoped>
-.navbar07_component{
-    background-color: transparent;
-    backdrop-filter: blur(4px) brightness(50%);
-    width: 100vw;
-    position: fixed;
-  }
+.navbar07_component {
+  background-color: transparent;
+  backdrop-filter: blur(4px) brightness(50%);
+  width: 100vw;
+  position: fixed;
+}
 
-  /*.footer04_component {*/
-  /*  position: absolute;*/
-  /*}*/
+/*.footer04_component {*/
+/*  position: absolute;*/
+/*}*/
 </style>

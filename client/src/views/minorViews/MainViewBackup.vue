@@ -9,7 +9,7 @@
           <text x="50" y="30" class="text-tag-red">
             Code
           </text>
-          <text  x="75" y="30" class="text-tag-white">
+          <text x="75" y="30" class="text-tag-white">
             />
           </text>
         </svg>
@@ -81,11 +81,11 @@ text {
   font-size: 11px;
 }
 
-.text-tag-red{
+.text-tag-red {
   fill: red;
 }
 
-.navbar-item{
+.navbar-item {
   padding: 40px 20px;
   text-align: center;
 }
@@ -100,9 +100,9 @@ text {
 
 .render-block {
   background: linear-gradient(180deg, #202123, #b86e48 53%, #db7b55 76%);
-background: #ff8d60;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to bottom, #202123, #4c362f, #a36047, #ff8d60);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to bottom, #202123, #4c362f, #a36047, #ff8d60); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #ff8d60; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #202123, #4c362f, #a36047, #ff8d60); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #202123, #4c362f, #a36047, #ff8d60); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   /*height: 969px;*/
   width: 63%;

@@ -6,12 +6,12 @@
     </div>
 
     <div class="stop" ref="stop">
-      {{ this.$store.state.language.language === 'ru' ? 'Пропустить..' : 'Click to continue..'}}
+      {{ this.$store.state.language.language === 'ru' ? 'Пропустить..' : 'Click to continue..' }}
     </div>
 
     <div class="backdown" ref="backdown">
-      <div class="left" ref="left"> </div>
-      <div class="right" ref="right"> </div>
+      <div class="left" ref="left"></div>
+      <div class="right" ref="right"></div>
     </div>
   </div>
 </template>
@@ -21,8 +21,8 @@ import axios from "axios";
 
 export default {
   name: "AsciiRender",
-  data(){
-    return{
+  data() {
+    return {
       ascii_array: {},
       num_files: 20,
       ascii_active: true,
@@ -31,15 +31,15 @@ export default {
   methods: {
     async get_ascii(index) {
       // localStorage.clear()
-      if(this.ascii_active){
-        window.scrollTo({top:0,behavior:'auto'});
+      if (this.ascii_active) {
+        window.scrollTo({top: 0, behavior: 'auto'});
         try {
           if (index <= this.num_files) {
             const response = await axios.get(`api/v1/get_ascii_part_${index}`);
             // const response = await this.$store.dispatch('asciiFiles/getFile', index);
             this.ascii_array[response.data.key] = response.data.res
 
-            if (index === 1){
+            if (index === 1) {
               this.build_text_attrs()
             }
 
@@ -62,7 +62,7 @@ export default {
           let text_attrs = ''
           let j = 0
 
-          frame.forEach(function (row){
+          frame.forEach(function (row) {
             text_attrs = text_attrs + `<text x="0" y="${j}" style="font-size: 10.5202px; font-family: monospace; dominant-baseline: hanging; white-space: pre; fill: white;">${row}</text>`
             j += 13
           })
@@ -88,18 +88,18 @@ export default {
       this.stopAnimation()
     },
 
-    stopAnimation(){
+    stopAnimation() {
       this.ascii_active = false
       // console.log('stop animation')
 
-        this.$refs.render.style.opacity = '0'
-        this.$refs.stop.style.opacity = '0'
+      this.$refs.render.style.opacity = '0'
+      this.$refs.stop.style.opacity = '0'
 
       setTimeout(() => {
         this.$refs.render.style.display = 'none'
         this.$refs.stop.style.display = 'none'
         this.$refs.loading.style.height = '0'
-      },300)
+      }, 300)
 
       setTimeout(() => {
         this.$refs.left.style.transform = 'translateX(-100%)'
@@ -116,7 +116,7 @@ export default {
   },
   created() {
     document.body.style.overflow = 'hidden'
-    window.scrollTo({top:0,behavior:'auto'});
+    window.scrollTo({top: 0, behavior: 'auto'});
     this.get_ascii(1)
 
     // this.load_ascii_files()
@@ -174,27 +174,27 @@ export default {
   transition: transform 0.5s ease-in-out;
 }
 
-.right{
+.right {
   width: 50%;
   background-color: #1d2939;
   height: 1500px;
   transition: transform 0.5s ease-in-out;
 }
 
-@media screen and (max-width: 992px){
+@media screen and (max-width: 992px) {
   .render {
     max-width: 80%;
     padding-top: 10%;
   }
 }
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 767px) {
   .render {
     padding-top: 25%;
   }
 }
 
-@media screen and (max-width: 479px){
+@media screen and (max-width: 479px) {
 
 }
 </style>
