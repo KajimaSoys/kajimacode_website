@@ -1,15 +1,16 @@
 <template>
 <!--  <div class="image-container">-->
-    <img class="in-develop-image" :src="`${frontendUrl}/src/assets/images/underDevelop_${this.$store.state.language.language}.png`" alt="Section under develop">
+    <img class="in-develop-image" :src="`${frontendURL}/src/assets/images/underDevelop_${this.$store.state.language.language}.png`" alt="Section under develop">
 <!--  </div>-->
 </template>
 
 <script>
 export default {
   name: "InDevelop",
-  props: [
-      'frontendUrl'
-  ]
+  inject: [
+      'backendURL',
+      'frontendURL'
+  ],
 }
 </script>
 

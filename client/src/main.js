@@ -22,13 +22,9 @@ store.commit('language/setLanguage', language)
 const app = createApp(App)
 
 app.use(store)
-
 app.use(router, axios)
-
 app.use(ElementPlus)
-
 app.use(createMetaManager())
-
 app.use(SmoothScroll({
                         animationTime    : 400 ,
                         accelerationDelta : 100,
@@ -37,23 +33,19 @@ app.use(SmoothScroll({
                         pulseScale       : 4,
                         pulseNormalize   : 1,
         }))
-
 app.mount('#app')
 
-// local
-// app.config.globalProperties.$backendUrl= 'http://localhost:8000'
-// prod
-app.config.globalProperties.$backendUrl = 'https://kajimacode.com'
 
-// local
-// app.config.globalProperties.$frontendUrl= 'http://localhost:5173'
-// prod
-app.config.globalProperties.$frontendUrl = 'https://kajimacode.com'
+let backendURL = import.meta.env.VITE_BACKEND_HOST;
+let frontendURL = import.meta.env.VITE_FRONTEND_HOST;
 
-// local
-// axios.defaults.baseURL = 'http://localhost:8000'
-// prod
-axios.defaults.baseURL = 'https://kajimacode.com'
+axios.defaults.baseURL = backendURL
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
-app.config.globalProperties.$projectVersion = '2.9.3'
+app.provide('backendURL', backendURL)
+app.provide('frontendURL', frontendURL)
+
+
+app.config.globalProperties.$projectVersion = '2.9.4'
 

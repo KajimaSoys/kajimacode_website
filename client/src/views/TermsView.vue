@@ -4,11 +4,11 @@
     <template v-slot:title="{ content, metainfo }">{{ content }}</template>
   </metainfo>
 
-  <Navbar :frontendUrl="frontendUrl" :text="navbar"/>
+  <Navbar :text="navbar"/>
 
-  <MainSection :backendUrl="backendUrl" :frontendUrl="frontendUrl" :text="termsPage"/>
+  <MainSection :text="termsPage"/>
 
-  <Footer :frontendUrl="frontendUrl" :text="footer"/>
+  <Footer :text="footer"/>
 
   <Rate source="terms" />
 
@@ -25,11 +25,12 @@ import { useMeta } from 'vue-meta'
 
 export default {
   name: "TermsView",
+  inject: [
+      'backendURL',
+      'frontendURL'
+  ],
   data (){
     return {
-      backendUrl: this.$backendUrl,
-      frontendUrl: this.$frontendUrl,
-
       navbar: {},
       termsPage: {},
       footer: {},
@@ -94,9 +95,9 @@ export default {
     get_text(lang){
 
     Promise.all([
-        axios.get(`${this.$backendUrl}/api/v1/pages/navbar/?language=${lang}`),
-        axios.get(`${this.$backendUrl}/api/v1/pages/terms/?language=${lang}`),
-        axios.get(`${this.$backendUrl}/api/v1/pages/footer/?language=${lang}`)
+        axios.get(`${this.backendURL}/api/v1/pages/navbar/?language=${lang}`),
+        axios.get(`${this.backendURL}/api/v1/pages/terms/?language=${lang}`),
+        axios.get(`${this.backendURL}/api/v1/pages/footer/?language=${lang}`)
       ])
       .then(response => {
         this.navbar = response[0].data[0]

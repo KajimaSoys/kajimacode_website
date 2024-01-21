@@ -7,13 +7,13 @@
 
       <h1 class="heading-xlarge">{{ text.title }}</h1>
       <div class="about-container clearfix ">
-        <img :src="`${frontendUrl}/src/assets/images/about.png`" alt="Me in about page of kajimacode" class="float-left">
+        <img :src="`${frontendURL}/src/assets/images/about.png`" alt="Me in about page of kajimacode" class="float-left">
         <div class="about-text" v-html="text.about_text"></div>
       </div>
     </div>
 
     <!-- TODO CREATE CV AND ENABLE BLOCK -->
-<!--    <resume-section :text="text" :backendUrl="backendUrl"/>-->
+<!--    <resume-section :text="text" />-->
   </div>
 
 
@@ -25,13 +25,15 @@ import AsciiRender from "./AsciiRender.vue";
 import ResumeSection from "./ResumeSection.vue";
 export default {
   name: "MainSection",
+  inject: [
+      'backendURL',
+      'frontendURL'
+  ],
   components: {
     AsciiRender,
     ResumeSection
   },
   props: [
-    'backendUrl',
-    'frontendUrl',
     'text'
   ],
 }

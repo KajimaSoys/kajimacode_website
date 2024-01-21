@@ -6,13 +6,13 @@
           <div class="w-layout-grid footer04_top-wrapper">
             <a v-if="isMainPage" @click="scrollToTop()" class="footer04_logo-link w-inline-block">
               <div class="logo_component">
-                <img :src="`${frontendUrl}/src/assets/kajimacode_black_orange.svg`" loading="lazy" alt="KajimaCode Black Orange Logo" class="logo_logotype" />
+                <img :src="`${frontendURL}/src/assets/kajimacode_black_orange.svg`" loading="lazy" alt="KajimaCode Black Orange Logo" class="logo_logotype" />
               </div>
             </a>
 
             <router-link v-else to="/"  class="footer04_logo-link w-inline-block">
               <div class="logo_component">
-                <img :src="`${frontendUrl}/src/assets/kajimacode_black_orange.svg`" loading="lazy" alt="KajimaCode Black Orange Logo" class="logo_logotype" />
+                <img :src="`${frontendURL}/src/assets/kajimacode_black_orange.svg`" loading="lazy" alt="KajimaCode Black Orange Logo" class="logo_logotype" />
               </div>
             </router-link>
 
@@ -106,9 +106,12 @@
 <script>
 export default {
   name: "Footer",
+  inject: [
+      'backendURL',
+      'frontendURL'
+  ],
   props: [
     'scrollToAnchor',
-    'frontendUrl',
     'text'
   ],
   computed: {

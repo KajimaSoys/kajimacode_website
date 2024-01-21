@@ -48,6 +48,7 @@ import store from "../store";
 
 export default {
   name: "Rate.vue",
+  inject: ['backendURL'],
   props: [
     'source'
   ],
@@ -68,7 +69,7 @@ export default {
   methods: {
     async getText(lang){
       await axios
-          .get(`${this.$backendUrl}/api/v1/pages/rate/?language=${lang}`)
+          .get(`${this.backendURL}/api/v1/pages/rate/?language=${lang}`)
           .then(response => {
             this.rateModule = response.data[0]
           })

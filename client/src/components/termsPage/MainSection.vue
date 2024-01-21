@@ -6,9 +6,11 @@
 
 export default {
   name: "MainSection",
+  inject: [
+      'backendURL',
+      'frontendURL'
+  ],
   props: [
-    'backendUrl',
-    'frontendUrl',
     'text'
   ],
 }

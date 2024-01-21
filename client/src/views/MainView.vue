@@ -3,24 +3,24 @@
         <template v-slot:title="{ content, metainfo }">{{ content }}</template>
       </metainfo>
 
-      <Navbar :frontendUrl="frontendUrl" :text="navbar"/>
+      <Navbar :text="navbar"/>
 
-      <MainSection :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl" :text="mainPage"/>
+      <MainSection :scrollToAnchor="scrollToAnchor" :text="mainPage"/>
 
-      <IntroduceSection :frontendUrl="frontendUrl" :text="mainPage"/>
+      <IntroduceSection :text="mainPage"/>
 
-      <ProjectSection :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl" :text="mainPage"/>
+      <ProjectSection :scrollToAnchor="scrollToAnchor" :text="mainPage"/>
 
-      <StagesSection :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl" :text="mainPage"/>
+      <StagesSection :scrollToAnchor="scrollToAnchor" :text="mainPage"/>
 
-      <TechnologiesSection :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl" :text="mainPage"/>
+      <TechnologiesSection :scrollToAnchor="scrollToAnchor" :text="mainPage"/>
 
       <ContactSection :text="mainPage"/>
 
       <!-- TODO ENABLE BLOCK AFTER REAL REVIEW -->
-<!--      <ReviewSection :frontendUrl="frontendUrl" :text="mainPage"/>-->
+<!--      <ReviewSection :text="mainPage"/>-->
 
-      <Footer :scrollToAnchor="scrollToAnchor" :frontendUrl="frontendUrl" :text="footer"/>
+      <Footer :scrollToAnchor="scrollToAnchor" :text="footer"/>
 
       <el-backtop :right="50" :bottom="110" />
 
@@ -50,10 +50,12 @@ import debounce from "lodash/debounce";
 
 export default {
   name: "MainView",
+  inject: [
+      'backendURL',
+      'frontendURL'
+  ],
   data (){
     return {
-      frontendUrl: this.$frontendUrl,
-
       navbar: {},
       mainPage: {},
       footer: {},
@@ -129,9 +131,9 @@ export default {
 
     get_text(lang){
       Promise.all([
-          axios.get(`${this.$backendUrl}/api/v1/pages/navbar/?language=${lang}`),
-          axios.get(`${this.$backendUrl}/api/v1/pages/main/?language=${lang}`),
-          axios.get(`${this.$backendUrl}/api/v1/pages/footer/?language=${lang}`)
+          axios.get(`${this.backendURL}/api/v1/pages/navbar/?language=${lang}`),
+          axios.get(`${this.backendURL}/api/v1/pages/main/?language=${lang}`),
+          axios.get(`${this.backendURL}/api/v1/pages/footer/?language=${lang}`)
         ])
         .then(response => {
           this.navbar = response[0].data[0]

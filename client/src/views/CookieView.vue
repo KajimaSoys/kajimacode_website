@@ -4,11 +4,11 @@
     <template v-slot:title="{ content, metainfo }">{{ content }}</template>
   </metainfo>
 
-  <Navbar :frontendUrl="frontendUrl" :text="navbar"/>
+  <Navbar :text="navbar"/>
 
-  <MainSection :backendUrl="backendUrl" :frontendUrl="frontendUrl" :text="cookiesPage"/>
+  <MainSection :text="cookiesPage"/>
 
-  <Footer :frontendUrl="frontendUrl" :text="footer"/>
+  <Footer :text="footer"/>
 
   <Rate source="cookie" />
 
@@ -25,11 +25,12 @@ import { useMeta } from 'vue-meta'
 
 export default {
   name: "CookieView",
+  inject: [
+      'backendURL',
+      'frontendURL'
+  ],
   data (){
     return {
-      backendUrl: this.$backendUrl,
-      frontendUrl: this.$frontendUrl,
-
       navbar: {},
       cookiesPage: {},
       footer: {},
@@ -88,9 +89,9 @@ export default {
     get_text(lang){
 
     Promise.all([
-        axios.get(`${this.$backendUrl}/api/v1/pages/navbar/?language=${lang}`),
-        axios.get(`${this.$backendUrl}/api/v1/pages/cookies/?language=${lang}`),
-        axios.get(`${this.$backendUrl}/api/v1/pages/footer/?language=${lang}`)
+        axios.get(`${this.backendURL}/api/v1/pages/navbar/?language=${lang}`),
+        axios.get(`${this.backendURL}/api/v1/pages/cookies/?language=${lang}`),
+        axios.get(`${this.backendURL}/api/v1/pages/footer/?language=${lang}`)
       ])
       .then(response => {
         this.navbar = response[0].data[0]

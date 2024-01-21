@@ -1,5 +1,5 @@
 <template>
-<!--  <InDevelop :frontendUrl="frontendUrl"/>-->
+<!--  <InDevelop :frontendURL="frontendURL"/>-->
   <div class="main-block">
     <h1 class="heading-xlarge">{{ text.title }}</h1>
     <div class="skills-container" ref="skillContainer">
@@ -21,7 +21,7 @@
                        @click="collapseCard($refs.backend)"
             >
   <!--            :class="!primary ? 'full-opacity' : 'zero-opacity'"-->
-              <img :src="`${frontendUrl}/src/assets/icons/arrow-left.svg`" loading="lazy" width="30" alt="collapse card" />
+              <img :src="`${frontendURL}/src/assets/icons/arrow-left.svg`" loading="lazy" width="30" alt="collapse card" />
             </el-button>
 
             <el-collapse v-model="backendActiveName" accordion>
@@ -60,7 +60,7 @@
             <el-button class="button"
                        text
                        @click="collapseCard($refs.frontend)">
-              <img :src="`${frontendUrl}/src/assets/icons/arrow-left.svg`" loading="lazy" width="30" alt="collapse card" />
+              <img :src="`${frontendURL}/src/assets/icons/arrow-left.svg`" loading="lazy" width="30" alt="collapse card" />
             </el-button>
 
             <el-collapse v-model="frontendActiveName" accordion>
@@ -100,7 +100,7 @@
             <el-button class="button"
                        text
                        @click="collapseCard($refs.other)">
-              <img :src="`${frontendUrl}/src/assets/icons/arrow-left.svg`" loading="lazy" width="30" alt="collapse card" />
+              <img :src="`${frontendURL}/src/assets/icons/arrow-left.svg`" loading="lazy" width="30" alt="collapse card" />
             </el-button>
 
             <el-collapse v-model="otherActiveName" accordion>
@@ -136,12 +136,14 @@ import store from "../../store";
 
 export default {
   name: "MainSection",
+  inject: [
+      'backendURL',
+      'frontendURL'
+  ],
   components: {
     InDevelop
   },
   props: [
-    'backendUrl',
-    'frontendUrl',
     'text'
   ],
   data () {

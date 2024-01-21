@@ -4,11 +4,11 @@
     <template v-slot:title="{ content, metainfo }">{{ content }}</template>
   </metainfo>
 
-  <Navbar v-if="personal" :frontendUrl="frontendUrl" :text="navbar"/>
+  <Navbar v-if="personal" :text="navbar"/>
 
-  <MainSection :backendUrl="backendUrl" :frontendUrl="frontendUrl" :apiEndpoint="apiEndpoint"/>
+  <MainSection :apiEndpoint="apiEndpoint"/>
 
-  <Footer v-if="personal" :frontendUrl="frontendUrl" :text="footer"/>
+  <Footer v-if="personal" :text="footer"/>
 
   <Rate source="projects" />
 
@@ -25,10 +25,12 @@ import { useMeta } from 'vue-meta'
 
 export default {
   name: "ProjectsView",
+  inject: [
+      'backendURL',
+      'frontendURL'
+  ],
   data (){
     return {
-      backendUrl: this.$backendUrl,
-      frontendUrl: this.$frontendUrl,
       apiEndpoint: "True",
       personal: true,
 
@@ -95,8 +97,8 @@ export default {
     get_text(lang){
 
     Promise.all([
-        axios.get(`${this.$backendUrl}/api/v1/pages/navbar/?language=${lang}`),
-        axios.get(`${this.$backendUrl}/api/v1/pages/footer/?language=${lang}`)
+        axios.get(`${this.backendURL}/api/v1/pages/navbar/?language=${lang}`),
+        axios.get(`${this.backendURL}/api/v1/pages/footer/?language=${lang}`)
       ])
       .then(response => {
         this.navbar = response[0].data[0]

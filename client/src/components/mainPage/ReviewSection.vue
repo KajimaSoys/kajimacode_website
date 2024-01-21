@@ -53,7 +53,7 @@
               <div class="heading-xxsmall text-weight-medium">&quot;{{ text.first_text }}&quot;</div>
               <div class="testimonial13_client">
                 <div class="testimonial13_client-image-wrapper">
-                  <img :src="`${frontendUrl}/src/assets/images/person.png`" loading="lazy" alt="" class="testimonial13_customer-image" />
+                  <img :src="`${frontendURL}/src/assets/images/person.png`" loading="lazy" alt="" class="testimonial13_customer-image" />
                 </div>
                 <div class="testimonial13_client-info">
                   <div class="testimonial13_client-heading">{{ text.first_author }}</div>
@@ -102,7 +102,7 @@
               <div class="heading-xxsmall text-weight-medium">&quot;{{ text.second_text }}&quot;</div>
               <div class="testimonial13_client">
                 <div class="testimonial13_client-image-wrapper">
-                  <img :src="`${frontendUrl}/src/assets/images/person.png`" loading="lazy" alt="" class="testimonial13_customer-image" />
+                  <img :src="`${frontendURL}/src/assets/images/person.png`" loading="lazy" alt="" class="testimonial13_customer-image" />
                 </div>
                 <div class="testimonial13_client-info">
                   <div class="testimonial13_client-heading">{{ text.second_author }}</div>
@@ -151,7 +151,7 @@
               <div class="heading-xxsmall text-weight-medium">&quot;{{ text.third_text }}&quot;</div>
               <div class="testimonial13_client">
                 <div class="testimonial13_client-image-wrapper">
-                  <img :src="`${frontendUrl}/src/assets/images/person.png`" loading="lazy" alt="" class="testimonial13_customer-image" />
+                  <img :src="`${frontendURL}/src/assets/images/person.png`" loading="lazy" alt="" class="testimonial13_customer-image" />
                 </div>
                 <div class="testimonial13_client-info">
                   <div class="testimonial13_client-heading">{{ text.third_author }}</div>
@@ -169,8 +169,11 @@
 <script>
 export default {
   name: "ReviewSection",
+  inject: [
+      'backendURL',
+      'frontendURL'
+  ],
   props: [
-    'frontendUrl',
     'text'
   ],
 }

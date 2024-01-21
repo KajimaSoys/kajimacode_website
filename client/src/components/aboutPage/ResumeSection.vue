@@ -1,12 +1,12 @@
 <template>
   <div class="resume-block" id="resume">
-     <div class="about-container">
-       <h1 class="heading-medium">{{ text.resume_text }}</h1>
+    <div class="about-container">
+      <h1 class="heading-medium">{{ text.resume_text }}</h1>
 
-       <div class="button">
-         {{ text.download_button }}
-       </div>
-     </div>
+      <div class="button">
+        {{ text.download_button }}
+      </div>
+    </div>
   </div>
 
 </template>
@@ -14,28 +14,29 @@
 <script>
 export default {
   name: "ResumeSection",
+  inject: [
+      'backendURL',
+      'frontendURL'
+  ],
   data() {
-    return {
-
-    }
+    return {}
   },
   props: [
-    'backendUrl',
     'text'
   ],
 }
 </script>
 
 <style scoped>
-  .resume-block {
+.resume-block {
   padding: 0 2rem 2rem 2rem;
   max-width: 90rem;
   margin-left: auto;
   margin-right: auto;
   /*min-height: 100vh;*/
-  }
+}
 
-  .about-container {
+.about-container {
   text-align: justify;
   background-image: linear-gradient(235deg, #344054, #1d2939);
   border-radius: 25px;
@@ -49,16 +50,16 @@ export default {
   margin: 2rem;
 }
 
-  .heading-medium{
-    color: white;
-    text-align: center;
-  }
+.heading-medium {
+  color: white;
+  text-align: center;
+}
 
-  .button {
-    max-width: 10rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 3rem;
-    cursor: pointer;
-  }
+.button {
+  max-width: 10rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+  cursor: pointer;
+}
 </style>

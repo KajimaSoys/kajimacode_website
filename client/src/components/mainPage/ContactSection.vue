@@ -53,6 +53,10 @@ import axios from "axios";
 
 export default {
   name: "ContactSection",
+  inject: [
+      'backendURL',
+      'frontendURL'
+  ],
   props: [
       'text'
   ],

@@ -44,7 +44,7 @@ class GroupAdmin(admin.ModelAdmin):
 
 @admin.register(Project)
 class ProjectAdmin(SortableAdminMixin, admin.ModelAdmin):
-    list_display = ('name_ru', 'order', 'get_group', 'isActive')
+    list_display = ('order', 'name_ru', 'get_group', 'isActive')
     inlines = (ProjectImagesInline,)
 
     def get_queryset(self, request):

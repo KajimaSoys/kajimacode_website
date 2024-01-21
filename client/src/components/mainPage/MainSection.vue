@@ -19,7 +19,7 @@
                 </div>
               </div>
               <div class="heroheader07_image-wrapper">
-                <img :src="`${frontendUrl}/src/assets/images/light_orig.png`" alt="Colorful gradient" class="heroheader07_light-overlay" />
+                <img :src="`${frontendURL}/src/assets/images/light_orig.png`" alt="Colorful gradient" class="heroheader07_light-overlay" />
 <!--                <spline scene="https://prod.spline.design/DAnBj2USRzWxm2jA/scene.splinecode" />-->
                 <spline-component/>
               </div>
@@ -37,13 +37,15 @@ import Splitting from 'splitting';
 
 export default {
   name: "MainSection",
-
+  inject: [
+      'backendURL',
+      'frontendURL'
+  ],
   components: {
     SplineComponent
   },
   props: [
     'scrollToAnchor',
-    'frontendUrl',
     'text'
   ],
   data(){
