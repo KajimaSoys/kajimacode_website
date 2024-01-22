@@ -94,7 +94,7 @@
             </div>
           </div>
           <div class="footer04_bottom-wrapper">
-            <div class="text-size-small text-color-gray500">© 2023 Kajima Code</div>
+            <div class="text-size-small text-color-gray500">© {{ new Date().getFullYear() }} Kajima Code</div>
             <div class="w-layout-grid footer04_legal-list">
 
               <router-link to="/terms" class="footer04_legal-link">

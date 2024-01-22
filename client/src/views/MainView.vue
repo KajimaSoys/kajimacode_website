@@ -155,7 +155,7 @@ export default {
       const scrollPosition = window.pageYOffset;
       const brightness = Math.max(50, 100 - scrollPosition / 10);
       backdrop.style.backdropFilter = `blur(4px) brightness(${brightness}%)`;
-
+      backdrop.style.webkitBackdropFilter  = `blur(4px) brightness(${brightness}%)`;
       let screenPosition = window.innerHeight / 1.3; // регулирует когда элемент появится на экране
 
       // opacity
@@ -257,6 +257,7 @@ export default {
 .navbar07_component {
   background-color: transparent;
   backdrop-filter: blur(4px) brightness(100%);
+  -webkit-backdrop-filter: blur(4px) brightness(100%);
   width: 100vw;
   position: fixed;
   transition: backdrop-filter 0.05s ease-in-out;

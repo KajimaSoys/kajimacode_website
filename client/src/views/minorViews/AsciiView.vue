@@ -52,6 +52,7 @@ export default {
   width: 1920px;
   background: rgba(6, 6, 31, 0.7);
   backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   color: #ffffff;
   z-index: -1;
 }

@@ -129,6 +129,7 @@ export default {
 .navbar07_component {
   background-color: transparent;
   backdrop-filter: blur(4px) brightness(50%);
+  -webkit-backdrop-filter: blur(4px) brightness(50%);
   width: 100vw;
   position: fixed;
 }

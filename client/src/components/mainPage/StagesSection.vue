@@ -286,13 +286,25 @@ export default {
   methods: {
     handleScroll(event) {
       const {top, bottom} = this.$refs.progressBar.getBoundingClientRect();
-      const minHeight = 0
-      const maxHeight = 100;
-      const scrollRatio = 2 - bottom / window.innerHeight;
-      // FixMe scroll line in phone version is not working
+      const windowHeight = window.innerHeight;
+      const size = bottom - top
+      // Начальная и конечная точки для scrollRatio
+      const start = windowHeight; // Начальная точка, когда bottom элемента равен windowHeight
+      const end = 0; // Конечная точка, когда top элемента равен 0
+
+      let scrollRatio;
+
+      if (top > start) {
+        scrollRatio = 0;
+      } else if (bottom < end) {
+        scrollRatio = 1;
+      } else {
+        // Вычисляем scrollRatio на основе текущего положения элемента
+        scrollRatio = (1 - ((bottom - start) / size)) - 0.15;
+      }
       if (top <= window.innerHeight && bottom >= 0) {
-        this.height = minHeight + scrollRatio * (maxHeight - minHeight) - 50;
-        if (scrollRatio - 0.5 < 0) {
+        this.height = scrollRatio * 100;
+        if (scrollRatio < 0) {
           this.height = 0
         }
         if (this.height > 100) {
@@ -303,11 +315,11 @@ export default {
   },
 
   mounted() {
-    this.handleDebouncedScroll = debounce(this.handleScroll, 50);
-    window.addEventListener('scroll', this.handleDebouncedScroll);
+    // this.handleDebouncedScroll = debounce(this.handleScroll, 25);
+    window.addEventListener('scroll', this.handleScroll);
   },
   unmounted() {
-    window.removeEventListener('scroll', this.handleDebouncedScroll);
+    window.removeEventListener('scroll', this.handleScroll);
   }
 }
 </script>
@@ -316,7 +328,9 @@ export default {
 
 .layout32_progress-bar {
   will-change: width, height;
+  /*
   transition: height 0.3s ease-in-out;
+  */
 }
 
 </style>
