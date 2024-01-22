@@ -17,14 +17,13 @@
 
   <ContactSection :text="mainPage"/>
 
-  <!-- TODO ENABLE BLOCK AFTER REAL REVIEW -->
-  <!--      <ReviewSection :text="mainPage"/>-->
+  <ReviewSection :text="mainPage"/>
 
   <Footer :scrollToAnchor="scrollToAnchor" :text="footer"/>
 
   <el-backtop :right="50" :bottom="110"/>
 
-  <Rate source="main"/>
+<!--  <Rate source="main"/>-->
 
 </template>
 
@@ -69,6 +68,9 @@ export default {
       description: ru
           ? 'KajimaCode - это компания, специализирующаяся на полном цикле разработки веб-сайтов, готовая воплотить ваши уникальные идеи в жизнь с помощью наших навыков в программировании и дизайне. Мы создаем инновационные и качественные веб-сайты, которые будут соответствовать вашим потребностям и привлекать новых клиентов.'
           : 'KajimaCode is a full-service web development company specializing in creating innovative and high-quality websites. Let us bring your digital vision to life with our expertise in coding and design.',
+      keywords: ru
+          ? 'KajimaCode, веб-разработка, создание сайтов, Django, Vue.js, full stack разработчик, Python, FastAPI, JavaScript, PostgreSQL, RabbitMQ, Docker, Nginx, Apache, Aiogram, Telethon, разработка на заказ'
+          : 'KajimaCode, web development, website creation, Django, Vue.js, full stack developer, Python, FastAPI, JavaScript, PostgreSQL, RabbitMQ, Docker, Nginx, Apache, Aiogram, Telethon, custom development',
       og: {
         title: ru
             ? 'KajimaCode | Создание инновационных и качественных веб-сайтов'

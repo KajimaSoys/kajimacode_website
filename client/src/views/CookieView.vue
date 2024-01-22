@@ -10,7 +10,7 @@
 
   <Footer :text="footer"/>
 
-  <Rate source="cookie"/>
+<!--  <Rate source="cookie"/>-->
 
 </template>
 
@@ -43,6 +43,9 @@ export default {
       description: ru
           ? 'Узнайте о политике файлов cookie для KajimaCode.'
           : 'Learn about the cookie policy for KajimaCode.',
+      keywords: ru
+          ? 'KajimaCode, веб-разработка, создание сайтов, Django, Vue.js, full stack разработчик, Python, FastAPI, JavaScript, PostgreSQL, RabbitMQ, Docker, Nginx, Apache, Aiogram, Telethon, разработка на заказ'
+          : 'KajimaCode, web development, website creation, Django, Vue.js, full stack developer, Python, FastAPI, JavaScript, PostgreSQL, RabbitMQ, Docker, Nginx, Apache, Aiogram, Telethon, custom development',
       og: {
         title: 'Cookie Policy | KajimaCode',
         type: 'website',

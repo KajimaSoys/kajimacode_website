@@ -10,7 +10,7 @@
 
   <Footer :text="footer"/>
 
-  <Rate source="about"/>
+<!--  <Rate source="about"/>-->
 
 </template>
 
@@ -45,6 +45,9 @@ export default {
       description: ru
           ? 'Узнайте больше обо мне и моем опыте в веб-разработке. Я готов помочь вам создать превосходный веб-сайт для вашего бизнеса.'
           : 'Learn more about me and my experience in web development. I\'m ready to help you build the perfect website for your business.',
+      keywords: ru
+          ? 'KajimaCode, веб-разработка, создание сайтов, Django, Vue.js, full stack разработчик, Python, FastAPI, JavaScript, PostgreSQL, RabbitMQ, Docker, Nginx, Apache, Aiogram, Telethon, разработка на заказ'
+          : 'KajimaCode, web development, website creation, Django, Vue.js, full stack developer, Python, FastAPI, JavaScript, PostgreSQL, RabbitMQ, Docker, Nginx, Apache, Aiogram, Telethon, custom development',
       og: {
         title: ru
             ? 'Обо мне | KajimaCode'

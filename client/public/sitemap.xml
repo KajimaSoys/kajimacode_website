@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Главная страница -->
+  <url>
+    <loc>https://kajimacode.com/</loc>
+    <lastmod>2024-01-22</lastmod>
+    <priority>1</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <!-- Проекты -->
+  <url>
+    <loc>https://kajimacode.com/projects/</loc>
+    <lastmod>2024-01-22</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <!-- Навыки -->
+  <url>
+    <loc>https://kajimacode.com/skills/</loc>
+    <lastmod>2024-01-22</lastmod>
+    <priority>0.5</priority>
+    <changefreq>never</changefreq>
+  </url>
+  <!-- Обо мне -->
+  <url>
+    <loc>https://kajimacode.com/about/</loc>
+    <lastmod>2024-01-22</lastmod>
+    <priority>0.5</priority>
+    <changefreq>never</changefreq>
+  </url>
+  <!-- Условия использования -->
+  <url>
+    <loc>https://kajimacode.com/terms/</loc>
+    <lastmod>2024-01-22</lastmod>
+    <priority>0.2</priority>
+    <changefreq>never</changefreq>
+  </url>
+  <!-- Политика конфиденциальности -->
+  <url>
+    <loc>https://kajimacode.com/privacy/</loc>
+    <lastmod>2024-01-22</lastmod>
+    <priority>0.2</priority>
+    <changefreq>never</changefreq>
+  </url>
+  <!-- Cookies -->
+  <url>
+    <loc>https://kajimacode.com/cookies/</loc>
+    <lastmod>2024-01-22</lastmod>
+    <priority>0.2</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+</urlset>

@@ -10,7 +10,7 @@
 
   <Footer :text="footer"/>
 
-  <Rate source="terms"/>
+<!--  <Rate source="terms"/>-->
 
 </template>
 
@@ -45,6 +45,9 @@ export default {
       description: ru
           ? 'Ознакомьтесь с условиями использования услуг KajimaCode'
           : 'Read the terms and conditions for using KajimaCode services.',
+      keywords: ru
+          ? 'KajimaCode, веб-разработка, создание сайтов, Django, Vue.js, full stack разработчик, Python, FastAPI, JavaScript, PostgreSQL, RabbitMQ, Docker, Nginx, Apache, Aiogram, Telethon, разработка на заказ'
+          : 'KajimaCode, web development, website creation, Django, Vue.js, full stack developer, Python, FastAPI, JavaScript, PostgreSQL, RabbitMQ, Docker, Nginx, Apache, Aiogram, Telethon, custom development',
       og: {
         title: ru
             ? 'Условия и положения | KajimaCode'

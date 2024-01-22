@@ -14,7 +14,7 @@
     </div>
 
     <!-- TODO CREATE CV AND ENABLE BLOCK -->
-    <!--    <resume-section :text="text" />-->
+<!--        <resume-section :text="text" />-->
   </div>
 
 

@@ -10,7 +10,7 @@
 
   <Footer v-if="personal" :text="footer"/>
 
-  <Rate source="projects"/>
+<!--  <Rate source="projects"/>-->
 
 </template>
 
@@ -47,6 +47,9 @@ export default {
       description: ru
           ? 'Просмотрите список моих последних проектов и узнайте больше о том, как я могу помочь вам создать уникальный веб-сайт для вашего бизнеса.'
           : 'View a list of my latest projects and learn more about how I can help you create a unique website for your business.',
+      keywords: ru
+          ? 'KajimaCode, веб-разработка, создание сайтов, Django, Vue.js, full stack разработчик, Python, FastAPI, JavaScript, PostgreSQL, RabbitMQ, Docker, Nginx, Apache, Aiogram, Telethon, разработка на заказ'
+          : 'KajimaCode, web development, website creation, Django, Vue.js, full stack developer, Python, FastAPI, JavaScript, PostgreSQL, RabbitMQ, Docker, Nginx, Apache, Aiogram, Telethon, custom development',
       og: {
         title: ru
             ? 'Мои проекты | KajimaCode'

@@ -10,7 +10,7 @@
 
   <Footer :text="footer"/>
 
-  <Rate source="privacy"/>
+<!--  <Rate source="privacy"/>-->
 
 </template>
 
@@ -45,7 +45,9 @@ export default {
       description: ru
           ? 'Прочитайте политику конфиденциальности для KajimaCode.'
           : 'Read the privacy policy for KajimaCode.',
-
+      keywords: ru
+          ? 'KajimaCode, веб-разработка, создание сайтов, Django, Vue.js, full stack разработчик, Python, FastAPI, JavaScript, PostgreSQL, RabbitMQ, Docker, Nginx, Apache, Aiogram, Telethon, разработка на заказ'
+          : 'KajimaCode, web development, website creation, Django, Vue.js, full stack developer, Python, FastAPI, JavaScript, PostgreSQL, RabbitMQ, Docker, Nginx, Apache, Aiogram, Telethon, custom development',
       og: {
         title: ru
             ? 'Политика конфиденциальности | KajimaCode'
