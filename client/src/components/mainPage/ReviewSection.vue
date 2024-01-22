@@ -5,7 +5,7 @@
         <div class="padding-vertical-xhuge appear">
           <div class="text-align-center">
             <div class="max-width-large-2 align-center">
-              <!-- TODO Write real reviews -->
+              <!-- TODO Write slider reviews -->
               <h1 class="heading-medium">{{ text.review_title }}</h1>
               <div class="space-xsmall"></div>
               <div class="text-size-large">{{ text.review_description }}</div>

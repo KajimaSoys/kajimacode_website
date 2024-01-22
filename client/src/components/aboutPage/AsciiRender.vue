@@ -1,7 +1,7 @@
 <template>
   <div class="loading" @click="stopAnimation" ref="loading">
     <div class="render" ref="render">
-      <svg id="svg-container" viewBox="0 0 1320 900" xmlns="http://www.w3.org/2000/svg">
+      <svg id="svg-container" viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
       </svg>
     </div>
 
@@ -55,7 +55,7 @@ export default {
     async build_text_attrs() {
       let ascii_keys = Object.keys(this.ascii_array);
       let i = 0;
-      while (i < ascii_keys.length && i < 15) {
+      while (i < ascii_keys.length && i < 20) {
         const key = ascii_keys[i];
         const frames = this.ascii_array[key];
         for (const frame of frames) {
@@ -135,9 +135,14 @@ export default {
 }
 
 .render {
-  max-width: 55%;
+  /*max-width: 55%;*/
   margin-left: auto;
   margin-right: auto;
+  width: 60%;
+  height: -webkit-fill-available;
+  display: grid;
+  align-items: center;
+  padding: 3rem;
   transition: opacity 0.3s ease-in-out;
 }
 
@@ -190,7 +195,9 @@ export default {
 
 @media screen and (max-width: 767px) {
   .render {
-    padding-top: 25%;
+    /*padding-top: 25%;*/
+    padding: 1rem;
+    width: 100%;
   }
 }
 

@@ -15,5 +15,8 @@ def split_file(filename):
                     output_file.write(line)
             chunk_num += 1
 
+def main():
+    split_file('ascii_file_new')
 
-split_file('ascii_file_new')
+if __name__ == "__main__":
+    main()

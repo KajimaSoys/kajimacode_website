@@ -115,11 +115,13 @@ export default {
           .post('api/v1/send_request', body)
           .then(response => {
             console.log(response.data.success)
+            window.ym(96212078, 'reachGoal', 'request_success')
             this.$refs.done.style.display = 'block'
             this.$refs.sendForm.style.display = 'none'
           })
           .catch(error => {
             console.log('Error during post request')
+            window.ym(96212078, 'reachGoal', 'request_error')
             this.$refs.fail.style.display = 'block'
             this.$refs.sendForm.style.display = 'none'
           })

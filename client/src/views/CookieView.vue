@@ -100,6 +100,8 @@ export default {
             this.navbar = response[0].data[0]
             this.cookiesPage = response[1].data[0]
             this.footer = response[2].data[0]
+
+            window.ym(96212078, 'hit', window.location.href);
           })
           .catch(error => {
             console.log('Ошибка при загрузке локализации')
