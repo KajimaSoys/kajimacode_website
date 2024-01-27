@@ -7,8 +7,9 @@
 
       <h1 class="heading-xlarge">{{ text.title }}</h1>
       <div class="about-container clearfix ">
-        <img :src="`${frontendURL}/src/assets/images/about.png`" alt="Me in about page of kajimacode"
-             class="float-left">
+        <img :src="`${frontendURL}/images/about.png`" alt="Me in about page of kajimacode"
+             class="float-left"
+             loading="lazy">
         <div class="about-text" v-html="text.about_text"></div>
       </div>
     </div>

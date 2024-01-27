@@ -12,7 +12,7 @@
                 <div class="layout18_item appear from-left">
                   <div class="layout18_item-icon-wrapper">
                     <div class="icon-featured-outline-large-2">
-                      <img :src="`${frontendURL}/src/assets/icons/gear.svg`" loading="lazy" alt=""
+                      <img :src="`${frontendURL}/icons/gear.svg`" loading="lazy" alt=""
                            class="technologies-icon"/>
                     </div>
                   </div>
@@ -25,7 +25,7 @@
                 <div class="layout18_item  from-left">
                   <div class="layout18_item-icon-wrapper">
                     <div class="icon-featured-outline-large-2">
-                      <img :src="`${frontendURL}/src/assets/icons/database.svg`" loading="lazy" alt=""
+                      <img :src="`${frontendURL}/icons/database.svg`" loading="lazy" alt=""
                            class="technologies-icon db-icon"/>
                     </div>
                   </div>
@@ -38,7 +38,7 @@
                 <div class="layout18_item appear from-left">
                   <div class="layout18_item-icon-wrapper">
                     <div class="icon-featured-outline-large-2">
-                      <img :src="`${frontendURL}/src/assets/icons/tab.svg`" loading="lazy" alt=""
+                      <img :src="`${frontendURL}/icons/tab.svg`" loading="lazy" alt=""
                            class="technologies-icon"/>
                     </div>
                   </div>
@@ -62,7 +62,7 @@
                 </div>
               </div>
             </div>
-            <img :src="`${frontendURL}/src/assets/technologies2.gif`" loading="lazy"
+            <img :src="`${frontendURL}/technologies2.gif`" loading="lazy"
                  sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 43vw, 45vw"
                  alt="Technologies i use" class="from-right"/>
           </div>

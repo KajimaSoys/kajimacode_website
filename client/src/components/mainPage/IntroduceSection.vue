@@ -14,9 +14,9 @@
                 <div class="space-large"></div>
               </div>
               <div class="heroheader24_image-wrapper appear">
-                <img :src="`${frontendURL}/src/assets/images/kajimacode_me.png`" loading="lazy"
+                <img :src="`${frontendURL}/images/kajimacode_me.png`" loading="lazy"
                      sizes="(max-width: 479px) 100vw, (max-width: 767px) 704px, (max-width: 991px) 100vw, 85vw"
-                     :srcset="`${frontendURL}/src/assets/images/kajimacode_me-p-500.png 500w, ${frontendURL}/src/assets/images/kajimacode_me-p-800.png 800w, ${frontendURL}/src/assets/images/kajimacode_me-p-1080.png 1080w, ${frontendURL}/src/assets/images/kajimacode_me-p-1600.png 1600w, ${frontendURL}/src/assets/images/kajimacode_me.png 1781w`"
+                     :srcset="`${frontendURL}/images/kajimacode_me-p-500.png 500w, ${frontendURL}/images/kajimacode_me-p-800.png 800w, ${frontendURL}/images/kajimacode_me-p-1080.png 1080w, ${frontendURL}/images/kajimacode_me-p-1600.png 1600w, ${frontendURL}/images/kajimacode_me.png 1781w`"
                      alt="" class="heroheader24_image"/>
                 <div class="heroheader24_image-background"></div>
               </div>

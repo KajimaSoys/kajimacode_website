@@ -63,7 +63,7 @@
               <div class="heading-xxsmall text-weight-medium">&quot;{{ text.first_text }}&quot;</div>
               <div class="testimonial13_client">
                 <div class="testimonial13_client-image-wrapper">
-                  <img :src="`${frontendURL}/src/assets/images/person.png`" loading="lazy" alt=""
+                  <img :src="`${frontendURL}/images/person.png`" loading="lazy" alt=""
                        class="testimonial13_customer-image"/>
                 </div>
                 <div class="testimonial13_client-info">
@@ -123,7 +123,7 @@
               <div class="heading-xxsmall text-weight-medium">&quot;{{ text.second_text }}&quot;</div>
               <div class="testimonial13_client">
                 <div class="testimonial13_client-image-wrapper">
-                  <img :src="`${frontendURL}/src/assets/images/person.png`" loading="lazy" alt=""
+                  <img :src="`${frontendURL}/images/person.png`" loading="lazy" alt=""
                        class="testimonial13_customer-image"/>
                 </div>
                 <div class="testimonial13_client-info">
@@ -183,7 +183,7 @@
               <div class="heading-xxsmall text-weight-medium">&quot;{{ text.third_text }}&quot;</div>
               <div class="testimonial13_client">
                 <div class="testimonial13_client-image-wrapper">
-                  <img :src="`${frontendURL}/src/assets/images/person.png`" loading="lazy" alt=""
+                  <img :src="`${frontendURL}/images/person.png`" loading="lazy" alt=""
                        class="testimonial13_customer-image"/>
                 </div>
                 <div class="testimonial13_client-info">

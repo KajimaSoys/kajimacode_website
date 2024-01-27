@@ -6,8 +6,8 @@
         <div class="image-container">
           <div class="gradient"></div>
           <div class="image">
-            <img v-if="project.image_set.length !== 0" :src="`${backendURL}` + project.image_set[0].image">
-            <img class="no-image" v-else :src="`${frontendURL}/assets/images/no-image.jpg`">
+            <img v-if="project.image_set.length !== 0" :src="`${backendURL}` + project.image_set[0].image" loading="lazy">
+            <img class="no-image" v-else :src="`${frontendURL}/assets/images/no-image.jpg`" loading="lazy">
           </div>
         </div>
         <div class="text-container">

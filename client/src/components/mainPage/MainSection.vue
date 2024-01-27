@@ -20,8 +20,8 @@
               </div>
             </div>
             <div class="heroheader07_image-wrapper">
-              <img :src="`${frontendURL}/src/assets/images/light_orig.png`" alt="Colorful gradient"
-                   class="heroheader07_light-overlay"/>
+              <img :src="`${frontendURL}/images/light_orig.png`" alt="Colorful gradient"
+                   class="heroheader07_light-overlay" loading="lazy"/>
               <!--                <spline scene="https://prod.spline.design/DAnBj2USRzWxm2jA/scene.splinecode" />-->
               <spline-component/>
             </div>

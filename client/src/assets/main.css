@@ -93,7 +93,7 @@
   border-bottom-color: #3898ec;
   border-left-color: #3898ec;
   border-right-color: #3898ec;
-  background-image: url(src/assets/icons/check.svg);
+  background-image: url(icons/check.svg);
   background-position: 50% 50%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -854,7 +854,7 @@
   border-color: #ff5f29;
   border-radius: 0.25rem;
   background-color: #fff7f5;
-  background-image: url(src/assets/icons/check.svg);
+  background-image: url(icons/check.svg);
   background-position: 50% 50%;
   background-size: 15px;
   background-repeat: no-repeat;
@@ -3379,10 +3379,10 @@ ul {
 }
 @font-face {
   font-family: 'MontHead';
-  /*src: url('src/assets/MontHead.woff2') format('woff2'),*/
-  /*      url('src/assets/MontHead.woff') format('woff'),*/
-  /*      url('src/assets/MontHead.ttf') format('truetype');*/
-  src: url('../src/assets/MontHeadGX.ttf') format('truetype');
+  /*src: url('fonts/MontHead.woff2') format('woff2'),*/
+  /*      url('fonts/MontHead.woff') format('woff'),*/
+  /*      url('fonts/MontHead.ttf') format('truetype');*/
+  src: url('../fonts/MontHeadGX.ttf') format('truetype');
   font-weight: 12 224;
   font-style: normal;
   font-display: swap;

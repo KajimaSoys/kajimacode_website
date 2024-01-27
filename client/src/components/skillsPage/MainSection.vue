@@ -22,7 +22,7 @@
                        @click="collapseCard($refs.backend)"
             >
               <!--            :class="!primary ? 'full-opacity' : 'zero-opacity'"-->
-              <img :src="`${frontendURL}/src/assets/icons/arrow-left.svg`" loading="lazy" width="30"
+              <img :src="`${frontendURL}/icons/arrow-left.svg`" loading="lazy" width="30"
                    alt="collapse card"/>
             </el-button>
 
@@ -63,7 +63,7 @@
             <el-button class="button"
                        text
                        @click="collapseCard($refs.frontend)">
-              <img :src="`${frontendURL}/src/assets/icons/arrow-left.svg`" loading="lazy" width="30"
+              <img :src="`${frontendURL}/icons/arrow-left.svg`" loading="lazy" width="30"
                    alt="collapse card"/>
             </el-button>
 
@@ -103,7 +103,7 @@
             <el-button class="button"
                        text
                        @click="collapseCard($refs.other)">
-              <img :src="`${frontendURL}/src/assets/icons/arrow-left.svg`" loading="lazy" width="30"
+              <img :src="`${frontendURL}/icons/arrow-left.svg`" loading="lazy" width="30"
                    alt="collapse card"/>
             </el-button>
 
