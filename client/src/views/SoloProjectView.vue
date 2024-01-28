@@ -69,7 +69,7 @@ export default {
         'locale:alternate': ru
             ? 'en_GB'
             : 'ru_RU',
-        image: 'https://kajimacode.com/src/assets/images/main_page.png',
+        image: 'https://kajimacode.com/images/meta-img.png',
         'image:alt': 'This is the main page of the kajimacode.com website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
       },
       twitter: {
@@ -83,7 +83,7 @@ export default {
         description: ru
             ? 'Просмотрите список моих последних проектов и узнайте больше о том, как я могу помочь вам создать уникальный веб-сайт для вашего бизнеса.'
             : 'View a list of my latest projects and learn more about how I can help you create a unique website for your business.',
-        image: 'https://kajimacode.com/src/assets/images/main_page.png',
+        image: 'https://kajimacode.com/images/meta-img.png',
         'image:alt': 'This is the main page of the kajimacode.com website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
       },
       link: [

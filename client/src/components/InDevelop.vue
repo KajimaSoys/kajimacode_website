@@ -1,8 +1,9 @@
 <template>
   <!--  <div class="image-container">-->
   <img class="in-develop-image"
-       :src="`${frontendURL}/src/assets/images/underDevelop_${this.$store.state.language.language}.png`"
-       alt="Section under develop">
+       :src="`${frontendURL}/images/underDevelop_${this.$store.state.language.language}.png`"
+       alt="Section under develop"
+       loading="lazy">
   <!--  </div>-->
 </template>
 

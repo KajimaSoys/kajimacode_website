@@ -6,7 +6,7 @@
       <div class="logo-container" ref="logo">
         <a v-if="isMainPage" @click="scrollToTop" aria-current="page" class="navbar07_logo-link w-nav-brand w--current">
           <div class="logo_component">
-            <img :src="`${frontendURL}/src/assets/kajimacode_white_orange.svg`" alt="kajimacode logo"
+            <img :src="`${frontendURL}/images/kajimacode_white_orange.svg`" alt="kajimacode logo" loading="lazy"
                  class="logo_logotype"/>
           </div>
         </a>
@@ -14,7 +14,7 @@
 
         <router-link v-else to="/" aria-current="page" class="navbar07_logo-link w-nav-brand w--current">
           <div class="logo_component">
-            <img :src="`${frontendURL}/src/assets/kajimacode_white_orange.svg`" alt="kajimacode logo"
+            <img :src="`${frontendURL}/images/kajimacode_white_orange.svg`" alt="kajimacode logo" loading="lazy"
                  class="logo_logotype"/>
           </div>
         </router-link>
@@ -47,16 +47,18 @@
             </a>
             <div class="w-layout-grid navbar-social-list">
               <div class="language-container" @click="langMenu = !langMenu">
-                <img :src="`${frontendURL}/src/assets/icons/${this.$store.state.language.language}.png`"
-                     class="language-icon">
+                <img :src="`${frontendURL}/icons/${this.$store.state.language.language}.png`"
+                     class="language-icon"
+                     loading="lazy"
+                >
                 <transition name="fade">
                   <div v-if="langMenu" class="available-languages">
                     <div class="language" @click="switchLanguage('ru')">
-                      <img :src="`${frontendURL}/src/assets/icons/ru.png`" class="language-icon">Русский
+                      <img :src="`${frontendURL}/icons/ru.png`" class="language-icon">Русский
                     </div>
 
                     <div class="language" @click="switchLanguage('en')">
-                      <img :src="`${frontendURL}/src/assets/icons/en.png`" class="language-icon">English
+                      <img :src="`${frontendURL}/icons/en.png`" class="language-icon">English
                     </div>
                   </div>
                 </transition>

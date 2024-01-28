@@ -7,9 +7,9 @@
           <div class="gradient"></div>
           <div class="image">
             <img v-if="project.image_set.length > 0" :src="`${backendURL}` + project.image_set[0].image"
-                 :alt="project.image_set[0].alt">
-            <img class="no-image" v-else :src="`${frontendURL}/src/assets/images/no-image.jpg`"
-                 alt="There is no images for this project. Try later..">
+                 :alt="project.image_set[0].alt" loading="lazy">
+            <img class="no-image" v-else :src="`${frontendURL}/images/no-image.jpg`"
+                 alt="There is no images for this project. Try later.." loading="lazy">
           </div>
         </div>
         <div class="text-container">
@@ -99,7 +99,7 @@
     </div>
     <div class="additional-images" v-for="image in project.image_set.slice(1)">
       <a :href="`${backendURL}` + image.image" target="_blank">
-        <img :src="`${backendURL}` + image.image" :alt="image.alt">
+        <img :src="`${backendURL}` + image.image" :alt="image.alt" loading="lazy">
       </a>
     </div>
     <div class="back-button" v-if="project.image_set.length > 1">
