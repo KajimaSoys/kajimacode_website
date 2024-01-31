@@ -1,7 +1,7 @@
 <template>
   <div class="loading" @click="stopAnimation" ref="loading">
     <div class="render" ref="render">
-      <svg id="svg-container" viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+      <svg id="svg-container" viewBox="0 0 1300 900" xmlns="http://www.w3.org/2000/svg">
       </svg>
     </div>
 
