@@ -17,7 +17,7 @@
 
   <ContactSection :text="mainPage"/>
 
-  <ReviewSection :text="mainPage"/>
+<!--  <ReviewSection :text="mainPage"/>-->
 
   <Footer :scrollToAnchor="scrollToAnchor" :text="footer"/>
 
