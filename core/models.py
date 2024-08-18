@@ -54,9 +54,6 @@ class Project(models.Model):
         verbose_name = 'Проект'
         verbose_name_plural = 'Проекты'
         ordering = ['order', ]
-        # permissions = [
-        #     ("can_edit_personal_project", "Can edit personal project"),
-        # ]
 
     def __str__(self):
         return self.name_ru
@@ -71,7 +68,6 @@ class Project(models.Model):
                 pass
             self.path = f'projects/{path}'
         super(Project, self).save(*args, **kwargs)
-
 
     def get_group(self):
         return ', '.join(group.name for group in self.group.all())

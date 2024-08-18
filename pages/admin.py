@@ -1,5 +1,17 @@
 from django.contrib import admin
-from .models import *
+from pages.models import (
+    Navbar,
+    Footer,
+    CookieElement,
+    RateElement,
+    MainPage,
+    ProjectsPage,
+    SkillsPage,
+    AboutPage,
+    TermsPage,
+    PrivacyPage,
+    CookiesPage,
+)
 
 
 @admin.register(Navbar)
@@ -21,6 +33,7 @@ class CookieAdmin(admin.ModelAdmin):
 class RateAdmin(admin.ModelAdmin):
     pass
 
+
 @admin.register(MainPage)
 class MainPageAdmin(admin.ModelAdmin):
     fieldsets = (
@@ -37,23 +50,34 @@ class MainPageAdmin(admin.ModelAdmin):
             'fields': ('project_title', 'project_description',)
         }),
         ('Stages section', {
-            'fields': (('stages_title',),
-                       ('discussion_title', 'discussion_description', 'concept_title', 'concept_description',
-                        'server_dev_title', 'server_dev_description', 'ui_dev_title', 'ui_dev_description',
-                        'test_title', 'test_description', 'deploy_title', 'deploy_description',),
-                       ('first_string', 'second_string', 'third_string',),)
+            'fields': (
+                ('stages_title',),
+                ('discussion_title', 'discussion_description'),
+                ('concept_title', 'concept_description'),
+                ('server_dev_title', 'server_dev_description'),
+                ('ui_dev_title', 'ui_dev_description'),
+                ('test_title', 'test_description'),
+                ('deploy_title', 'deploy_description'),
+                ('first_string', 'second_string', 'third_string')
+            )
         }),
         ('Technologies section', {
-            'fields': (('technologies_title',),
-                       ('django_title', 'django_description', 'postgresql_title', 'postgresql_description',
-                        'vue_title', 'vue_description', ),)
+            'fields': (
+                ('technologies_title',),
+                ('django_title', 'django_description'),
+                ('postgresql_title', 'postgresql_description'),
+                ('vue_title', 'vue_description')
+            )
         }),
         ('Contact section', {
-            'fields': (('contact_pretitle', 'contact_title', 'contact_description',),
-                       ('name_label', 'name_placeholder', 'email_label', 'email_placeholder', 'message_label',
-                        'message_placeholder',),
-                       ('privacy_text', 'privacy_link',),
-                       ('success_message', 'error_message',),)
+            'fields': (
+                ('contact_pretitle', 'contact_title', 'contact_description',),
+                ('name_label', 'name_placeholder'),
+                ('email_label', 'email_placeholder'),
+                ('message_label', 'message_placeholder'),
+                ('privacy_text', 'privacy_link'),
+                ('success_message', 'error_message')
+            )
         }),
         ('Review section', {
             'fields': (('review_title', 'review_description',),

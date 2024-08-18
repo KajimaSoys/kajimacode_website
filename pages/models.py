@@ -46,7 +46,6 @@ class Footer(models.Model):
     privacy_link = models.CharField(verbose_name=f'Конфиденциальность', max_length=60)
     cookies_link = models.CharField(verbose_name=f'Cookies', max_length=60)
 
-
     def __str__(self):
         return f'Footer - {self.language}'
 
@@ -238,13 +237,13 @@ class SkillsPage(models.Model):
     title = models.CharField(verbose_name='Заголовок', max_length=40)
 
     backend_title = models.CharField(verbose_name='backend - заголовок', max_length=20, blank=True)
-    backend_description = models.CharField(verbose_name='backend - описание', max_length=1000, blank=True)
+    backend_description = models.TextField(verbose_name='backend - описание', blank=True)
 
     frontend_title = models.CharField(verbose_name='frontend - заголовок', max_length=20, blank=True)
-    frontend_description = models.CharField(verbose_name='frontend - описание', max_length=1000, blank=True)
+    frontend_description = models.TextField(verbose_name='frontend - описание', blank=True)
 
     other_title = models.CharField(verbose_name='Другое - заголовок', max_length=20, blank=True)
-    other_description = models.CharField(verbose_name='Другое - описание', max_length=1000, blank=True)
+    other_description = models.TextField(verbose_name='Другое - описание', blank=True)
 
     def __str__(self):
         return f'Skills - {self.language}'

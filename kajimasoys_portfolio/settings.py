@@ -12,9 +12,12 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
+# app-model ordering imports
+from django.contrib import admin
+from django.urls import reverse
+from django.utils.html import format_html
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -117,3 +120,106 @@ try:
     from .local_settings import *
 except ImportError:
     from .prod_settings import *
+
+
+# app-model ordering
+
+ADMIN_ORDERING = (
+    (
+        'core',
+        (
+            'Group',
+            'Project',
+            'ProjectImages',
+            'Skill',
+            'Work'
+        )
+    ),
+    (
+        'requests',
+        (
+            'Order',
+            'Rate',
+            'Feedback'
+        )
+    ),
+    (
+        'pages',
+        (
+            'Navbar',
+            'Footer',
+            'CookieElement',
+            'RateElement',
+            'MainPage',
+            'ProjectsPage',
+            'SkillsPage',
+            'AboutPage',
+            'TermsPage',
+            'PrivacyPage',
+            'CookiesPage'
+        )
+    ),
+    ('auth', ('User', 'Group')),
+)
+
+LINKED_MODELS = [
+
+]
+
+
+def get_app_list(self, request, app_label=None):
+    app_dict = self._build_app_dict(request, app_label)
+
+    if not app_dict:
+        return
+
+    NEW_ADMIN_ORDERING = []
+    if app_label:
+        for ao in ADMIN_ORDERING:
+            if ao[0] == app_label:
+                NEW_ADMIN_ORDERING.append(ao)
+                break
+
+    if not app_label:
+        for app_key in list(app_dict.keys()):
+            if not any(app_key in ao_app for ao_app in ADMIN_ORDERING):
+                app_dict.pop(app_key)
+
+    app_list = sorted(
+        app_dict.values(),
+        key=lambda x: [ao[0] for ao in ADMIN_ORDERING].index(x['app_label'])
+    )
+
+    # Обработка моделей и моделей-ссылок
+    # print(f"target_app:\t{link['target_app']}\tapp_label:\t{app['app_label']}")
+
+    for app in app_list:
+        if app['app_label'] in [ao[0] for ao in ADMIN_ORDERING]:
+            ao_models = next(ao[1] for ao in ADMIN_ORDERING if ao[0] == app['app_label'])
+            updated_models = []
+
+            for model_name in ao_models:
+                # Добавляем оригинальные модели
+                model = next((m for m in app['models'] if m['object_name'] == model_name), None)
+                if model:
+                    updated_models.append(model)
+
+                # Добавляем модели-ссылки, если они есть
+                link = next((link for link in LINKED_MODELS if
+                             link['model_name'] == model_name and link['target_app'] == app['app_label']), None)
+                if link:
+                    model_url = reverse(f'admin:{link["source_app"].lower()}_{model_name.lower()}_changelist')
+                    add_url = reverse(f'admin:{link["source_app"].lower()}_{model_name.lower()}_add')
+                    updated_models.append({
+                        'name': format_html('<a href="{}">{}</a>', model_url, link['model_name_verbose']),
+                        'object_name': f'{model_name}Link',
+                        'admin_url': model_url,
+                        'add_url': add_url,
+                    })
+
+            app['models'] = updated_models
+
+    return app_list
+
+
+admin.AdminSite.get_app_list = get_app_list
