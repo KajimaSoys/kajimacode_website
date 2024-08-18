@@ -141,7 +141,6 @@ class Work(models.Model):
         return self.name
 
 
-
 class Skill(models.Model):
     """
     Описание модели Skill приложения Core

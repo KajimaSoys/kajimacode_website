@@ -46,15 +46,11 @@ class GroupAdmin(admin.ModelAdmin):
 class ProjectAdmin(SortableAdminMixin, admin.ModelAdmin):
     list_display = ('order', 'name_ru', 'get_group', 'isActive')
     inlines = (ProjectImagesInline,)
+    filter_horizontal = ('group', )
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)
         return qs
-        # if request.user.is_superuser:
-        #     return qs
-        # else:
-        #     return qs.filter(personal=False)
-
 
     def has_change_permission(self, request, obj=None):
         if obj is not None and obj.personal and not request.user.is_superuser:
