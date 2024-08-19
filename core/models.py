@@ -97,7 +97,8 @@ class ProjectImages(models.Model):
     image = models.ImageField(verbose_name='Изображение проекта', blank=True, upload_to=get_upload_path, max_length=500)
 
     def delete(self, using=None, keep_parents=False):
-        self.image.storage.delete(self.image.path)
+        if self.image:
+            self.image.storage.delete(self.image.path)
         super().delete()
 
     def image_tag(self):
