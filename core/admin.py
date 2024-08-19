@@ -69,7 +69,12 @@ class GroupAdmin(admin.ModelAdmin):
 class ProjectAdmin(SortableAdminMixin, admin.ModelAdmin):
     class Media:
         js = ("//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js",
+              "//unpkg.com/dropzone@5/dist/min/dropzone.min.js",
+              "js/common/dropzone_setup.js",
               "js/common/fieldsets_title_setup.js",)
+        css = {
+            "all": ("//unpkg.com/dropzone@5/dist/min/dropzone.min.css", "css/custom_dropzone.css")
+        }
     list_display = ("order", "name_ru", "get_group", "isActive")
     filter_horizontal = ("group",)
     list_filter = ("group", "isActive", "personal",)
@@ -123,6 +128,7 @@ class SkillAdmin(SortableAdminMixin, admin.ModelAdmin):
     class Media:
         js = ("//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js",
               "js/common/fieldsets_title_setup.js",)
+
     list_display = ("order", "name_ru", "skill_type", "isActive")
     list_filter = ("skill_type", "isActive")
     fieldsets = [
