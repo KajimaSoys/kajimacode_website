@@ -97,7 +97,7 @@
         </div>
       </div>
     </div>
-    <div class="additional-images" v-for="image in project.image_set.slice(1)">
+    <div class="additional-images" v-for="image in project.image_set">
       <a :href="`${backendURL}` + image.image" target="_blank">
         <img :src="`${backendURL}` + image.image" :alt="image.alt" loading="lazy">
       </a>

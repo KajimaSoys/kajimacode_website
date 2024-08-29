@@ -40,6 +40,9 @@ import axios from "axios";
 
 export default {
   name: "CookieBanner",
+  inject: [
+      'backendURL'
+  ],
   data() {
     return {
       text: {
@@ -61,7 +64,7 @@ export default {
 
     async get_text(lang) {
       await axios
-          .get(`https://kajimacode.com/api/v1/pages/cookie-element/?language=${lang}`)
+          .get(`${this.backendURL}/api/v1/pages/cookie-element/?language=${lang}`)
           .then(response => {
             this.text = response.data[0]
           })
