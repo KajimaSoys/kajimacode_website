@@ -222,10 +222,6 @@ export default {
   z-index: 99;
 }
 
-.gradient {
-  top: 1%;
-}
-
 .back-container {
   display: flex;
   width: max-content;

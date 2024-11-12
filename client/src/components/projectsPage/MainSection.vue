@@ -4,6 +4,7 @@
     <el-carousel :interval="10000" arrow="always" indicator-position="none">
       <el-carousel-item v-for="project in projects" :key="project.id">
         <div class="image-container">
+          <div class="blackout"></div>
           <div class="gradient"></div>
           <div class="image">
             <img v-if="project.image_set.length !== 0" :src="`${backendURL}` + project.image_set[0].image" loading="lazy">
@@ -171,12 +172,20 @@ export default {
   --tw-gradient-to: rgb(15 25 34 / 0);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
   background-image: linear-gradient(to top, var(--tw-gradient-stops));
-  top: 1%;
+  top: 0;
   z-index: 100;
 }
 
 .gradient:hover ~ .image {
   transform: scale(1.05);
+}
+
+.blackout {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 99;
 }
 
 .image {
