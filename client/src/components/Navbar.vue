@@ -242,6 +242,10 @@ export default {
 
 <style>
 
+.navbar07_container {
+  padding: 1.6rem 0;
+}
+
 .w-nav-brand {
   cursor: pointer;
 }

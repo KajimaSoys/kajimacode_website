@@ -12,8 +12,10 @@
                  alt="There is no images for this project. Try later.." loading="lazy">
           </div>
         </div>
-        <div class="text-container">
 
+        <div class="empty-container"></div>
+
+        <div class="text-container">
           <router-link v-if="apiEndpoint==='True'" :to="{ name: 'projects' }" class="back-container">
             <button type="button" class="arrow-back">
               <i class="el-icon">
@@ -51,13 +53,9 @@
             {{ project.name }}
           </h1>
 
-          <p v-if="lang_ru" class="description">
-            {{ project.description_ru }}
-          </p>
+          <p v-if="lang_ru" class="description" v-html="project.description_ru"></p>
 
-          <p v-else class="description">
-            {{ project.description }}
-          </p>
+          <p v-else class="description" v-html="project.description"></p>
 
           <div class="additional">
             <div class="groups">
@@ -199,8 +197,11 @@ export default {
 
 <style scoped>
 .project {
-  height: 100vh !important;
+  min-height: 100vh !important;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .overflow-hidden {
@@ -208,11 +209,16 @@ export default {
   position: relative;
 }
 
+.image-container {
+  background: #0f1922;
+  height: 100%;
+}
+
 .blackout {
   height: 100vh;
   width: 100%;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: 99;
 }
 
@@ -223,7 +229,7 @@ export default {
 .back-container {
   display: flex;
   width: max-content;
-  margin: 0 0 2rem 2rem;
+  margin-left: 2rem;
   color: white;
   padding: 5px 10px;
   background-color: rgba(0, 0, 0, 0.7);
@@ -240,16 +246,16 @@ export default {
   background-color: transparent;
 }
 
+.empty-container {
+  min-height: 10rem;
+}
+
 .text-container {
-  top: 40%;
-  height: 50vh;
+  top: unset;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-}
-
-.title {
-  padding-bottom: 2rem;
+  gap: 2rem;
 }
 
 .text-container:hover .title {
@@ -267,13 +273,13 @@ export default {
 .description {
   opacity: 1;
   max-width: 100%;
-  padding-bottom: 2rem;
+  margin: 0 2rem 0 2rem;
   transform: none;
 }
 
 .additional {
   margin-left: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 }
 
 .project-icons {
@@ -285,10 +291,10 @@ export default {
 }
 
 .button-bottom {
-  height: 50px;
+  height: 6rem;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   pointer-events: none;
 }
 
@@ -301,7 +307,7 @@ export default {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 0.875rem;
   position: relative;
   animation-name: bounce;
   animation-duration: 1s;
@@ -315,7 +321,7 @@ export default {
     top: 0;
   }
   50% {
-    top: 50px;
+    top: 30%;
   }
   100% {
     top: 0;
@@ -403,5 +409,19 @@ a:hover {
 
 a:active {
   text-decoration: none;
+}
+
+@media screen and (max-width: 992px) {
+  .text-container {
+    height: unset;
+  }
+
+  .title {
+    padding-bottom: unset;
+  }
+
+  .description {
+    padding-bottom: unset;
+  }
 }
 </style>
