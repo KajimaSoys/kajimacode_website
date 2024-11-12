@@ -217,6 +217,7 @@ export default {
 .text-container {
   position: relative;
   max-width: 80rem;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   top: 65%;
