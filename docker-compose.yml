@@ -32,7 +32,7 @@
       container_name: nginx-kajimacode
       restart: always
       ports:
-        - "127.0.0.1:8083:80"
+        - "127.0.0.1:8084:80"
       depends_on:
         - django
       volumes:
