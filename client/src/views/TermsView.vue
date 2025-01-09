@@ -54,8 +54,8 @@ export default {
             : 'Terms and Conditions | KajimaCode',
         type: 'website',
         url: ru
-            ? 'https://ru.kajimacode.com/terms'
-            : 'https://kajimacode.com/terms',
+            ? 'https://ru.kajimacode.ru/terms'
+            : 'https://kajimacode.ru/terms',
         description: ru
             ? 'Ознакомьтесь с условиями использования услуг KajimaCode'
             : 'Read the terms and conditions for using KajimaCode services.',
@@ -66,25 +66,25 @@ export default {
         'locale:alternate': ru
             ? 'en_GB'
             : 'ru_RU',
-        image: 'https://kajimacode.com/images/meta-img.png',
-        'image:alt': 'This is the main page of the kajimacode.com website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
+        image: 'https://kajimacode.ru/images/meta-img.png',
+        'image:alt': 'This is the main page of the kajimacode.ru website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
       },
       twitter: {
         card: 'summary',
         site: ru
-            ? 'https://ru.kajimacode.com/terms'
-            : 'https://kajimacode.com/terms',
+            ? 'https://ru.kajimacode.ru/terms'
+            : 'https://kajimacode.ru/terms',
         title: ru
             ? 'Условия и положения | KajimaCode'
             : 'Terms and Conditions | KajimaCode',
         description: ru
             ? 'Ознакомьтесь с условиями использования услуг KajimaCode'
             : 'Read the terms and conditions for using KajimaCode services.',
-        image: 'https://kajimacode.com/images/meta-img.png',
-        'image:alt': 'This is the main page of the kajimacode.com website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
+        image: 'https://kajimacode.ru/images/meta-img.png',
+        'image:alt': 'This is the main page of the kajimacode.ru website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
       },
       link: [
-        {rel: 'canonical', href: ru ? 'https://ru.kajimacode.com' : 'https://kajimacode.com'}
+        {rel: 'canonical', href: ru ? 'https://ru.kajimacode.ru' : 'https://kajimacode.ru'}
       ]
     })
   },

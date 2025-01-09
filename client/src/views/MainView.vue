@@ -77,8 +77,8 @@ export default {
             : 'KajimaCode | Building Innovative and High-Quality Websites',
         type: 'website',
         url: ru
-            ? 'https://ru.kajimacode.com'
-            : 'https://kajimacode.com',
+            ? 'https://ru.kajimacode.ru'
+            : 'https://kajimacode.ru',
         description: ru
             ? 'KajimaCode - это компания, специализирующаяся на полном цикле разработки веб-сайтов, готовая воплотить ваши уникальные идеи в жизнь с помощью наших навыков в программировании и дизайне. Мы создаем инновационные и качественные веб-сайты, которые будут соответствовать вашим потребностям и привлекать новых клиентов.'
             : 'KajimaCode is a full-service web development company specializing in creating innovative and high-quality websites. Let us bring your digital vision to life with our expertise in coding and design.',
@@ -89,25 +89,25 @@ export default {
         'locale:alternate': ru
             ? 'en_GB'
             : 'ru_RU',
-        image: 'https://kajimacode.com/images/meta-img.png',
-        'image:alt': 'This is the main page of the kajimacode.com website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
+        image: 'https://kajimacode.ru/images/meta-img.png',
+        'image:alt': 'This is the main page of the kajimacode.ru website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
       },
       twitter: {
         card: 'summary',
         site: ru
-            ? 'https://ru.kajimacode.com'
-            : 'https://kajimacode.com',
+            ? 'https://ru.kajimacode.ru'
+            : 'https://kajimacode.ru',
         title: ru
             ? 'KajimaCode | Создание инновационных и качественных веб-сайтов'
             : 'KajimaCode | Building Innovative and High-Quality Websites',
         description: ru
             ? 'KajimaCode - это компания, специализирующаяся на полном цикле разработки веб-сайтов, готовая воплотить ваши уникальные идеи в жизнь с помощью наших навыков в программировании и дизайне. Мы создаем инновационные и качественные веб-сайты, которые будут соответствовать вашим потребностям и привлекать новых клиентов.'
             : 'KajimaCode is a full-service web development company specializing in creating innovative and high-quality websites. Let us bring your digital vision to life with our expertise in coding and design.',
-        image: 'https://kajimacode.com/images/meta-img.png',
-        'image:alt': 'This is the main page of the kajimacode.com website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
+        image: 'https://kajimacode.ru/images/meta-img.png',
+        'image:alt': 'This is the main page of the kajimacode.ru website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
       },
       link: [
-        {rel: 'canonical', href: ru ? 'https://ru.kajimacode.com' : 'https://kajimacode.com'}
+        {rel: 'canonical', href: ru ? 'https://ru.kajimacode.ru' : 'https://kajimacode.ru'}
       ]
     })
   },

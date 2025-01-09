@@ -2,7 +2,7 @@
 # README for KajimaCode Website Repository
 
 ## Introduction
-Welcome to the repository of KajimaSoys Portfolio website, https://kajimacode.com. This website showcases my web development services and serves as a portfolio of my completed projects. It's designed to provide an insight into my expertise, work stages, client testimonials, and encourages users to submit project inquiries.
+Welcome to the repository of KajimaSoys Portfolio website, https://kajimacode.ru. This website showcases my web development services and serves as a portfolio of my completed projects. It's designed to provide an insight into my expertise, work stages, client testimonials, and encourages users to submit project inquiries.
 
 ## Technology Stack
 - **Frontend**: Vue.js

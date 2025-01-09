@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
-CSRF_TRUSTED_ORIGINS = ["https://kajimacode.com"]
+CSRF_TRUSTED_ORIGINS = ["https://kajimacode.ru"]
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [

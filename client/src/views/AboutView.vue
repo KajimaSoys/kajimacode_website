@@ -54,8 +54,8 @@ export default {
             : 'About me | KajimaCode',
         type: 'website',
         url: ru
-            ? 'https://ru.kajimacode.com/about'
-            : 'https://kajimacode.com/about',
+            ? 'https://ru.kajimacode.ru/about'
+            : 'https://kajimacode.ru/about',
         description: ru
             ? 'Узнайте больше обо мне и моем опыте в веб-разработке. Я готов помочь вам создать превосходный веб-сайт для вашего бизнеса.'
             : 'Learn more about me and my experience in web development. I\'m ready to help you build the perfect website for your business.',
@@ -66,25 +66,25 @@ export default {
         'locale:alternate': ru
             ? 'en_GB'
             : 'ru_RU',
-        image: 'https://kajimacode.com/images/meta-img.png',
-        'image:alt': 'This is the main page of the kajimacode.com website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
+        image: 'https://kajimacode.ru/images/meta-img.png',
+        'image:alt': 'This is the main page of the kajimacode.ru website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
       },
       twitter: {
         card: 'summary',
         site: ru
-            ? 'https://ru.kajimacode.com/about'
-            : 'https://kajimacode.com/about',
+            ? 'https://ru.kajimacode.ru/about'
+            : 'https://kajimacode.ru/about',
         title: ru
             ? 'Обо мне | KajimaCode'
             : 'About me | KajimaCode',
         description: ru
             ? 'Узнайте больше обо мне и моем опыте в веб-разработке. Я готов помочь вам создать превосходный веб-сайт для вашего бизнеса.'
             : 'Learn more about me and my experience in web development. I\'m ready to help you build the perfect website for your business.',
-        image: 'https://kajimacode.com/images/meta-img.png',
-        'image:alt': 'This is the main page of the kajimacode.com website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
+        image: 'https://kajimacode.ru/images/meta-img.png',
+        'image:alt': 'This is the main page of the kajimacode.ru website. There is a navigation bar at the top, the inscription "I DEVELOP WEBSITES" on the left, and the button "Contact me!" at the bottom. On the right is a 3d object with the site logo.'
       },
       link: [
-        {rel: 'canonical', href: ru ? 'https://ru.kajimacode.com' : 'https://kajimacode.com'}
+        {rel: 'canonical', href: ru ? 'https://ru.kajimacode.ru' : 'https://kajimacode.ru'}
       ]
     })
   },
