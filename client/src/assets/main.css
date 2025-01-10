@@ -720,7 +720,8 @@
 
 .section_heroheader07 {
   overflow: hidden;
-  height: 91vh;
+  min-height: 100vh;
+  height: auto;
   background-color: #1d2939;
 }
 

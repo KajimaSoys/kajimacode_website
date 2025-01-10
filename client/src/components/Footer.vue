@@ -1,6 +1,6 @@
 <template>
   <footer class="footer04_component">
-    <div class="page-padding-2">
+    <div class="page-padding-2 background-color-white">
       <div class="container-large">
         <div class="padding-vertical-xlarge">
           <div class="w-layout-grid footer04_top-wrapper">

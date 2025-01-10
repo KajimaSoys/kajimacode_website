@@ -65,7 +65,7 @@ export default {
 }
 
 .main-block {
-  padding: 9vh 2rem 2rem 2rem;
+  padding: 12.5vh 2rem 2rem 2rem;
   max-width: 90rem;
   margin-left: auto;
   margin-right: auto;

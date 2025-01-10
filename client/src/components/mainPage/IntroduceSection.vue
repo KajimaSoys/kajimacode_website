@@ -1,6 +1,6 @@
 <template>
   <header class="section_heroheader24">
-    <div class="background-color-white">
+    <div>
       <div class="page-padding-2">
         <div class="container-large">
           <div class="padding-vertical-xhuge">

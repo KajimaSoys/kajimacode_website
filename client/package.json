@@ -8,8 +8,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@splinetool/runtime": "^0.9.259",
+    "@splinetool/runtime": "^1.9.58",
     "axios": "^1.2.4",
+    "canvas-nest.js": "^2.0.4",
     "element-plus": "^2.2.30",
     "gsap": "^3.11.4",
     "lodash": "^4.17.21",

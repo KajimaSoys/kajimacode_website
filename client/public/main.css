@@ -554,7 +554,7 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  min-height: 9vh;
+  /*min-height: 9vh;*/
   padding-right: 2rem;
   padding-left: 2rem;
   -webkit-box-align: center;
@@ -720,7 +720,8 @@
 
 .section_heroheader07 {
   overflow: hidden;
-  height: 91vh;
+  min-height: 100vh;
+  height: auto;
   background-color: #1d2939;
 }
 

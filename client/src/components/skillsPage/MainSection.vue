@@ -297,7 +297,7 @@ export default {
 
 <style scoped>
 .main-block {
-  padding-top: 9vh;
+  padding-top: 12.5vh;
   max-width: 80rem;
   margin-left: auto;
   margin-right: auto;
@@ -370,10 +370,15 @@ export default {
 }
 
 @media screen and (max-width: 992px) {
-
   .text-size-medium {
     font-size: 1rem;
   }
 }
 
+
+@media screen and (max-width: 767px) {
+  .main-block {
+    padding-top: 9vh;
+  }
+}
 </style>

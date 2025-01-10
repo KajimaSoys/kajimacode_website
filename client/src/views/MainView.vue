@@ -23,6 +23,8 @@
 
   <el-backtop :right="50" :bottom="110"/>
 
+  <CanvasNest :height="'880vh'"/>
+
 <!--  <Rate source="main"/>-->
 
 </template>
@@ -38,6 +40,7 @@ import ContactSection from "@/components/mainPage/ContactSection.vue";
 import ReviewSection from "@/components/mainPage/ReviewSection.vue";
 import Footer from "@/components/Footer.vue";
 import Rate from "@/components/Rate.vue";
+import CanvasNest from "@/components/CanvasNest.vue"
 
 
 import axios from "axios";
@@ -122,6 +125,7 @@ export default {
     ReviewSection,
     Footer,
     Rate,
+    CanvasNest
   },
 
   methods: {
@@ -266,10 +270,6 @@ export default {
   position: fixed;
   transition: backdrop-filter 0.05s ease-in-out;
 
-}
-
-.section_heroheader07 {
-  height: 100vh;
 }
 
 section {

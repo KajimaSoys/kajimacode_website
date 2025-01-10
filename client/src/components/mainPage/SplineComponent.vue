@@ -18,7 +18,8 @@ export default {
   mounted() {
     const canvas = document.getElementById('canvas3d');
     const app = new Application(canvas);
-    app.load('https://prod.spline.design/xIGHe114R6O9GUHU/scene.splinecode');
+    // app.load('https://prod.spline.design/xIGHe114R6O9GUHU/scene.splinecode');
+    app.load('https://prod.spline.design/T2IO8aOzLssJ5eJQ/scene.splinecode');
     //
     //
     //  canvas.addEventListener('mouseenter', () => {

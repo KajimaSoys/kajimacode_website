@@ -10,6 +10,8 @@
 
   <Footer :text="footer"/>
 
+  <CanvasNest :height="'130vh'"/>
+
 <!--  <Rate source="skills"/>-->
 
 </template>
@@ -22,6 +24,7 @@ import Rate from "@/components/Rate.vue";
 import axios from "axios";
 import store from "../store";
 import {useMeta} from 'vue-meta'
+import CanvasNest from "@/components/CanvasNest.vue";
 
 export default {
   name: "SkillsView",
@@ -93,6 +96,7 @@ export default {
     MainSection,
     Footer,
     Rate,
+    CanvasNest,
   },
   methods: {
     get_text(lang) {
