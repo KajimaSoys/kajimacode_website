@@ -23,7 +23,7 @@
 
   <el-backtop :right="50" :bottom="110"/>
 
-  <CanvasNest :height="'880vh'"/>
+  <CanvasNest :height="'880vh'" :count="250"/>
 
 <!--  <Rate source="main"/>-->
 

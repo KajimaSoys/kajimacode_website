@@ -10,7 +10,7 @@
 
   <Footer :text="footer"/>
 
-  <CanvasNest :height="'130vh'"/>
+  <CanvasNest :height="'130vh'" :count="50"/>
 
 <!--  <Rate source="skills"/>-->
 

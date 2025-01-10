@@ -13,7 +13,12 @@ export default {
   name: 'CanvasNestComponent',
   props: {
     height: {
-      default: '100vh'
+      default: '100vh',
+      type: String
+    },
+    count: {
+      default: 100,
+      type: Number
     }
   },
   mounted() {
@@ -28,7 +33,7 @@ export default {
     initCanvasNest() {
       const config = {
         color: '0,0,0',
-        count: 250
+        count: this.count
       };
       this.canvasNestInstance = new CanvasNest(this.$refs.canvasNestContainer, config);
     }
