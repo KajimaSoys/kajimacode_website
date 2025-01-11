@@ -14,8 +14,14 @@ ALLOWED_HOSTS.extend(
 )
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8080",# from nginx in prod
+    "http://localhost:8080"  # from nginx in prod
 ]
+CORS_ALLOWED_ORIGINS.extend(
+    filter(
+        None,
+        os.environ.get("CORS_ALLOWED_ORIGINS", "").split(","),
+    )
+)
 
 DATABASES = {
     'default': {
