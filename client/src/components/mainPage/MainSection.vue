@@ -2,7 +2,7 @@
   <header @mousemove="updateFontVariation" class="section_heroheader07">
     <div class="page-padding">
       <div class="container-large">
-        <div class="padding-vertical-xhuge">
+        <div class="padding-vertical-main">
           <div class="w-layout-grid heroheader07_component">
             <div class="heroheader07_content z-index-1">
               <h1 class="main-text">
@@ -94,6 +94,11 @@ export default {
 
 <style>
 
+.padding-vertical-main {
+    padding-top: 3rem;
+    padding-bottom: 7rem;
+}
+
 .text-block-2 {
   font-size: 1.125rem;
 }
@@ -119,7 +124,19 @@ p .char {
   border-radius: 25px;
 }
 
+@media screen and (max-width: 991px) {
+  .padding-vertical-main {
+    padding-top: 3rem;
+    padding-bottom: 6rem;
+  }
+}
+
 @media screen and (max-width: 767px) {
+  .padding-vertical-main {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
   .button-row-main.is-reverse-mobile-landscape {
     top: 0 !important;
   }
