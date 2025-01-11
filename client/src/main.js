@@ -68,5 +68,5 @@ app.provide('backendURL', backendURL)
 app.provide('frontendURL', frontendURL)
 
 
-app.config.globalProperties.$projectVersion = '3.4.0'
+app.config.globalProperties.$projectVersion = '5.5'
 
