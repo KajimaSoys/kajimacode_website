@@ -1,5 +1,9 @@
 from rest_framework import serializers
-from .models import *
+from service.models import (
+    Order,
+    Rate,
+    Feedback
+)
 
 
 class RequestsOrderSerializer(serializers.ModelSerializer):

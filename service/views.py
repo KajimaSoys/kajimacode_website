@@ -1,9 +1,14 @@
-from django.shortcuts import render
-from .serializers import *
-from rest_framework.views import APIView
 from django.http import JsonResponse
-from rest_framework.decorators import api_view, permission_classes
 from rest_framework import permissions
+from rest_framework.decorators import permission_classes
+from rest_framework.views import APIView
+
+from service.serializers import (
+    RequestsOrderSerializer,
+    RequestsRateSerializer,
+    RequestsFeedbackSerializer
+)
+from service.utils import telepush_send
 
 
 @permission_classes((permissions.AllowAny,))
@@ -12,14 +17,15 @@ class OrderCreateView(APIView):
     API endpoint that allows Orders to be created
     """
     def post(self, request):
-        print(request.data)
         request_data = request.data.get('request')
-        print("REQUEST DATA", request_data)
 
         serializer = RequestsOrderSerializer(data=request_data)
 
         if serializer.is_valid(raise_exception=True):
-            order_saved = serializer.save()
+            serializer.save()
+
+            order_data = serializer.data
+            telepush_send(order_data)
 
         return JsonResponse({"success": "Order created successfully"})
 
@@ -30,14 +36,12 @@ class RateCreateView(APIView):
     API endpoint that allows Rate to be created
     """
     def post(self, request):
-        # print(request.data)
         request_data = request.data.get('request')
-        # print("REQUEST DATA", request_data)
 
         serializer = RequestsRateSerializer(data=request_data)
 
         if serializer.is_valid(raise_exception=True):
-            order_saved = serializer.save()
+            serializer.save()
 
         return JsonResponse({"success": "Rate created successfully"})
 
@@ -53,7 +57,7 @@ class FeedbackCreateView(APIView):
         serializer = RequestsFeedbackSerializer(data=request_data)
 
         if serializer.is_valid(raise_exception=True):
-            order_saved = serializer.save()
+            serializer.save()
 
         return JsonResponse({"success": "Feedback created successfully"})
 

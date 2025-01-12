@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 INSTALLED_APPS = [
     # project apps
     'core.apps.CoreConfig',
-    'requests.apps.RequestsConfig',
+    'service.apps.ServiceConfig',
     'pages.apps.PagesConfig',
 
     # default
@@ -139,7 +139,7 @@ ADMIN_ORDERING = (
         )
     ),
     (
-        'requests',
+        'service',
         (
             'Order',
             'Rate',

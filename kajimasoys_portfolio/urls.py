@@ -16,38 +16,38 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
-from core import views as coreViews
-from requests import views as requestViews
-from pages import views as pageViews
+from core import views as core_views
+from service import views as service_views
+from pages import views as page_views
 from django.conf import settings
 from django.conf.urls.static import static
 
 router = routers.DefaultRouter()
-router.register(r'groups', coreViews.GroupViewSet)
-router.register(r'works', coreViews.WorkViewSet)
-router.register(r'skills', coreViews.SkillViewSet)
-# router.register(r'projects/personal', coreViews.PersonalProjectViewSet)
-# router.register(r'projects/team', coreViews.TeamProjectViewSet)
-router.register(r'projects', coreViews.ProjectViewSet)
-router.register(r'pages/navbar', pageViews.NavbarViewSet)
-router.register(r'pages/footer', pageViews.FooterViewSet)
-router.register(r'pages/cookie-element', pageViews.CookieElementViewSet)
-router.register(r'pages/rate', pageViews.RateElementViewSet)
-router.register(r'pages/main', pageViews.MainPageViewSet)
-router.register(r'pages/projects', pageViews.ProjectsPageViewSet)
-router.register(r'pages/skills', pageViews.SkillsPageViewSet)
-router.register(r'pages/about', pageViews.AboutPageViewSet)
-router.register(r'pages/terms', pageViews.TermsPageViewSet)
-router.register(r'pages/privacy', pageViews.PrivacyPageViewSet)
-router.register(r'pages/cookies', pageViews.CookiesPageViewSet)
+router.register(r'groups', core_views.GroupViewSet)
+router.register(r'works', core_views.WorkViewSet)
+router.register(r'skills', core_views.SkillViewSet)
+# router.register(r'projects/personal', core_views.PersonalProjectViewSet)
+# router.register(r'projects/team', core_views.TeamProjectViewSet)
+router.register(r'projects', core_views.ProjectViewSet)
+router.register(r'pages/navbar', page_views.NavbarViewSet)
+router.register(r'pages/footer', page_views.FooterViewSet)
+router.register(r'pages/cookie-element', page_views.CookieElementViewSet)
+router.register(r'pages/rate', page_views.RateElementViewSet)
+router.register(r'pages/main', page_views.MainPageViewSet)
+router.register(r'pages/projects', page_views.ProjectsPageViewSet)
+router.register(r'pages/skills', page_views.SkillsPageViewSet)
+router.register(r'pages/about', page_views.AboutPageViewSet)
+router.register(r'pages/terms', page_views.TermsPageViewSet)
+router.register(r'pages/privacy', page_views.PrivacyPageViewSet)
+router.register(r'pages/cookies', page_views.CookiesPageViewSet)
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/', include(router.urls)),
-    path('api/v1/get_ascii_part_<int:key>', coreViews.get_ascii, name='get_ascii'),
-    path('api/v1/send_request', requestViews.OrderCreateView.as_view()),
-    path('api/v1/send_rate', requestViews.RateCreateView.as_view()),
-    path('api/v1/send_feedback', requestViews.FeedbackCreateView.as_view()),
+    path('api/v1/get_ascii_part_<int:key>', core_views.get_ascii, name='get_ascii'),
+    path('api/v1/send_request', service_views.OrderCreateView.as_view()),
+    path('api/v1/send_rate', service_views.RateCreateView.as_view()),
+    path('api/v1/send_feedback', service_views.FeedbackCreateView.as_view()),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -45,3 +45,7 @@ CACHES = {
         'LOCATION': '/app/kajimasoys_portfolio/cache'
     }
 }
+
+# KajimaPush setup
+RECIPIENT_TOKEN = os.environ.get("RECIPIENT_TOKEN")
+TELEPUSH_URL = os.environ.get("TELEPUSH_URL")

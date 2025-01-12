@@ -20,6 +20,8 @@
         - CSRF_TRUSTED=${CSRF_TRUSTED}
         - CSRF_COOKIE_SECURE=${CSRF_COOKIE_SECURE}
         - SESSION_COOKIE_SECURE=${SESSION_COOKIE_SECURE}
+        - RECIPIENT_TOKEN=${RECIPIENT_TOKEN}
+        - TELEPUSH_URL=${TELEPUSH_URL}
       volumes:
         - ./:/app
         - ./media:/app/media
