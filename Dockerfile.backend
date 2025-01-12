@@ -12,7 +12,7 @@ COPY core/ /app/core/
 COPY kajimasoys_portfolio/ /app/kajimasoys_portfolio/
 COPY media/ /app/media/
 COPY pages/ /app/pages/
-COPY requests/ /app/requests/
+COPY service/ /app/service/
 COPY manage.py /app/
 
 COPY entrypoint.sh /entrypoint.sh
