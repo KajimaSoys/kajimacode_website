@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.db import models
 from django.http import HttpResponse
 from django.urls import re_path as url
 from django.utils.translation import gettext_lazy as _
@@ -13,6 +14,9 @@ from core.models import (
     Skill
 )
 from core.forms import ProjectForm, SkillForm
+
+# Django 6.0 switches the URLField default scheme to https; opt in explicitly now
+URL_HTTPS_OVERRIDES = {models.URLField: {"assume_scheme": "https"}}
 
 
 @admin.register(ProjectImages)
@@ -111,6 +115,7 @@ class ProjectAdmin(SortableAdminMixin, admin.ModelAdmin):
     search_help_text = "Поиск доступен по полям: Название проекта (рус.), Название проекта (англ.), Группа"
     inlines = (ProjectImagesInline,)
     form = ProjectForm
+    formfield_overrides = URL_HTTPS_OVERRIDES
 
     def has_change_permission(self, request, obj=None):
         if obj is not None and obj.personal and not request.user.is_superuser:
@@ -120,7 +125,7 @@ class ProjectAdmin(SortableAdminMixin, admin.ModelAdmin):
 
 @admin.register(Work)
 class WorkAdmin(admin.ModelAdmin):
-    pass
+    formfield_overrides = URL_HTTPS_OVERRIDES
 
 
 @admin.register(Skill)

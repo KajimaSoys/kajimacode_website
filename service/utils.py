@@ -21,5 +21,5 @@ def telepush_send(order_data: dict) -> None:
                     f"{message}"}
     url = f"{telepush_url}/api/messages/{recipient_token}"
     response = requests.post(
-        url, json=data, headers={"Content-Type": "application/json"}
+        url, json=data, headers={"Content-Type": "application/json"}, timeout=10
     )

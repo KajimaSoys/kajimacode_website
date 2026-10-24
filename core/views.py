@@ -7,7 +7,7 @@ from rest_framework.decorators import permission_classes
 import os
 from django.core.cache import cache
 from django.views.decorators.cache import cache_page
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 
 @permission_classes((permissions.IsAuthenticatedOrReadOnly,))
@@ -105,7 +105,7 @@ def get_ascii(request, key):
         cache.set(filename, response)
 
     response['Cache-Control'] = 'max-age=2592000'
-    response['Expires'] = (datetime.utcnow() + timedelta(days=30)).strftime('%a, %d %b %Y %H:%M:%S GMT')
+    response['Expires'] = (datetime.now(timezone.utc) + timedelta(days=30)).strftime('%a, %d %b %Y %H:%M:%S GMT')
 
     return response
 
