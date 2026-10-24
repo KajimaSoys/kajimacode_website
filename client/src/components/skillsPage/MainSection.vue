@@ -263,10 +263,14 @@ export default {
     }
   },
 
+  beforeUnmount() {
+    // without it every visit leaves a subscriber holding the whole page
+    this.unsubscribeStore()
+  },
   created() {
     this.get_skills()
 
-    store.subscribe((mutation, state) => {
+    this.unsubscribeStore = store.subscribe((mutation, state) => {
       if (mutation.type === 'language/setLanguage') {
         this.switchLanguage(state.language.language)
       }

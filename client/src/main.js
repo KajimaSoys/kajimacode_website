@@ -3,8 +3,26 @@ import App from './App.vue'
 import router from './router'
 import store from "./store";
 import axios from "axios";
-import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
+import {
+    ElBacktop,
+    ElButton,
+    ElCard,
+    ElCarousel,
+    ElCarouselItem,
+    ElCollapse,
+    ElCollapseItem,
+    ElRate,
+} from 'element-plus'
+// only the styles of the components in use, the icon is used inside of them
+import 'element-plus/es/components/icon/style/css'
+import 'element-plus/es/components/backtop/style/css'
+import 'element-plus/es/components/button/style/css'
+import 'element-plus/es/components/card/style/css'
+import 'element-plus/es/components/carousel/style/css'
+import 'element-plus/es/components/carousel-item/style/css'
+import 'element-plus/es/components/collapse/style/css'
+import 'element-plus/es/components/collapse-item/style/css'
+import 'element-plus/es/components/rate/style/css'
 import SmoothScroll from 'smoothscroll-for-websites'
 import {createMetaManager} from 'vue-meta'
 
@@ -23,7 +41,9 @@ const app = createApp(App)
 
 app.use(store)
 app.use(router, axios)
-app.use(ElementPlus)
+for (const component of [ElBacktop, ElButton, ElCard, ElCarousel, ElCarouselItem, ElCollapse, ElCollapseItem, ElRate]) {
+    app.use(component)
+}
 app.use(createMetaManager())
 app.use(SmoothScroll({
     animationTime: 400,
