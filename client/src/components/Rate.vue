@@ -180,10 +180,14 @@ export default {
       }
     },
   },
+  beforeUnmount() {
+    // without it every visit leaves a subscriber holding the whole page
+    this.unsubscribeStore()
+  },
   created() {
     this.getText(this.$store.state.language.language)
 
-    store.subscribe((mutation, state) => {
+    this.unsubscribeStore = store.subscribe((mutation, state) => {
       if (mutation.type === 'language/setLanguage') {
         this.getText(state.language.language)
       }
